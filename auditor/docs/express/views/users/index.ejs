@@ -1,0 +1,413 @@
+<div class="span7  ">
+        
+
+          <div class="boxcontainer">
+
+            <div class="boxHeader">
+              <div class="inner">
+                <h3><i class="icon-user"></i> Usuarios</h3>
+                <form  id="supplierForm" class="form-inline form-search pull-right">
+                  <input type="text" class="span6 search-query" placeholder="Buscar Usuarios">
+                  <a href="javascript:;" role="button" class="btn btn-small" id="addNew"><i class="icon-plus"></i> Nuevo Usuario</a>
+                  <!-- <a href="#newPlaceModal2" role="button" class="btn btn-small" data-toggle="modal"><i class="icon-plus"></i> Nuevo Lugar</a> -->
+                </form>
+                <div class="fix"></div>
+                </div>
+            </div>
+
+              <div class="inner innercontent">
+                <div id="usersListContainer"></div>
+                <div class="fix"></div>
+              </div>
+
+          </div>
+          
+          <div class="boxFooter">
+           <div id="mainFooter"></div>
+          </div>
+    </div><!--/span-->
+
+    <div class="span4 ">
+      
+   
+      <div class="boxcontainer " >
+
+      
+       <div class="boxHeader">
+          <div class="inner sidebar" id="formTitle">
+            <h3 class="full" id="theTitle"> Nuevo Usuario </h3>             
+          </div>
+        </div>
+          
+        <div class="inner innercontent">
+        
+              <form class="form-vertical" action="" method="post" id="newUser">                
+                <div class="control-group">
+                  <label class="control-label" for="name">Nombre: </label>
+                  <div class="controls">
+                    <input type="text" id="name" name="user[name]" required="true"/>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="email">Email: </label>
+                  <div class="controls">
+                    <input type="email" id="email" name="user[email]" required="true" autocomplete="off" class='disabled'/>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="inputPass">Password: </label>
+                  <div class="controls">
+                    <input type="password" id="pass" name="user[password]"  autocomplete="off" disabled='disabled'><br>
+                    <input type="checkbox" id='updatePass' name="user[updatePass]" value='1'> Cambiar password
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label for='role' class="control-label">Tipo de usuario: </label>
+                  <div class="controls">  
+                   <select name="user[role]" id='role'>
+                      <option value='admin'>Administrador</option>
+                      <option value='' >Capturista</option>
+                      <option value='auditor'>Auditor</option>
+                      <option value='supplier'>Proveedor</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="control-group hide supplier">
+                  <label for='suppplier' class="control-label">Proveedor: </label>
+                  <div class="controls">  
+                    <select name="user[supplier]" id='supplier' disabled="disabled">
+                    </select>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label">Estatus: </label>                    
+                  <div class="controls">  
+                   <select name="user[status]" id='status'>
+                      <option value='1'>Activo</option>
+                      <option value='0'>Inactivo</option>
+                    </select>
+                  </div>
+                </div>
+
+              
+                <div class="control-group">
+                  <div class="controls">
+                    <button type="button" id="deleteUser" class="btn btn-danger btn-small">Eliminar Usuario</button>
+                    <button type="submit" class="btn btn-primary btn-small">Guardar</button>
+                  </div>
+                </div>
+              </form><!-- end suppliers form -->                          
+
+        </div>
+
+      </div><!-- boxcontainer -->
+      <div class="boxFooter"> </div>    
+   </div><!--/span-->
+<script>
+ User = new function(){
+
+    this.formName    = '#newUser';
+    this.init    = function(){
+
+      var Apps = new App();
+      Apps.panels();
+
+      this.loadPanel();
+
+      var that = this;
+
+      this.reset();
+
+      $(this.formName).submit(function(){        
+        
+        that.insertData();
+      
+        $.ajax({
+          type: "POST",
+          url: "/v1/users/save",
+          data: $(that.formName).serialize(),
+          }).done(function( response ) {
+              console.log(response.code);
+          if( response.code == '0' ){
+            that.reset();
+            that.loadPanel();            
+            $.Zebra_Dialog('El Usuario ha sido Guardado', {
+                'type':     'confirmation'
+            });
+          }
+        
+          if( response.code == 50 ){
+            $.Zebra_Dialog(response.msg, {
+                'type':     'confirmation'
+            });
+            that.loadPanel();      
+          }
+        
+          if( response.code == 100 ){
+            console.error(response.msg);
+            $.Zebra_Dialog(response.msg, {             
+                'type':     'error'
+            });
+          }
+        
+        });
+        return false;
+      });
+
+      $('#addNew').click(function(){
+        that.reset();
+
+      });
+
+      $('#deleteUser').click(function(){
+         that.delete(); 
+      });
+      
+      $('#updatePass').click(function(){
+          if($(this).is(':checked')) {  
+             $('#pass').removeAttr('disabled');  
+          } else {  
+             $('#pass').attr('disabled','disabled');  
+          }  
+          
+      });
+      $('#supplier').data('lock',false);
+      
+      
+      $('#role').change(function(){
+          if($(this).val() == 'supplier'){
+            that.loadSupplier();
+          }else{
+            $('.supplier').addClass('hide');
+            $('#supplier').attr('disabled','disabled').html('');
+          }
+      });
+    }
+
+
+    this.loadPanel = function(){
+      var that = this;
+
+      $('#usersListContainer').panel({
+            rows: window.rowsmax,            
+            rheight : '100px',
+            navigation : '#mainFooter',
+            // searcher:'#findSuppliers',
+            source : '/v1/users/all',
+            onCreateRow : function(container){    
+
+                var e     = this;
+                var span  = document.createElement('span');
+                  span.className = 'pic';
+                  container.append(span);
+                var img    = document.createElement('img');
+                  $(img).attr('width','50').attr('src','assets/img/glyphicons_003_user.png');
+                  $(span).append(img);
+                var div    = document.createElement('div');
+                  div.className = 'desc';
+                  container.append(div);
+                var h4     = document.createElement('h4');
+                  $(div).append(h4);
+                var title  = document.createElement('a');
+                  title.id = 'suppInfo-' + e._id;
+                  title.innerHTML = e.name;
+                  $(h4).append(title);
+                var role = document.createElement('span');
+                  role.innerHTML = e.role;
+                  $(div).append(role);
+                var small = document.createElement('small');
+                  small.innerHTML = '';
+                  $(div).append(small);
+                var spanDate = document.createElement('span');
+
+                  var tdate = new Date(e.created);
+                      month = new String( tdate.getMonth( ) );            
+                      month = month.length == 1 ? '0'+ month : month;
+
+                  spanDate.className = 'date';
+                  spanDate.innerHTML = tdate.getDate() +'-'+month+'-'+tdate.getFullYear() ;
+                  $(small).append(spanDate);
+                var spanLabels = document.createElement('span');
+                  spanLabels.className = 'labels';
+                  $(small).append(spanLabels);
+                var status = document.createElement('span');
+                  status.className = 'label label-important';
+                  status.innerHTML = 'inactivo';
+                  if (e.status == 1) {
+                      status.className = 'label label-success';
+                      status.innerHTML = 'activo';
+                  }
+                  
+                  $(spanLabels).append(status);
+
+                  // container.onclick = function(){
+
+                 
+                  //   //$('#newPlace').click(function(e){
+                  //   //    e.preventDefault();
+                  //   //    $('#newLocation').show();
+                  //   //    $('#newSupplier').hide();   
+                  //   //
+                  //   //    $('#sideCont').height('1000');
+                  //   //});
+
+                  // }
+             // })
+
+            },
+            onClickRow : function(item){
+                //this id
+                var id = item.id.split('_')[1];                   
+                $('#usersListContainer li.active').removeClass('active');
+                $(item).addClass('active');
+                $('#newPlace, #deletePlace').show();
+                that.loadObject(id);
+                $('#newLocation').hide();
+                $('#newUsers').show();
+            }
+
+          });
+
+    }
+
+    this.loadObject = function(id){
+
+      var that = this;
+      that.reset();
+      $('#supplier').html('');
+      $.ajax({
+        type: "POST",
+        url: "/v1/user/load",
+        data:{_id:id},
+        }).done(function( response ) {
+          window.theForm._id = id;
+          window.theForm.status = 'update';
+          for( x in response.data ){
+            if(x == 'contacts'){
+              var contacts = response.data[x];
+              $('#contacts-container').html('');
+              for( i in contacts ){
+                that.createContacts(i,contacts);
+              }
+            }else{
+              $('#'+x ).val( response.data[x]);
+              $('#theTitle').html( response.data.name );
+              if (response.data.role == 'supplier') {
+                that.loadSupplier(response.data.supplier);
+              }
+              $.uniform.update();
+            }
+          }
+          //$("#role option[value="+response.data.role+"]").attr("selected",true);
+         // console.log(response.data.role);
+      });
+
+    }
+    
+    this.loadSupplier = function(idSupplier){
+      if (!$('#supplier').data('lock')) {
+        $('#supplier').data('lock',true);
+        $.ajax({
+        url : 'v1/suppliers/all',
+        type: 'POST'
+        }).done(function(response){
+          $('.supplier').removeClass('hide');
+          $('#supplier').removeAttr('disabled');          
+          $(response.data).each(function(i,supplier){
+            $('#supplier').append('<option value="'+supplier._id+'">'+supplier.name+'</option>');
+          });
+          $('#supplier').val(idSupplier)
+          $('#supplier').data('lock',false);
+        }); 
+      }
+    }
+
+    this.reset = function(){
+      $('#newPlace').hide();
+      $('#theTitle').html( 'Nuevo Usuario' );
+      window.theForm = {
+        status: 'create',
+        _id:null
+      }
+      //var  lform = document.getElementById('locationForm').reset();
+      var  form = document.getElementById( $(this.formName).attr('id') ).reset();
+      //$('#status').attr('disabled','disabled');
+      $('.supplier').addClass('hide');
+      $('#supplier').attr('disabled','disabled').html('');
+      $('#pass').attr('disabled','disabled'); 
+      $.uniform.update();
+      // $('#contacts-container').html('');
+      // this.createContacts(0);
+    }
+
+    this.delete  = function(){
+      //console.log(id + ' ' + email);
+      var that = this;
+    //    bootbox.confirm('¿Estas seguro de eliminar este usuario? ' , function(result) {
+    //     if (result) {
+
+    //     that.insertData();
+    //     $.ajax({
+    //       type: "POST",
+    //       url: "/user/delete",
+    //       data: $(that.formName).serialize(),
+    //     }).done(function( response ) {
+    //       that.loadPanel();
+    //       that.reset();
+    //       $('#newPlace, #deletePlace').hide();
+    //     });
+
+    //   }
+    // });
+      $.Zebra_Dialog('¿Estas seguro de eliminar este usuario?', {
+          'type':     'question',
+          'buttons':  ['Si', 'No'],
+          'onClose':  function(caption) {
+            if( caption == 'Si' ){
+              that.insertData();
+              $.ajax({
+                type: "POST",
+                url: "/user/delete",
+                data: $(that.formName).serialize(),
+              }).done(function( response ) {
+                that.loadPanel();
+                that.reset();
+                $('#newPlace, #deletePlace').hide();
+              });
+            }
+          }
+      });
+    }
+
+    this.insertData = function(){
+      $('input[name="_id"]').remove();
+      var id = document.createElement('input');
+        id.name  = '_id';
+        id.type  = 'hidden';
+        id.value = window.theForm._id
+        $(this.formName).append(id);
+        $('input[name="status"]').remove();
+        var status   = document.createElement('input');
+        status.name  = 'status';
+        status.type  = 'hidden';
+        status.value = window.theForm.status
+        $(this.formName).append(status);
+        // $('#formTitle').html( response.data.name );
+    }
+
+  }
+
+  User.init();
+
+</script>
+
+
+
+
+
+
+

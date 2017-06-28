@@ -1,0 +1,86 @@
+<form class="form-vertical" action="" method="post" id="newSupplier">             
+    <div class="control-group">
+      <label class="control-label" for="name">Razón Social: </label>
+      <div class="controls">
+        <input type="text" id="name" name="supplier[name]" required="true"/>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="address">Dirección Fiscal: </label>
+      <div class="controls">
+        <input type="text" id="address" name="supplier[address]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="work_address">Dir. de la Empresa: </label>
+      <div class="controls">
+        <input type="text" id="work_address" name="supplier[work_address]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="owner">Nombre del dueño: </label>
+      <div class="controls">
+        <input type="text" id="owner" name="supplier[owner]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="rfc">RFC: </label>
+      <div class="controls">
+        <input type="text" id="rfc" name="supplier[rfc]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="inputTel">Telefono: </label>
+      <div class="controls">
+        <input type="text" id="phone" placeholder="Telefono Local" name="supplier[phone]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="email">Email: </label>
+      <div class="controls">
+        <input type="email" id="email" placeholder="Email" name="supplier[email]" required="true">
+      </div>
+    </div>
+
+    <h4>Datos Asesor / Gerente Comercial</h4>
+
+    <div class="control-group">
+      <label class="control-label" for="inputAddress">Nombre: </label>
+      <div class="controls">
+        <input type="text" id="assessor_name" name="supplier[assessor_name]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="inputAddress">Telefono: </label>
+      <div class="controls">
+        <input type="text" id="assessor_phone" name="supplier[assessor_phone]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="inputAddress">Correo: </label>
+      <div class="controls">
+        <input type="text" id="assessor_email" name="supplier[assessor_email]" required="true">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary btn-small">Guardar</button>
+        <button type="button" id="delete_supplier" class="btn btn-danger btn-small hide">Eliminar</button>
+      </div>
+    </div>
+
+</form><!-- end suppliers form -->
+
+
+<script>
+  keyUpField('#email/#assessor_email #address/#work_address #owner/#assessor_name');
+</script>

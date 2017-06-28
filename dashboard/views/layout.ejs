@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Iclic Auditor</title>
+
+    <!-- Fonts  -->
+    <link href='/cdn/fonts.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/cdn/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/cdn/font-awesome-4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/selectize/dist/css/selectize.legacy.css">
+    <link rel="stylesheet" href="/lib/selectize/dist/css/selectize.bootstrap3.css">
+
+    <script src="/cdn/jquery.min.js"></script>
+    <script src="/cdn/jquery.easing.min.js"></script>
+    <script src="/cdn/tether.min.js"></script>
+    <script src="/cdn/bootstrap.min.js"></script>
+    <script src="/lib/bootbox.min.js"></script>
+    <script src="/lib/finance/finance.js"></script>
+    <script src="/lib/selectize/dist/js/standalone/selectize.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc4l-Jt8EB7uaJNY8qD5LgDeBO2Zjg6Es"></script>
+
+<!--     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- chart -->
+    <script src="/cdn/Chart.min.js"></script>
+    <!-- ztable -->
+    <link  href="/lib/ztable/ztable.css" rel="stylesheet">
+    <script src="/lib/ztable/ztable.js"></script>
+   <link  href="/lib/DataChooser/DataChooser.css" rel="stylesheet">
+    <script src="/lib/DataChooser/DataChooser.js"></script>
+
+    <script src="/lib/upload.js"></script>
+
+    <script src="/lib/datepicker/js/bootstrap-datepicker.js"></script>
+    <link  href="/lib/datepicker/css/datepicker.css" rel="stylesheet">
+
+      <!--SCRIPTS-->
+      <script src="/js/Class.js"></script>
+      <script src="/js/Core.js"></script>
+      <script src="/js/Core/App.js"></script>
+      <script src="/js/Core/Apps.js"></script>
+      <script src="/js/Core/Customers.js"></script>
+      <script src="/js/Core/Customers/Amortization.js"></script>
+      <script src="/js/Core/Customers/Form.js"></script>
+      <script src="/js/Core/Customers/Membership.js"></script>
+      <script src="/js/Core/Customers/Monthly.js"></script>
+      <script src="/js/Core/Customers/Payments.js"></script>
+      <script src="/js/Core/Customers/Resumen.js"></script>
+      <script src="/js/Core/Dashboard.js"></script>
+      <script src="/js/Core/Lists.js"></script>
+      <script src="/js/Core/Profile.js"></script>
+      <script src="/js/Core/Providers.js"></script>
+      <script src="/js/Core/Sells.js"></script>
+      <script src="/js/Core/Settings.js"></script>
+      <script src="/js/Core/Users.js"></script>
+      <!--SCRIPTS END-->
+
+    <!-- Main Style Theme -->
+    <link type="text/css" rel="stylesheet" href="/css/styles.css"  media="screen,print,projection"/>
+
+  </head>
+  <body>
+
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse nav-schoolar">
+  <div class="container-fluid">
+  <a class="navbar-brand" href="/" class="logo"></a>
+  <cite>
+      <div class="dropdown dropdown-workspace" > 
+      <a class="dropdown-toggle" type="button" id="btn-dropdown-workspace" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Workspaces
+      </a>
+      <div class="dropdown-menu dropdown-workspace-menu" aria-labelledby="dropdown-workspace" >
+        <div class="tenants-search-container"  >
+            <div class="padding30">
+              <!--  <input type="text" class="form-control" placeholder="Search for..." id="bc"> -->
+             <!-- <span class="input-group-addon"> <i class="fa fa-search"></i></span> -->
+              <div class="input-group input-group-unstyled">
+                <input type="text" class="form-control" placeholder="Search for..." id="bc">
+
+                   <span class="input-group-addon" id="sp1"  > 
+                   <i class="fa fa-search" id="ntc"></i>
+                   </span>
+
+                           <span class="input-group-addon" id="sp2"  style="display:none" > 
+                              <img  src="/images/loading.gif" width="23" height="23" >
+                               </span>           
+                      </div>
+                         <!-- style="visibility: hidden;"-->
+                  <!--        <div id="spin" style="display:none;">
+                             <img id='loading' src="/images/loading.gif" >
+                         </div>
+                         -->
+
+            </div>
+        </div>
+        <div class="tenants-container" id="tenants-container" >
+            <!-- content here -->
+        </div>
+
+      </div>
+    </div>
+   </cite>
+ <!--  <div class="col-sm-5 pull-xs-left search-container ">
+      <input class="form-control schoolar-search" id="schoolar-search" type="text" tabindex="-1" placeholder="Search">
+      <div id="search-results" class="search-results">
+        <ul id="search-results-list"></ul>
+      </div>
+  </div> -->
+
+    <ul class="nav navbar-nav pull-xs-right">
+      <!-- <li class="nav-item" >
+        <a class="" href="/">Es </a> | <a class="" href="/">En </a>
+      </li> -->
+      <li class="nav-item " id="nav_">
+        <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+       <li class="nav-item" id="nav_account">
+          <a class="nav-link" href="/account"><%- __('account') %>  </a>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%-session.user.name %></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/profile"><i class="fa fa-user" aria-hidden="true"></i> <%- __('profile') %>  </a>
+          <a class="dropdown-item" href="#"><i class="fa fa-cog" aria-hidden="true"></i><%-__('settings') %> </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/login"><i class="fa fa-sign-out" aria-hidden="true"></i> <%-__('logout') %> </a>
+        </div>
+      </li>
+       <li class="nav-item avatar">
+        <a href="/u/ferso"><img src="/images/1aa1a9939f5bd3a5fa3d30d84637eb22.jpeg" alt="ferso" width="30" class="img-rounded "></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="container-fluid">
+    <nav class="row navbar nav-aux">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/dashboard" >Dashboard</a>
+        <ul id="subnav-aux" class="nav navbar-nav hide">
+         <!--  <li class="nav-item " id="nav_dashboard">
+            <a class="nav-link" href="/dashboard" data-toggle="tooltip" data-placement="bottom" title="Listas" > <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard </a>
+          </li> -->
+          <li class="nav-item " id="nav_lists">
+            <a class="nav-link" href="/lists" data-toggle="tooltip" data-placement="bottom" title="Listas" > <i class="fa fa-list" aria-hidden="true"></i> <%- __('lists') %> </a>
+          </li>
+          <li class="nav-item" id="nav_providers">
+           <a class="nav-link" href="/providers" data-toggle="tooltip" data-placement="bottom" title="Proveedores"> <i class="fa fa-shopping-bag" aria-hidden="true"></i> <%- __('suppliers') %> </a>
+          </li>
+          <li class="nav-item" id="nav_users">
+            <a class="nav-link" href="/users" data-toggle="tooltip" data-placement="bottom" title="Usuarios"> <i class="fa fa-users" aria-hidden="true"></i> <%- __('users') %> </a>
+          </li>
+          <li class="nav-item " id="nav_reports">
+            <a class="nav-link" href="/reports" data-toggle="tooltip" data-placement="bottom" title="Reportes"> <i class="fa fa-table" aria-hidden="true"></i> <%- __('reports') %> </a>
+          </li>
+          <li class="nav-item" id="nav_logs">
+           <a class="nav-link" href="/logs" data-toggle="tooltip" data-placement="bottom" title="Logs"> <i class="fa fa-info-circle" aria-hidden="true"></i> <%- __('logs') %> </a>
+          </li>
+          <li class="nav-item" id="nav_apps">
+           <a class="nav-link" href="/apps" data-toggle="tooltip" data-placement="bottom" title="Apps"> <i class="fa fa-mobile" aria-hidden="true"></i> <%- __('apps') %> </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+    <!--  -->
+      <%- body %>
+    <!--  -->
+  </div>   <!-- container-fluid -->
+</div> <!-- end page -->
+
+    <script type="text/javascript">
+        var App = new Core_App();
+            App.run({tenant:'<%- session.tenant %>',user:<%- JSON.stringify(session.user) %>});
+      </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

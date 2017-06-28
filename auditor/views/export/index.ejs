@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+		<h1 class="page-title txt-color-blueDark"><i class="glyphicon glyphicon-check"></i> Archivos </h1>
+	</div>
+</div>
+
+
+<section class="row">
+				<div class="col-md-12">
+						<div class="panel panel-default">
+								<div class="panel-heading ">
+									<span class="widget-icon">
+										<i class="fa fa-map-marker"></i>
+									</span>
+									<h2> Procesos en espera </h2>
+								</div> <!-- end panel-heading -->
+								<div class="panel-body">
+									<div class="padding-10">
+										 <div id="processTable"></div>
+									</div>
+								</div ><!--  end panel body -->
+						</div> <!-- end panel -->
+				</div> <!-- end col-md-12 -->
+</section> <!-- end row -->
+
+
+
+<script>
+	$(window).load(function(){
+		var Export = new Core_Export({role:'<%-session.user.role %>'});
+			Export.run();
+		});
+</script>
+

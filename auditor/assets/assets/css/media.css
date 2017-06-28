@@ -1,0 +1,14 @@
+/*------------- Media Queries ------------*/
+@media (max-width: 690px) { #project-context, #fullscreen { display: none !important; } }
+@media (max-width: 500px) { #searchMobile { display: inline-block !important; }
+  #formDesktop { display: none !important; } }
+@media (max-width: 768px) { aside.navigation { margin-left: -220px; z-index: 1002; }
+  .hidden-menu aside.navigation { margin-left: 0 !important; z-index: 1002; }
+  .mobile-content { margin-right: -220px; z-index: 1002; } }
+@media (max-width: 768px) { #NewObjectM { display: block; }
+  #NewObjectF { display: none; } }
+/*@media (max-width: 1220px) { .app-stats span { font-size: 1.8em; }
+  .app-stats b { font-size: 18px; margin: 0; padding: 0; line-height: 2em; text-align: center; }
+  .app-stats p { font-size: 10px; margin-top: -3px; } }
+@media (max-width: 1023px) { .app-stats { display: none; } }*/
+@media (max-width: 992px) { #panes aside { border-bottom: 1px solid #bbb; } }

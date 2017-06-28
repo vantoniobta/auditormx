@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+     <title>iClic Auditor - Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+     <link href="/assets/js/superslides/superslides.css" rel="stylesheet">
+    <link href="/assets/css/screen.css" rel="stylesheet">
+    <link href="/assets/css/media.css" rel="stylesheet">
+
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/assets/js/superslides/jquery.easing.1.3.js"></script>
+    <script src="/assets/js/superslides/jquery.animate-enhanced.min.js"></script>
+    <script src="/assets/js/superslides/jquery.superslides.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/assets/js/bootstrap.js"></script>
+
+    <style>
+    #slides{
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    #mesh{
+      background: url('/assets/img/transparent/rebel.png') repeat top left;
+      opacity: 0.7;
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left: 0;
+    }
+
+    #header {
+      border: none;
+    }
+
+    .help-ribbon p a,
+    .help-ribbon p {
+      color: #fbfbfb;
+    }
+
+    #header.navbar-inverse .navbar-brand {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #fbfbfb;
+      padding-left: 24px;
+      padding-bottom: 35px;
+      background: url("/assets/img/mini-iclic.png") no-repeat 0px 15px;
+      background-size: 20px 20px;
+    }
+
+    .navbar-inverse{
+      background-color: #222;
+    }
+
+    #page-content .panel-default {
+      border-color: #333;
+      border-radius: 3px;
+    }
+
+    body.login form {
+     /* background: #fff;
+      border: none;*/
+    }
+
+    body.login {
+      padding-top: 10%;
+    }
+
+    @media screen and (max-width: 816px){
+      body.login {
+        padding-top: 22%;
+      }
+    }
+    </style>
+
+
+  </head>
+
+  <body class="login">
+
+     <nav class="navbar navbar-fixed-top navbar-inverse " id="header">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+        </div>
+
+         <div class="pull-right">
+        
+          <div class="help-ribbon">
+            <p><a href="/help"><i class="fa fa-phone"></i> <strong>Soporte:</strong></a> (01) 55810650 ext 119 </p>
+          </div>
+        
+          </div>
+
+      </div>
+    </nav>
+    
+    
+     <div class="container" id="page-content">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+            
+          <%- body %>  
+        
+          
+
+        </div> <!--  end col-sm-8 col-sm-offset-2 col-xs-12 -->
+      </div>  <!-- row -->
+    </div> <!-- end container -->
+
+    <div id="slides">
+      <ul class="slides-container">
+        <li>
+          <img src="/assets/img/transparent/bg-2.jpg" alt="">
+        </li>
+        <li>
+          <img src="/assets/img/transparent/bg-3.jpg" alt="">
+        </li>
+        <li>
+          <img src="/assets/img/transparent/bg-4.jpg" alt="">
+        </li>
+        <li>
+          <img src="/assets/img/transparent/bg-1.jpg" alt="">
+        </li>
+      </ul>
+    </div>
+
+    <div id="mesh"></div>
+
+    <script>
+    $(function() {
+      $('#slides').superslides({
+        hashchange: false,
+        animation: 'fade',
+        pagination: false,
+        play: 12000
+      });
+    });
+  </script>
+
+
+
+    
+
+    </body>
+
+     <script type="text/javascript">
+      var __lc = {};
+      __lc.license = 4934411;
+
+      (function() {
+        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+      })();
+    </script>
+
+</html>

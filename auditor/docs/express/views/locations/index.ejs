@@ -1,0 +1,70 @@
+     <div class="span7  pull-left">
+
+          <div class="boxcontainer">
+             <div class="boxHeader">
+              <div class="inner">
+                <h3><i class="icon-group pull-left"></i> Sitios</h3>
+                <form  id="supplierForm" class="form-inline form-search pull-right span8">
+                  <input type="text" class="span5 search-query" placeholder="Buscar Lugares" data-provide="typeahead" autocomplete="off" id="findSuppliers">
+                  <% if(role == 'supplier') {%>
+                     <a href="javascript:;" role="button" class="btn btn-small" id="newPlace"><i class="icon-plus"></i> Nuevo</a>
+                     <a href="#" class="btn btn-primary btn-small" id="newPlaces"><i class="icon-plus"></i> Subir csv</a>
+                     <a href="/uploads/templeate.csv" class="btn btn-info btn-small">Templeate csv</a>
+                  <% } %>
+                </form>
+                <div class="fix"></div>
+              </div>
+             </div>
+
+            <div class="inner innercontent">
+              <div id="suppliersListLocations">              
+              </div>              
+              <div class="fix"><div id="pagSP"></div></div>
+              </div>
+          </div>
+          <div class="boxFooter">
+                <div id="mainFooter"> </div>
+          </div>
+    </div><!--/span-->
+    <div class="span4">
+      <div class="boxcontainer  large" id="sidebar"> 
+
+         <div class="boxHeader">
+          <div class="inner">
+            <h3 class="full" id="theTitle"> Agregar a sitios activos </h3>             
+          </div>
+        </div>
+
+        <div class="inner innercontent">
+          <div class="formBox" id="sideCont">               
+                <div id="newLocationContainer"></div>                    
+          </div> <!-- formbox -->
+        </div> 
+    </div> <!-- sidebar -->
+    <div class="boxFooter"></div>
+  </div><!--/span-->
+
+  <iframe name="serviceUploadFile" class="hide"></iframe>
+  
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Subir archivo</h3>
+          </div>
+          <div class="modal-body">
+            <form name="uploadFile" id="uploadFile" method="post"  enctype="multipart/form-data" action="/upload/csv" target="serviceUploadFile">
+                Buscar archivo: 
+                <input type="file" multiple="false"  name="file" id="file" require="true" accept="text/csv" title="buscar archivo" required="required"><br><br>
+                <input type='reset' name='cancel' id='cancel' value="Cancelar" class="btn" data-dismiss="modal" aria-hidden="true">
+                <input type='submit' name='send' id='send' value="Subir archivo" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+
+<script>
+  <% if(role == 'supplier') {%>
+     window.supplier       = "<%= supplier %>";
+  <% } %>
+        var Location = new App_Supplier_Location();  
+        Location.run();
+</script>

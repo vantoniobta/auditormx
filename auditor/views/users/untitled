@@ -1,0 +1,8 @@
+<option value="supplier">Proveedor de Espectaculares</option>
+<option value="parabuses">Proveedor de Parabuses </option>
+<option value="autobuses">Proveedores de Autobuses</option>
+<option value="puentes_kioskos">Proveedores de Puentes / Kioskos</option>
+<option value="casetas">Proveedores de Casetas</option>
+<option value="taxis">Proveedores de Taxis</option>
+<option value="suburbano">Proveedores de Suburbano</option>
+<option value="impresion">Proveedores de Impresion</option>	

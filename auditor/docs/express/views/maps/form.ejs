@@ -1,0 +1,116 @@
+<form class="form-vertical" method="post" class="inner" id="inventory" enctype="multipart/form-data">
+      <!--<div class="control-group">
+        <!-- <label class="control-label" for="date_start_label">Fecha Inicial</label> -->
+     <!--   <div class="controls controls-row">
+      
+            <div class="span4">
+                  <div class="input-append date" id="input_date_start" data-date-format="dd-mm-yyyy" >
+                    <input  class="span10" type="text" id="date_start" placeholder="Fecha de Incio"  name="from" required="required" readonly>           
+                    <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+            </div>
+            
+            <div class="span4">
+                  <div class="input-append date" id="input_date_finish" data-date-format="dd-mm-yyyy" >
+                    <input  class="span10" type="text" id="date_finish" placeholder="Fecha de Fin"  name="to"  required="required" readonly>           
+                    <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+            </div>
+
+            <input  class="span3" type="text" id="price"  name="price"  placeholder="Precio final" required="required" >
+
+        </div>
+      </div>
+
+      <hr>-->
+      <div class="control-group" id="infoLocation">
+            <label for="state" class="control-label">Agregar todos los sitios del estado de:</label>
+            <div class="controls">
+                  <select id="state" name="state" required="required" class="span10">
+                        <option >Distrito Federal</option>
+                        <option >Aguascalientes</option>
+                        <option >Baja California</option>
+                        <option >Baja California Sur</option>
+                        <option >Campeche</option>
+                        <option >Chiapas</option>
+                        <option >Chihuahua</option>
+                        <option >Coahuila</option>
+                        <option >Colima</option>
+                        <option >Durango</option>
+                        <option >Guanajuato</option>
+                        <option >Guerrero</option>
+                        <option >Hidalgo</option>
+                        <option >Jalisco</option>
+                        <option >Estado de México</option>
+                        <option >Michoacán</option>
+                        <option >Morelos</option>
+                        <option >Nayarit</option>
+                        <option >Nuevo León</option>
+                        <option >Oaxaca</option>
+                        <option >Puebla</option>
+                        <option >Querétaro</option>
+                        <option >Quintana Roo</option>
+                        <option >San Luis Potosí</option>
+                        <option >Sinaloa</option>
+                        <option >Sonora</option>
+                        <option >Tabasco</option>
+                        <option >Tamaulipas</option>
+                        <option >Tlaxcala</option>
+                        <option >Veracruz</option>
+                        <option >Yucatán</option>
+                        <option >Zacatecas</option>
+                  </select>   
+            </div>
+      </div>
+
+      <div class="control-group">
+            <label for="content_0" class="control-label">Elegir arte:</label>
+            <div class="controls">
+                  <select  id="content_0" class="span10 content_version" name="arts[0][_id]" required="required">
+                  </select>
+                  <input type="hidden" id="version_0" name="arts[0][version]" class="version_text">
+            </div>
+      </div>
+
+      <!--<div class="control-group">
+        
+        <div class="controls controls-row">
+          
+
+            <div class="span5">
+                  <div class="input-append date" id="input_art_date_start[0]" data-date-format="dd-mm-yyyy" >
+                    <input  class="span10" type="text" id="date_start_0"  placeholder="Fecha de Incio" name="arts[0][from]"  required="required" readonly>           
+                    <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+            </div>
+            
+            <div class="span5 offset2">
+
+                  <div class="input-append date" id="input_art_date_start[0]" data-date-format="dd-mm-yyyy" >
+                    <input  class="span10" type="text" id="date_finish_0"  placeholder="Fecha Fin" name="arts[0][to]"  required="required" readonly>           
+                    <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+            </div>
+        </div>
+      </div>
+  <hr>-->
+      <div id="arts">
+    
+      </div>
+            
+      <div class="control-group">  
+        
+        <div class="controls">
+          <!--<button type="button" class="btn btn-small" id="add-art"><i class="icon-plus"></i> Agregar otro Arte </button>-->
+          <!-- <button type="button" class="btn btn-small btn-danger hide" id="remove-art"><i class="icon-remove"></i> Eliminar arte</button> -->
+        </div>
+      </div>
+
+      <hr>
+      <div class="control-group">
+            <div class="controls">
+                  <button class="btn btn-small btn-primary btn-block"><i class="icon-plus"></i> Agregar a sitios </button>
+            </div>
+      </div>
+
+ </form>

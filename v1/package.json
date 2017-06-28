@@ -1,0 +1,30 @@
+{
+  "name": "services",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha tests/index.js "
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.6",
+    "body-parser": "~1.13.2",
+    "colors": "^1.1.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "mongodb": "^2.2.0",
+    "morgan": "~1.6.1",
+    "node-twitter-api": "~1.7.0",
+    "nodemailer": "^2.4.2",
+    "nodemailer-smtp-transport": "^2.5.0",
+    "qr-image": "latest",
+    "rand-token": "^0.2.1",
+    "request": "^2.72.0",
+    "serve-favicon": "~2.3.0",
+    "should": "^8.4.0",
+    "tenant": "git+https://github.com/ferso/tenant.git",
+    "underscore": "^1.8.3"
+  }
+}

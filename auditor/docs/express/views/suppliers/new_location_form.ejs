@@ -1,0 +1,207 @@
+<div  id="newLocation"> <!-- Only required for left/right tabs -->
+
+  <ul id="locationImages">
+    <li>
+      <a href="/assets/img/placeholder.jpg" class="lightview" data-lightview-options="skin: 'mac'" data-lightview-group="gallery">
+        <img src="/assets/img/placeholder.jpg" class="img-polaroid"/>
+      </a>
+    </li>
+
+    <li>
+      <a href="/assets/img/placeholder.jpg" class="lightview" data-lightview-options="skin: 'mac'" data-lightview-group="gallery">
+        <img src="/assets/img/placeholder.jpg" class="img-polaroid"/>
+      </a>
+    </li>
+
+    <li>
+      <a href="/assets/img/placeholder.jpg" class="lightview" data-lightview-options="skin: 'mac'" data-lightview-group="gallery">
+        <img src="/assets/img/placeholder.jpg" class="img-polaroid" />
+      </a>
+    </li>
+
+  <div class="clearfix"></div>
+
+  </ul>
+             
+      <form method="post" class="form-vertical" id="locationForm" enctype="multipart/form-data">
+
+          <input type="hidden" id="supplier" name="supplier">               
+              
+              <div class="tab-pane active" id="tab1">
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputCode">Clave: </label>
+                    <div class="controls">
+                      <input type="text" id="code" name="code" placeholder="Clave" required="required">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputStreet">Calle y No: </label>
+                    <div class="controls">
+                      <input type="text" id="street" name="street" value="" placeholder="Calle" required="required">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputCol">Colonia </label>
+                    <div class="controls">
+                      <input type="text" id="neighbor" name="neighbor" placeholder="Colonia" required="required">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputDel">Delegación/Municipio: </label>
+                    <div class="controls">
+                      <input type="text" id="city" name="city" placeholder="Delegcion/Municipio" required="required">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputZip">C.P: </label>
+                    <div class="controls">
+                      <input type="text" id="zip" name="zip" placeholder="Código Postal" required="required">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputState">Estado: </label>
+                    <div class="controls">
+                      <select id="state" name="state" required="required">
+                          <option value="Distrito Federal">Distrito Federal</option>
+                          <option value="Aguascalientes">Aguascalientes</option>
+                          <option value="Baja California">Baja California</option>
+                          <option value="Baja California Sur">Baja California Sur</option>
+                          <option value="Campeche">Campeche</option>
+                          <option value="Chiapas">Chiapas</option>
+                          <option value="Chihuahua">Chihuahua</option>
+                          <option value="Coahuila">Coahuila</option>
+                          <option value="Colima">Colima</option>
+                          <option value="Durango">Durango</option>
+                          <option value="Guanajuato">Guanajuato</option>
+                          <option value="Guerrero">Guerrero</option>
+                          <option value="Hidalgo">Hidalgo</option>
+                          <option value="Jalisco">Jalisco</option>
+                          <option value="Estado de Mexico">Estado de México</option>
+                          <option value="Michoacán">Michoacán</option>
+                          <option value="Morelos">Morelos</option>
+                          <option value="Nayarit">Nayarit</option>
+                          <option value="Nuevo León">Nuevo León</option>
+                          <option value="Oaxaca">Oaxaca</option>
+                          <option value="Puebla">Puebla</option>
+                          <option value="Querétaro">Querétaro</option>
+                          <option value="Quintana Roo">Quintana Roo</option>
+                          <option value="San Luis Potosí">San Luis Potosí</option>
+                          <option value="Sinaloa">Sinaloa</option>
+                          <option value="Sonora">Sonora</option>
+                          <option value="Tabasco">Tabasco</option>
+                          <option value="Tamaulipas">Tamaulipas</option>
+                          <option value="Tlaxcala">Tlaxcala</option>
+                          <option value="Veracruz">Veracruz</option>
+                          <option value="Yucatán">Yucatán</option>
+                          <option value="Zacatecas">Zacatecas</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputStreet1">Entre Calle 1: </label>
+                    <div class="controls">
+                      <input type="text" id="ref_street_0" name="ref_street[0]" placeholder="(Entre que calles, etc.)" required="required">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputStreet2">Entre Calle 2: </label>
+                    <div class="controls">
+                      <input type="text" id="ref_street_1" name="ref_street[1]" placeholder="(Entre que calles, etc.)" required="required">
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputSizes">Vista: </label>
+                    <div class="controls">
+                      <label class="radio inline">
+                        <input type="radio"  value="natural" name="view_type" > Natural
+                      </label>
+                      <label class="radio inline">
+                        <input type="radio" value="cruzada" name="view_type"> Cruzada
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputView">Medidas: </label>
+                    <div class="controls">
+                      <input type="text" id="measures_base" placeholder="Base" class="span3" name="measures[base]" required="true">
+                      <input type="text" id="measures_height" placeholder="Altura" class="span3" name="measures[height]" required="true">
+                      <select id="measures_material" name="measures[material]" required="required" class="span6">
+                        <option value="lona">Lona</option>
+                        <option value="vinil">Vinil</option>
+                        <option value="mesh">Mesh</option>
+                        <option value="front">Front</option>
+                      </select>
+                      <span class="help-block">En Metros</span>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label">Tipo: </label>
+                    <div class="controls">
+                    
+                    <label class="radio inline">
+                      <input type="radio"  value="espectacular" name="type"> Espectacular
+                    </label>
+                    <label class="radio inline">
+                      <input type="radio" value="cine" name="type"> Cine
+                    </label>
+                    <label class="radio inline">
+                      <input type="radio" value="mobile" name="type"> Mobil
+                    </label>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputAddress">Iluminación: </label>
+                    <div class="controls">
+                      <label class="radio inline">
+                      <input type="radio"  value="sin-luz" name="light"> Sin Luz
+                      </label>
+                      <label class="radio inline">
+                        <input type="radio" value="con-luz" name="light"> Con Luz
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="inputStreet2">Precio a Pagar: </label>
+                    <div class="controls">
+                      <input type="text" id="price" name="price" data-money="true" placeholder="En Pesos Mexicanos"  required="required">
+                    </div>
+                  </div>
+                  
+                  <div class="control-group">
+                        <label for="manufactoring_details" class="control-label">Detalles de Manufuctura:</label>
+                        <div class="controls">
+                                    <textarea name="manufactoring_details" id="manufactoring_details" rows="4" required="required"></textarea>
+                        </div>
+                  </div>
+                  
+                  <div class="control-group">
+                        <label for="shipping_adress" class="control-label">Lugar de entrega de la publicidad:</label>
+                        <div class="controls">
+                                    <textarea name="shipping_adress" id="shipping_adress"  rows="4" required="required"></textarea>
+                        </div>
+                  </div>
+
+                  <div class="control-group ">                         
+                        <button class='btn btn-large btn-primary btn-block'>Guardar</button>
+                        <button class="btn btn-large btn-danger btn-block" type="button" id="delete-supplier">Eliminar</button>                          
+                  </div>
+
+            </div><!-- end firs step  -->
+
+       
+      </form>
+
+</div><!-- End tabbable Content -->

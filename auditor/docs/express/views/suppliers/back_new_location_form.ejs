@@ -1,0 +1,359 @@
+<div class="tabbable " id="newLocation"> <!-- Only required for left/right tabs -->
+
+            <ul class="breadcrumb mywizard">
+
+                  <li><a href="#tab1" data-toggle="tab"><span class="badge">1</span> Datos del Sitio </a> </li>
+                  <li><a href="#tab2" data-toggle="tab"><span class="badge">2</span> Contenido</a> </li>
+                  <li><a href="#tab3" data-toggle="tab"><span class="badge">3</span> Entrega de Lonas</a></li>
+                  
+                </ul>
+
+                <div id="bar" class="progress progress-striped active">
+                  <div class="bar"></div>
+                </div>                               
+
+            <form method="post" class="form-horizontal" id="locationForm" enctype="multipart/form-data">
+                <input type="hidden" id="supplier" name="supplier">
+                <div class="tab-content">
+                    
+                    <div class="tab-pane active" id="tab1">
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputCode">Clave: </label>
+                          <div class="controls">
+                            <input type="text" id="code" name="code" placeholder="Clave" required="required">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputStreet">Calle y No: </label>
+                          <div class="controls">
+                            <input type="text" id="street" name="street" value="" placeholder="Calle" required="required">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputCol">Colonia </label>
+                          <div class="controls">
+                            <input type="text" id="neighbor" name="neighbor" placeholder="Colonia" required="required">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputDel">Delegación/Municipio: </label>
+                          <div class="controls">
+                            <input type="text" id="city" name="city" placeholder="Delegcion/Municipio" required="required">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputZip">C.P: </label>
+                          <div class="controls">
+                            <input type="text" id="zip" name="zip" placeholder="Código Postal" required="required">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputState">Estado: </label>
+                          <div class="controls">
+                            <select id="state" name="state" required="required">
+                                <option>Distrito Federal</option>
+                                <option>Aguascalientes</option>
+                                <option>Baja California</option>
+                                <option>Baja California Sur</option>
+                                <option>Campeche</option>
+                                <option>Chiapas</option>
+                                <option>Chihuahua</option>
+                                <option>Coahuila</option>
+                                <option>Colima</option>
+                                <option>Durango</option>
+                                <option>Guanajuato</option>
+                                <option>Guerrero</option>
+                                <option>Hidalgo</option>
+                                <option>Jalisco</option>
+                                <option>Estado de México</option>
+                                <option>Michoacán</option>
+                                <option>Morelos</option>
+                                <option>Nayarit</option>
+                                <option>Nuevo León</option>
+                                <option>Oaxaca</option>
+                                <option>Puebla</option>
+                                <option>Querétaro</option>
+                                <option>Quintana Roo</option>
+                                <option>San Luis Potosí</option>
+                                <option>Sinaloa</option>
+                                <option>Sonora</option>
+                                <option>Tabasco</option>
+                                <option>Tamaulipas</option>
+                                <option>Tlaxcala</option>
+                                <option>Veracruz</option>
+                                <option>Yucatán</option>
+                                <option>Zacatecas</option>
+                              </select>
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputStreet1">Entre Calle 1: </label>
+                          <div class="controls">
+                            <input type="text" id="ref_street_0" name="ref_street[0]" placeholder="(Entre que calles, etc.)" required="required">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputStreet2">Entre Calle 2: </label>
+                          <div class="controls">
+                            <input type="text" id="ref_street_1" name="ref_street[1]" placeholder="(Entre que calles, etc.)" required="required">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputSizes">Vista: </label>
+                          <div class="controls">
+                            <label class="radio inline">
+                              <input type="radio"  value="natural" name="view_type" > Natural
+                            </label>
+                            <label class="radio inline">
+                              <input type="radio" value="cruzada" name="view_type"> Cruzada
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputView">Medidas: </label>
+                          <div class="controls">
+                            <input type="text" id="measures_base" placeholder="Base" class="span1" name="measures[base]" required="true">
+                            <input type="text" id="measures_height" placeholder="Altura" class="span1" name="measures[height]" required="true">
+                            <input type="text" id="measures_material" placeholder="Tipo de Material" class="span2" name="measures[material]" required="true">
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label">Tipo: </label>
+                          <div class="controls">
+                          
+                          <label class="radio inline">
+                            <input type="radio"  value="espectacular" name="type"> Espectacular
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" value="cine" name="type"> Cine
+                          </label>
+                          <label class="radio inline">
+                            <input type="radio" value="mobile" name="type"> Mobil
+                          </label>
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputAddress">Iluminación: </label>
+                          <div class="controls">
+                            <label class="radio inline">
+                            <input type="radio"  value="Sin Luz" name="light"> Sin Luz
+                            </label>
+                            <label class="radio inline">
+                              <input type="radio" value="Con Luz" name="light"> Con Luz
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputStreet2">Precio a Pagar: </label>
+                          <div class="controls">
+                            <input type="text" id="price" name="price" data-money="true" placeholder="En Pesos Mexicanos"  required="required">
+                          </div>
+                        </div>
+                    
+                      <div class="control-group outsideButtons">
+                        <div class="controls">
+                          <!-- <button class="btn" type="button" id="cancelNewPlace">Cancelar</button> -->
+                          <!-- <button class="btn btn-primary" type="button">Siguiente > </button> -->
+                        </div>
+                      </div>
+                    </div><!-- end firs step  -->
+
+                    <div class="tab-pane form-horizontal" id="tab2">
+                        <h4> Periodo de Exhibición</h4>
+                        
+                        <div class="control-group">
+                          <label class="control-label" for="inputFrom">De: </label>
+                          <div class="controls">
+                            <!-- <input type="date" id="from" name="from" placeholder="2012-05-01" > -->
+                            <div class="input-append date" id="dp1" data-date-format="dd-mm-yyyy" >
+                              <input class="span2 datepicker" size="16" type="text" id="from" name="from" readonly required="true"/>
+                              <span class="add-on">
+                                <i class="icon-caret-down"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputTo">al: </label>
+                          <div class="controls">
+                            <div class="input-append date" id="dp2" readonly data-date-format="dd-mm-yyyy">
+                              <input class="span2 datepicker" size="16" type="text" id="to" name="to" readonly required="true"/>
+                              <span class="add-on">
+                                <i class="icon-caret-down"></i>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputNoSites">Detalle del Contenido: </label>
+                          <div class="controls">
+                            <input type="text" placeholder="Arte 1" name="content[0]" id="content_0" required="true"/>
+                          </div>                        
+                        </div>
+
+                        <div class="control-group">                          
+                          <div class="controls">
+                            <input type="text" placeholder="Arte 2" name="content[1]" id="content_1" />
+                          </div>
+                        </div>
+
+                        <div class="control-group">                                                    
+                          <div class="controls">
+                            <input type="text" placeholder="Arte 3" name="content[2]" id="content_2" />
+                          </div>
+                        </div>
+
+
+                        <div class="control-group">
+                          <label class="control-label" for="inputNoSites">Candidato/Campaña Beneficiaria: </label>
+                          <div class="controls">
+                        <textarea placeholder="Detalle/Texto" value="" id="beneficiary" name="beneficiary" required="true"/></textarea>
+                          </div>
+                        </div>
+
+                    
+                        <!-- <div class="control-group">
+                          <div class="controls">
+                            <div id="placeImg"></div>
+                            <button class="btn btn-info" type="button"><i class="icon-camera"></i> Subir Imagen</button>
+                          </div>
+                        </div>         -->     
+                    </div> <!-- End Step 2 -->
+
+                    <div class="tab-pane form-horizontal" id="tab3">
+                      <div class="control-group">
+                        <label class="control-label" for="inputDelivery">Dirección de Entrega de Lonas: </label>
+                        <div class="controls">
+                          <input type="text" id="delivery_address" name="deliver[address]" value="" placeholder="Dirección">
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputDeliveryPhone">Telefono: </label>
+                        <div class="controls">
+
+                          <input type="text" id="delivery_phone" name="deliver[phone]" value="" placeholder="Telefono" required="required">
+
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputDeliveryStreet">Calle y No: </label>
+                        <div class="controls">
+
+                          <input type="text" id="delivery_street" name="deliver[street]" value="" placeholder="Calle" required="required">
+
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputDeliveryCol">Colonia: </label>
+                        <div class="controls">
+
+                          <input type="text" id="delivery_neighbor" name="deliver[neighbor]" value="" placeholder="Colonia" required="required">
+
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputDeliveryDel">Delegación/Municipio: </label>
+                        <div class="controls">
+
+                          <input type="text" id="delivery_city" name="deliver[city]" value="" placeholder="Delegación" required="required">
+
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputDeliveryCP">CP: </label>
+                        <div class="controls">
+
+                          <input type="text" id="delivery_zip" name="deliver[zip]" value="" placeholder="CP" required="required">
+                        </div>
+                      </div>
+
+                      <div class="control-group">
+                        <label class="control-label" for="inputDeliveryState">Estado: </label>
+                        <div class="controls">
+
+                          <select id="deliver_state" name="deliver[state]" required="required">
+
+                              <option>Distrito Federal</option>
+                              <option>Aguascalientes</option>
+                              <option>Baja California</option>
+                              <option>Baja California Sur</option>
+                              <option>Campeche</option>
+                              <option>Chiapas</option>
+                              <option>Chihuahua</option>
+                              <option>Coahuila</option>
+                              <option>Colima</option>
+                              <option>Durango</option>
+                              <option>Guanajuato</option>
+                              <option>Guerrero</option>
+                              <option>Hidalgo</option>
+                              <option>Jalisco</option>
+                              <option selected>Estado de México</option>
+                              <option>Michoacán</option>
+                              <option>Morelos</option>
+                              <option>Nayarit</option>
+                              <option>Nuevo León</option>
+                              <option>Oaxaca</option>
+                              <option>Puebla</option>
+                              <option>Querétaro</option>
+                              <option>Quintana Roo</option>
+                              <option>San Luis Potosí</option>
+                              <option>Sinaloa</option>
+                              <option>Sonora</option>
+                              <option>Tabasco</option>
+                              <option>Tamaulipas</option>
+                              <option>Tlaxcala</option>
+                              <option>Veracruz</option>
+                              <option>Yucatán</option>
+                              <option>Zacatecas</option>
+                            </select>
+                        </div>
+                      </div>
+
+                      <div class="control-group outsideButtons">
+
+                        <div class="controls">
+                          <button class="btn" type="button" id="cancelNewPlace">Cancelar</button>
+                          <button class="btn btn-primary" type="submit">Guardar</button>
+                        </div>
+                      </div>
+                      
+                    </div> <!-- End step 3 -->
+
+                </div>  <!-- End tab-content -->
+
+                <div class="control-group outsideButtons">
+                  <div class="controls">
+                      <input type='button' id="btNext" class='btn button-next btn-primary' name='next' value='Siguiente >' />
+                  </div>
+                </div>
+
+                <!-- <div class="control-group outsideButtons">
+                  <div class="controls">
+                    <button class="btn" type="button" id="cancelNewPlace">Cancelar</button>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                  </div>
+                </div> -->
+
+            </form>
+
+</div><!-- End tabbable Content -->

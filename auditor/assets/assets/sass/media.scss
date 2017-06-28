@@ -1,0 +1,51 @@
+
+/*------------- Media Queries ------------*/
+
+@media (max-width: 1200px) {
+
+}
+
+
+@media (max-width: 1920px) {
+
+
+}
+
+
+@media (max-width: 1024px) {
+
+
+}
+
+
+@media (min-width: 768px){
+
+
+
+}
+
+@media (max-width: 768px){
+
+	aside.navigation {
+		margin-left: -210px;
+		z-index: 1002;
+	}
+
+}
+
+@media (max-width: 690px) {
+	#project-context, #fullscreen{
+		display: none !important;
+	}
+
+}
+
+@media (max-width: 500px) {
+	#searchMobile{
+		display: inline-block !important;
+	}
+	#formDesktop{
+		display: none !important;
+	}
+
+}

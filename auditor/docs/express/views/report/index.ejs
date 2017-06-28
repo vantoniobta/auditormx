@@ -1,0 +1,127 @@
+<div class="row-fluid">
+  <div class="boxcontainer">
+    <div class="boxHeader">
+      <div class="inner">
+        <h3><i class="icon-list-alt"></i> Reportes</h3>
+        <div class="fix"></div>
+      </div>
+    </div>
+
+    <div class="inner innercontent">
+      <div class="row-fluid">
+        <div class="span9">
+          <form class="form-inline" id="formReport">
+            <legend>Tipo de reporte:</legend>
+            <div class="span3">
+              <div class="control-group">
+                <label class="control-label">Tipo de reporte:</label>
+                <div class="controls">
+                  <select name="type" id="type-report">
+                    <option value="places">Espacios contratados</option>
+                    <option value="print">Materiales para los espacios</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="control-group">
+                <label for="" class="control-label">Proveedor:</label>
+                <div class="controls">
+                  <select name="supplier" id ="list-supplier">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="span3">
+              <div class="control-group">
+                <label for="" class="control-label">Mes:</label>
+                <div class="controls">
+                  <select name="month" id ="month">
+                    <option value="0">Enero</option>
+                    <option value="1">Febrero</option>
+                    <option value="2">Marzo</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Mayo</option>
+                    <option value="5">Junio</option>
+                    <option value="6">Julio</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Septiembre</option>
+                    <option value="9">Octubre</option>
+                    <option value="10">Noviembre</option>
+                    <option value="11">Diciembre</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="span12">
+                <button type="button" class="btn btn-primary" id="createReport">Crear reporte</button>
+                <button type="button" class="btn btn-success" id="findReport">Buscar reporte</button>
+            </div>
+        </form>
+        </div>
+        <div class="span3">
+          <legend>Precios actuales:</legend>
+          
+        </div>
+      </div>
+      
+      <div class="row-fluid" id="result">
+        <div class="head-report span8">
+          <b>RAZON SOCIAL: </b>                   <span id="name-supplier"></span><br>
+          <b>DOMICILIO FISCAL: </b>                <span id="domicile-supplier"></span><br>
+          <b>CLIENTE: </b>                        <span id="client"></span><br>
+          <b>CANDIDATO O CAMPAÑA BENEFICIADA: </b> <span id="campaing"></span>
+        </div>
+        <div id="logo-supplier" class="offset2 span2">
+          <!--<img src="assets/img/glyphicons_067_cleaning.png" id="logo-supplier">-->
+        </div>
+      </div>
+      <div class="row-fluid">
+        <table class="table" id="report">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th style='width : 50px;'>CLAVE DEL SITIO</th>
+              <th style='width : 50px;'>CUENTA CON LUZ</th>
+              <th>CALLE Y NO</th>
+              <th>COLONIA</th>
+              <th>MUNIPIO/DELEGACION</th>
+              <th>C.P.</th>
+              <th style='width : 70px;'>ENTIDAD FEDERATIVA</th>
+              <th>ENTRE CALLE 1</th>
+              <th>ENTRE CALLE 2</th>
+              <th>MEDIDAS</th>
+              <th>DETALLE DEL CONTENIDO</th>
+              <th style='width : 150px;'>PERIDO DE EXHIBICION</th>
+              <th>VALOR UNITARIO</th>
+              <th>IVA</th>
+              <th>TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="row-fluid">
+        <div id="info-supplier">
+          
+        </div>
+      </div>
+    </div>
+  </div><!--/span-->
+
+</div><!--/row-->
+
+<script>
+$(document).ready(function() {
+  var Location = new App_Report();
+
+  $('#newLocation').bootstrapWizard({onTabShow: function(tab, navigation, index) {
+      var $total = navigation.find('li').length;
+      var $current = index+1;
+      var $percent = ($current/$total) * 100;
+      $('#newLocation').find('.bar').css({width:$percent+'%'});
+    }, 'nextSelector': '.button-next', 'previousSelector': '.button-previous'});
+  });
+</script>

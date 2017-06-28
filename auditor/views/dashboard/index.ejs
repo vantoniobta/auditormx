@@ -1,0 +1,384 @@
+ <!-- <meta http-equiv="refresh" content="600"> -->
+
+			<div class="row">
+
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Dashboard <!-- <span>&gt; My Dashboard</span> --></h1>
+				</div>
+
+					 <div class="col-md-4 pull-right">
+						<div class="form-group">
+							<select id="list" name="list_id" class="form-control" placeholder="Selecciona una lista">
+							</select>
+						</div>
+					</div>
+
+
+			</div>
+
+
+	<% if( parseInt(session.user.role) == 1 || parseInt(session.user.role) == 2 || parseInt(session.user.role) == 3){ %>
+
+<div class="row app-stats">
+
+		<div class="col-sm-7 five-three">
+			<div class="row">
+
+
+
+				<div class=" col-sm-6">
+					<div class="panel panel-default">
+							<div class="panel-body">
+								<span>
+									<i class="fa fa-3x fa-globe"></i>
+									<b id="locations_count">0</b>
+								</span>
+								<p>Espacios</p>
+							</div>
+						</div>
+				</div>
+
+
+				<div class=" col-sm-6">
+					<div class="panel panel-default">
+							<div class="panel-body">
+								<span>
+									<i class="fa fa-3x fa-ticket"></i>
+									<b id="testigos_count">0</b>
+								</span>
+								<p>Testigos</p>
+							</div>
+						</div>
+				</div>
+
+
+			</div>
+		</div>
+
+		<div class="col-sm-5 five-two">
+			<div class="row">
+
+					<div class=" col-sm-6">
+					<div class="panel panel-default">
+							<div class="panel-body">
+								<span>
+									<i class="fa fa-3x fa-ticket"></i>
+									<b id="anomalias_count">0</b>
+								</span>
+								<p>Anomalias</p>
+							</div>
+						</div>
+				</div>
+
+
+
+				<div class=" col-sm-6">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<span>
+								<i class="fa fa-3x fa-ticket"></i>
+								<b id="fixed_count">0</b>
+							</span>
+							<p>Reparaciones</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="fix"></div>
+
+	</div>
+
+
+<section class="row hide" >
+	<div class=" col-md-12">
+
+	<div class="panel panel-default panel-dashboard">
+		<div class="panel-heading">
+			<span class="widget-icon">
+				<i class="glyphicon glyphicon-stats txt-color-darken"></i>
+			</span>
+			<h2> Resumen </h2>
+		</div> <!-- end panel head -->
+		<div class="padding-12">
+	        <div class="panel-body recount">
+					<h3> Medios   <!-- anomalias/reparaciones/testigos/total --></h3>
+					<ul class="row"  id="types">
+
+					</ul>
+					<!-- <h3> Versiones </h3>
+					<ul class="row" id="versions">
+
+					</ul> -->
+					<div class="fix"></div>
+
+	        </div>
+        </div>
+		<div class="padding-12">
+			<div class="panel-body recount">
+				<h3> Proveedores  <!--  anomalias/reparaciones/testigos/total --></h3>
+				<ul class="row"  id="providers">
+
+				</ul>
+				<!-- <h3> Versiones </h3>
+                <ul class="row" id="versions">
+
+                </ul> -->
+				<div class="fix"></div>
+
+			</div>
+		</div>
+    </div>
+    </div>
+
+</section>
+
+
+
+<% } %>
+
+
+
+ <section id="mainPane">
+	<div class="row">
+
+					<div class="col-xs-12">
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<span class="widget-icon">
+									<i class="glyphicon glyphicon-stats txt-color-darken"></i>
+								</span>
+								<h2>Live Stats </h2>
+
+										<ul id="mainpane-tab" class="nav nav-tabs pull-right">
+											<li class="active"><a href="#home" data-toggle="tab">
+												<i class="fa fa-clock-o"></i>
+											 Últimos Estatus
+											</a></li>
+											<!-- <li><a href="#profile" data-toggle="tab">
+												<i class="fa fa-facebook"></i>
+												Social network
+											</a></li>
+											<li><a href="#messages" data-toggle="tab">
+												<i class="fa fa-dollar"></i>
+												Revenue
+											</a></li> -->
+										</ul>
+							</div> <!-- end panel head -->
+							<div class="panel-body">
+										<div class="tab-content padding-10">
+											<div class="tab-pane fade in active row no-space" id="home">
+												<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+													<div id="lastTable"></div>
+												</div>
+
+
+											</div>
+											<!-- <div class="tab-pane fade row no-space" id="profile">..2.</div>
+											<div class="tab-pane fade row no-space" id="messages">.3..</div> -->
+										</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+
+ <script type="text/javascript">
+
+
+	loadList = function (callback){
+		$.get('/lists/all',function(source){
+			var list;
+			var data = source.data;
+			$('#list').empty();
+			// $('#list').append('<option value="0">Selecciona una lista</option>');
+			for( x in data ){
+				var selected =  x == (data.length-1) ? 'selected ' : '';
+				$('#list').append('<option value="'+data[x].id+'" '+selected+' > '+ data[x].name +'</option>');
+				list = data[x].id;
+			}
+
+			if( typeof(callback) !='undefined'){
+				callback(list);
+			}
+
+			return list;
+		});
+
+		$('#list').change(function(){
+			var  list    = $('#list').val();
+			loadStats(list);
+			loadTypesStatus(list);
+			loadProvidersStatus(list);
+
+
+			window.statusTable.opts.params.page = 1;
+			window.statusTable.opts.params.list = list;
+			window.statusTable.theLoad();
+
+		});
+	}
+
+
+	loadStats = function (list){
+		$.get('/dashboard/stats',{list:list},function(resp){
+			var data = resp.data[0];
+
+			for( var columna in data){
+				$('#'+columna).html(data[columna]);
+			}
+		});
+	}
+
+	loadTypesStatus = function (list) {
+		$.get('/reports/typesstatus', {list: list}, function (resp) {
+			$('#types li').remove();
+			count = 0;
+			for (o in resp.data) {
+				row = '';
+				str = '<li class="col-sm-4"> <div class="reports-data"><strong class="label-segment">' + resp.data[o].type + ' <span>' + '<span>' + resp.data[o].total + '</span></strong>  <div class="fix"></div></div></li>' + row;
+				$('#types ').append(str);
+			}
+		});
+	}
+	// resp.data[o].anomalies + ' / ' + resp.data[o].repaired + ' / ' + resp.data[o].witnesses + ' / ' +
+
+
+	loadProvidersStatus = function (list) {
+
+
+		$.get('/reports/providersstatus', {list: list}, function (resp) {
+
+			$('#providers li').remove();
+
+			count = 0;
+			for (o in resp.data) {
+				row = '';
+				str = '<li class="col-sm-4"> <div class="reports-data"><strong class="label-segment"><a href="/providers/view/'+ resp.data[o].supplier_id +'">' + resp.data[o].provider + ' </a> <span>' + '<span>' + resp.data[o].total + '</span></strong>  <div class="fix"></div></div></li>' + row;
+				$('#providers ').append(str);
+			}
+		});
+	}
+	//resp.data[o].anomalies + ' / ' + resp.data[o].repaired + ' / ' + resp.data[o].witnesses + ' / ' +
+
+	loadDashboard = function(list){
+
+		window.statusTable = $('#lastTable').Table({
+			 id : 'lasts',
+			 width : '100%',
+			 source:'/dashboard/last-status',
+			 rows:10,
+			 searcher:true,
+			 primary:'_id',
+			 params:{list:list},
+			 headers : [
+							{db:'uuid',name:'Folio',classname:'left',width:'10%',valueFunction:function(i,o){
+								// var url = "/"+o.segment+"s/view/"+o.id_object;
+								var url = "/locations/view/"+o.id_object;
+								return '<span class="label label-success"><a href="'+url+'" class="white">'+o.uuid+'</a></span>';
+							}},
+							{db:'code',name:'Código',classname:'left',width:'10%',valueFunction:function(i,o){
+								var url = "/locations/view/"+o.id_object;
+								var code = o.code == '' &&  o.license_plate != null ? o.license_plate : o.code;
+								return '<span class="label label-primary"><a href="'+url+'" class="white">'+code+'</a></span>';
+							}},
+							{db:'license_plate',name:'Placa',classname:'left',width:'10%',valueFunction:function(i,o){
+								var license_plate 	= String(o.license_plate).length == 0 ? false : o.license_plate;
+								var numid 			= String(o.numid).length == 0 ? false : o.numid;
+								var id    			= license_plate||numid||'Sin información';
+
+								return '<a href="/locations/view/'+o.id_object+'" class="label-tooltip label label-danger" data-toggle="tooltip" data-placement="right"  title="" ><span class="glyphicon glyphicon-link"></span> '+id+'</a>';
+							}},
+							{db:'createdAt',name:'Fecha',classname:'left',width:'10%',valueFunction:function(i,o){
+									var months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+									var  tdate = new Date(o.createdAt);
+									var  date = tdate.getDate()+'/'+ months[tdate.getMonth()]+'/'+tdate.getFullYear();
+									return '<span class="label label-primary">'+date+'</span>';
+							}},
+							{db:'status_label',name:'Estatus Actual',classname:'left',width:'10%',valueFunction:function(i,o){
+									var msg = o.message ? o.message : 'Sin comentarios ';
+										switch( o.status ){
+											case '-1':
+												var str = '<span class="label label-default status_tooltip" data-toggle="tooltip" data-placement="top" title="'+msg+'" >Sin Reporte</span>';
+											break
+											case '0':
+												var str = '<span class="label label-success status_tooltip" data-toggle="tooltip" data-placement="top" title="'+msg+'" >Correcto - MOST</span>';
+											break
+											case '11': case '14':
+												var str = '<span class="label label-success status_tooltip" data-toggle="tooltip" data-placement="top" title="'+msg+'" >Correcto</span>';
+											break
+											case '14':
+												var str = '<span class="label label-success status_tooltip" data-toggle="tooltip" data-placement="top" title="'+msg+'" >Correcto </span>';
+											break
+											case '12':
+												var str = '<span class="label label-warning status_tooltip" data-toggle="tooltip" data-placement="top" title="'+msg+'" >Correcto</span>';
+											break
+											case '13':
+												var str = '<span class="label label-warning status_tooltip" data-toggle="tooltip" data-placement="top" title="'+msg+'" >Penalización</span>';
+											break
+											default:
+											var str = '<span class="label label-danger status_tooltip" data-toggle="tooltip" data-placement="top" title="'+msg+'" >Anomalía - MOST </span>';
+											break;
+										}
+									return str;
+							}},
+							{db:'status_label',name:'Tipo de Reporte',classname:'left',width:'15%'},
+							{db:'provider_name',name:'Proveedor',classname:'left',width:'15%',valueFunction:function(i,o){
+								return '<a href="/providers/view/'+o.supplier_id+'"  class="special">'+o.provider_name+'</a>';
+							}},
+							{db:'snapshots',name:'Fotos',classname:'left',width:'20%',valueFunction:function(i,o){
+								if( o.snapshots ){
+									var str = '';
+									var snapshots = o.snapshots.split(',');
+									var code = o.code == '' ? o.license_plate : o.code;
+										for(x in snapshots ){
+
+											var snapsh =  String(snapshots[x]).toLowerCase();
+											if( snapshots[x].indexOf('tmb_') || snapshots[x].indexOf('tmb_tmb_') )
+											var src = 'http://1a2acb33e6a5f1efae28-89816399c8ac59f42d5fd8ae4b430b98.r48.cf1.rackcdn.com/'+o.id+'_tmb_'+snapsh;
+											var url = 'http://1a2acb33e6a5f1efae28-89816399c8ac59f42d5fd8ae4b430b98.r48.cf1.rackcdn.com/'+o.id+'_'+snapsh;
+											if( snapsh.length > 0 ){
+											str += '<a data-lightbox="' + o.uuid + ' " data-title="'+ o.code  +' - '+ o.provider_name + ' " id="lastimage_link_' + o.uuid + '" href="' + url + '" style="float:left; display:block"> <img  alt="' + code  +' - '+ o.provider_name + ' " class="img-thumbnail" id="lastimage_' + o.uuid + '" src="' + src + '" width="20px" height="20px"> </a>';
+
+											}
+										}
+
+									return str;
+								}else{
+									return '';
+								}
+							}},
+					 ],
+			onCompleteRequest : function(){
+					$('.status_tooltip').tooltip();
+			}
+		});
+
+
+
+
+	}
+
+
+	var onload_function = function (list){
+		loadStats(list);
+		loadDashboard(list);
+		loadTypesStatus(list);
+		loadProvidersStatus(list);
+	};
+
+
+	$(window).load(function(){
+		loadList(onload_function);
+
+	});
+
+
+</script>
+
+<!-- 5554195848 -->

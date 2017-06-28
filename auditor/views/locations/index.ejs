@@ -1,0 +1,148 @@
+
+ <div class="row">
+					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+						<h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-map-marker"></i> Listas </h1>
+					</div>
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8"> </div>
+				</div>
+
+<section class="row">
+		<div class="col-md-4" id="col-4">
+
+			<div id="filters" class="panel panel-default">
+							<div class="panel-heading ">
+								<span class="widget-icon">
+									<i class="fa fa-calendar"></i>
+								</span>
+								<h2> Filtros </h2>
+							</div>
+							<div class="panel-body">
+
+								<div class="padding-10">
+					<form class="form-vertical" action="" method="post" id="">
+
+										<div class="form-group  hide">
+											<select id="campaing" class="form-control">
+											 <option>Por Campaña</option>
+											 <option value="1">Por Campaña</option>
+						</select>
+										</div>
+										<div class="form-group">
+												<label> Listas </label>
+												<select id="list" name="list_id" class="form-control">
+												</select>
+										</div>
+
+										 <div class="form-group" id="providers-select">
+											<label> Por Proveedores </label>
+											<select id="provider" class="form-control">
+										 	<option value="*">Todos</option>
+											</select>
+										</div>
+
+
+										<div class="form-group" id="medios-select">
+											<label> Por Tipo de Medio </label>
+											<select id="type" class="form-control">
+												<option value="*">Todos</option>
+											</select>
+										</div>
+
+										<div class="form-group" id="state-select">
+											<label> Por Estados </label>
+											<select id="state" class="form-control">
+												<option value="*">Todos</option>
+											</select>
+										</div>
+
+									<!-- 	<div class="form-group">
+											<label> Por Estados </label>
+											<select id="state" class="form-control">
+											 	<option value="*">Todos</option>
+											</select>
+										</div>
+
+										<div class="form-group">
+											<label> Por Medio </label>
+											<select id="type" class="form-control">
+											 	<option value="*">Todos</option>
+											</select>
+										</div> -->
+
+								</form>	<!-- end form -->
+								</div>
+							</div>
+						</div> <!-- end panel -->
+
+						<div id="upload-location-container" class="panel panel-default">
+							<div class="panel-heading ">
+								<span class="widget-icon">
+									<i class="fa fa-calendar"></i>
+								</span>
+								<h2> Cargar Sitios </h2>
+							</div>
+							<div class="panel-body">
+								<div class="padding-10">
+									<form class="form-vertical" action="" method="post" enctype="multipart/form-data" id="form-upload">
+												 <input type="hidden" id="upload_supplier_id" name="supplier_id" value="0">
+												 <input type="hidden" id="upload_list_id" name="listid" value="0">
+												 <input type="hidden" id="upload_type_id" name="listid" value="0">
+												 <div class="form-group">
+													<select class="form-control" name="mode" id="modelist">
+														<option value="create">Nueva</option>
+														<option value="update">Actualizar</option>
+													</select>
+							 </div>
+							 <div class="form-group">
+											 <input type="file" id="csvfile" name="csvfile" class="" accept="text/csv">
+											 <div id="progressNum"></div>
+												 <div  id="progressBar" class="progresstrip">
+														<div class="progress-inner"></div>
+												 </div>
+
+											</div>
+											<div class="form-group">
+												 <button type="submit" class="btn btn-success btn-block"><i class="glyphicon glyphicon-upload"> </i> Subir</button>
+											</div>
+									</form>
+								</div>
+							</div>
+						</div> <!-- end panel -->
+
+
+
+		</div> <!-- end col-md-4 -->
+
+		<div class="col-md-8" id="col-8">
+			<div class="panel panel-default">
+							<div class="panel-heading ">
+								<span class="widget-icon">
+									<i class="fa fa-calendar"></i>
+								</span>
+								<h2> Sitios </h2>
+
+								<span class="pull-right" style="margin-top:5px; margin-right:5px;" id="table-counter"> Cargando... </span>
+
+							</div>
+							<div class="panel-body">
+								<div class="padding-10">
+									<div id="locationTable"></div>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<a class="label label-success" href="#" id="btn-export"><span class="fa fa-file-excel-o"></span> <strong>Exportar Lista </strong> </a>
+							</div>
+
+
+						</div> <!-- end panel -->
+		</div> <!-- end col-md-8 -->
+</section>
+
+
+<script>
+	$(window).load(function(){
+		var Locations = new Core_Location({role:'<%-session.user.role %>', supplier:'<%-session.user.supplier_id %>'});
+				Locations.index();
+
+	});
+	</script>

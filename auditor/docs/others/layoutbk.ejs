@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <title>:: iClic Auditor ::</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/js/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <link href="assets/js/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print" />
+    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/screen.css" rel="stylesheet">
+    <link href="assets/css/media.css" rel="stylesheet">
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/js/min/app-ck.js"></script>
+    <script type="text/javascript" src="assets/js/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="assets/js/highcharts/js/modules/exporting.js"></script>   
+    <script src="assets/js/fullcalendar/lib/moment.min.js"></script>
+    <script src="assets/js/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+    <script src="assets/js/fullcalendar/fullcalendar.min.js"></script>
+    
+    
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="assets/js/Class.js"></script> 
+    <script src="assets/js/core.js"></script>
+    <script src="assets/js/core/maps.js"></script>
+
+
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-default " id="header">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">iClicAuditor</a>
+        </div>
+        
+        <div id="project-context" class="">
+        
+          <span class="label">Projects:</span>
+          <span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
+                  
+
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">Online e-merchant management system - attaching integration with the iOS</a>
+            </li>
+            <li>
+              <a href="#">Notes on pipeline upgradee</a>
+            </li>
+            <li>
+              <a href="#">Assesment Report for merchant account</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#"><i class="fa fa-power-off"></i> Clear</a>
+            </li>
+          </ul>
+                
+        </div>
+        
+        <div class="pull-right">
+        
+                <!-- collapse menu button -->
+          <div id="hide-menu" class="btn-header pull-right">
+            <span> <a href="#" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+          </div>
+        
+          <div id="searchMobile" class="btn-header transparent pull-right">
+            <span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+          </div>
+          <form action="#ajax/search.html" class="header-search pull-right" id="formDesktop">
+            <input type="text" name="param" placeholder="Find reports and more" id="search-fld">
+            <button type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+            <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+          </form>
+          <div id="fullscreen" class="btn-header transparent pull-right">
+            <span> <a href="#"  id="launchFullScreen" onclick="launchFullscreen()" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
+          </div>
+        
+        </div>
+
+      </div>
+    </nav>
+
+
+<div id="main">
+    
+  <aside class="navigation">
+  
+    <div class="login-info">
+      <span> 
+      
+
+        <a href="#" id="show-shortcut">
+          <img src="http://www.gravatar.com/avatar/<%-session.user.gravatar %>" alt="me" class="online"> 
+            <span>
+              <%-session.user.name %>
+            </span>
+            <i class="fa fa-angle-down"></i>
+        </a> 
+                
+      </span>
+    </div>
+    
+    <nav class="navbar navbar-inverse " role="navigation" id="main-nav">
+              <ul class="nav" id="sidebar">
+      
+             <%  for(x in session.nav){ 
+                if( x != 'settings'){
+                 %>
+                <li id="<%- session.nav[x][0] %> ">
+                  <a class="mainLink" href="<%- session.nav[x][1] %>" > 
+                    <i class="fa fa-lg fa-fw <%- session.nav[x][2] %>"></i> 
+                    <%- session.nav[x][0] %>
+                  </a>
+                </li>
+              <%  } }  %>
+
+                <!-- <li id="Dashboard" class="active"><a ><i class="fa fa-lg fa-fw fa-home"></i> Dashboard</a>
+                </li>
+    
+    
+                <li id="Inbox"><a  class="mainLink"><i class="fa fa-lg fa-fw fa-inbox"></i> Inbox
+                  <b class=""><i class="fa fa-plus-square-o"></i></b>
+                </a>
+    
+                  <ul class="hideLink">
+    
+                    <li><a href="/sales/">
+                      All Sales</a></li>
+    
+                    <li><a href="/sales/add">
+                      Start Session</a></li>
+    
+                  </ul>
+    
+                </li>
+    
+                <li id="Graphs"><a  class="mainLink"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> Graphs
+                  <b class=""><i class="fa fa-plus-square-o"></i></b>
+                </a>
+    
+                  <ul class="hideLink">
+                    <li><a href="/services">
+                      All Services</a></li>
+                    <li><a href="/services/add">
+                      Add new</a></li>
+    
+                  </ul>
+    
+                </li>
+    
+                <li id="Tables"> <a  class="mainLink"><i class="fa fa-lg fa-fw fa-table"></i> Tables
+                  <b class=""><i class="fa fa-plus-square-o"></i></b>
+                </a>
+    
+                  <ul class="hideLink">
+    
+                    <li><a href="/products/">
+                      All Products</a></li>
+    
+                    <li><a href="/products/add">
+                      Add new </a></li>
+    
+    
+                  </ul>
+    
+                </li>
+    
+                  <li id="Calendar"><a  class="mainLink"><i class="fa fa-lg fa-fw fa-calendar"><em>3</em></i> Calendar
+                    <b class=""><i class="fa fa-plus-square-o"></i></b>
+                  </a>
+                    <ul class="hideLink">
+                      <li><a href="/customers/">
+                        All Customers</a></li>
+                      <li><a href="/customers/add">
+                        Add new</a></li>
+    
+                    </ul>
+                  </li>
+    
+
+    
+                  <li id="Users"><a  class="mainLink"><i class="fa fa-lg fa-fw fa-users"></i> Users
+                    <b class=""><i class="fa fa-plus-square-o"></i></b>
+                  </a>
+    
+                    <ul class="hideLink">
+    
+                      <li><a href="/users">
+                        All Users </a></li>
+    
+                      <li><a href="/users/add">
+                        Add New User </a></li>
+    
+                    </ul>
+    
+                  </li>
+                  
+                  <li id="Settings"><a class="mainLink" href="/settings.html"><i class="fa fa-lg fa-fw fa-cogs"></i> Settings</a>
+                  </li> -->
+
+    
+                </ul>
+    
+         </nav>
+    </aside>
+
+
+
+    <!-- ----------End Navigation -------- -->
+
+  
+      <div id="page-content">
+        <div id="ribbon">       
+          <span class="ribbon-button-alignment"> <span id="refresh" class="btn btn-ribbon" data-title="refresh" rel="tooltip" data-placement="bottom" ><i class="fa fa-refresh"></i></span> </span>
+          <ol class="breadcrumb"><li>Home</li><li>Dashboard</li></ol>
+        </div>
+       
+        <div class="container-fluid slowLoad" style="display: none;">
+       
+        
+        <%- body %>
+
+     
+        
+        </div>
+
+      </div>
+      
+      <!--<footer class="site-footer">
+        <div class="container">
+          <hr/>
+          <p class="text-right">&copy; Copyright 2014 iClic Digital. All Rights Reserved. </p>
+        </div>
+      </footer>-->
+        
+
+</div>
+
+  
+
+
+    
+    <script type="text/javascript">
+      $(document).ready(function(){ 
+        $('.slowLoad').fadeIn(1800);
+      });
+      
+    </script>
+    
+    
+
+
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@android:id/tabhost"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		<TabWidget android:id="@android:id/tabs"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+		/>
+		<FrameLayout android:id="@android:id/tabcontent"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+		>
+			<ListView android:id="@+id/inventories"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+			/>
+			<TableLayout android:id="@+id/details"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:stretchColumns="1"
+				android:paddingTop="4px"
+				>
+				<TableRow>
+					<TextView android:text="Publicidad: " />
+					<TextView android:id="@+id/pubid" />
+				</TableRow>
+				<TableRow>
+					<TextView android:text="Inventory: " />
+					<TextView android:id="@+id/invid" />
+				</TableRow>
+				<TableRow>
+					<TextView android:text="Desde: " />
+					<TextView android:id="@+id/from" />
+				</TableRow>
+				<TableRow>
+					<TextView android:text="Hasta: " />
+					<TextView android:id="@+id/to" />
+				</TableRow>
+				<TableRow>
+					<TextView android:text="Contenido: " />
+					<TextView android:id="@+id/content" />
+				</TableRow>
+				
+				<GridView
+    				android:layout_width="match_parent"
+    				android:layout_height="match_parent"
+    				android:id="@+id/gridview"
+    				android:numColumns="2"
+				/>
+
+				<HorizontalScrollView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					>
+				<LinearLayout android:id="@+id/fotocontainer"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal"
+					 />
+				</HorizontalScrollView>
+			</TableLayout>
+		</FrameLayout>
+	</LinearLayout>
+</TabHost>

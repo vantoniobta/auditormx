@@ -1,0 +1,30 @@
+            <% versions.forEach(function (version) { %>
+              <tr class="item"> 
+                <td width="30%"> <% version.street %> </td> 
+                <td width="20%"> <% version.city + ', ' + version.state %> </td> 
+                <td> <% version.zip %> </td> 
+                <td> <% version.material %> </td> 
+              </tr>
+            <% }); %>
+
+           
+
+
+
+
+        <% for(var i = 0; i <= versiones.length; i++) {
+
+
+           <% for(var i = 0; i = versions[key].length - 1; i++ ){ %>
+                <tr class="item"> 
+                  <td width="30%"> <%= versions[key][i].street %> </td> 
+                  <td width="20%"> <%= versions[key][i].city + ', ' + versions[key][i].state %> </td> 
+                  <td> <%= versions[key][i].zip %> </td> 
+                  <td> <%= versions[key][i].material %> </td> 
+                </tr>
+              <% } %>
+
+
+               <% for (var i in versions[key]) { %>
+
+              <% } %>

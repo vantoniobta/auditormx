@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<item
+        android:id="@+id/action_sync"
+        android:orderInCategory="100"
+        android:title="Descargar lista"/>
+
+    <item
+        android:id="@+id/action_upload"
+        android:orderInCategory="100"
+        android:title="Subir Cambios"/>
+
+</menu>

@@ -1,0 +1,33 @@
+ 
+ 
+<div class="row">
+    <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-8 col-md-offset-2">
+      <div class="card panel-login">
+        <div class="card-block">      
+          <form action="/login" method="post">       
+              <h2 class="title"><span>Iniciar  </span>  Sesión</h2>
+              <div class="form-group">
+               <label class="separate">Email:</label>
+                  <input type="text" name="user_email" class="span10 form-control"/>
+                  <div class="msg_input"></div>
+                <span  class="help-block">Enter your email</span>
+              </div>
+               <div class="form-group">
+                  <label class="separate">Password:</label>
+                  <input type="password" name="user_password" class="span10 form-control"/>
+                  <div class="msg_input"></div>
+                <span  class="help-block">Enter your password</span>
+              </div>
+               <div class="form-group">                               
+                  <button class="btn btn-secondary btn-lg btn-block" >Login!</button>                                
+              </div>          
+            <div class="form-group">
+              <br/>
+                <a href="/login/activate" class="lostpassword button_green"><span class="glyphicon glyphicon-chevron-right"></span> Activar cuenta! </a>
+                <a href="/login/recovery" class="pull-right"><span class="glyphicon glyphicon-lock"></span> Recuperar acceso? </a>      
+            </div>                  
+          </form> <!-- end form -->
+        </div> <!-- end panel-body -->
+      </div> <!-- end panel -->
+  </div> <!-- end col  -->
+ </div> <!-- end row -->

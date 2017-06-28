@@ -1,0 +1,87 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+		<h1 class="page-title txt-color-blueDark"><i class="glyphicon glyphicon-check"></i> Estatus </h1>
+	</div>
+</div>
+<section class="row">
+	<div class="col-md-12">
+				<div class="panel panel-default">
+						<div class="panel-heading ">
+							<span class="widget-icon">
+								<i class="fa fa-file-text"></i>
+							</span>
+							<h2> Crear Estatus </h2>
+						</div>
+						<div class="panel-body">
+							<div class="padding-10">
+									<form class="form-inline" action="" method="get" id="form-upload-report" enctype="multipart/form-data">
+
+													<div class="form-group">
+														<input id="images_upload" type="file" name="images_upload" multiple="multiple" class="inline" accept=".zip">
+													</div>
+													<div class="form-group">
+															<button id="sensord-btn" type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-upload"> </i> Cargar Archivos</button >
+													</div>
+											<hr/>
+											<div class="row">
+											<div class="col-md-12" >
+												 <div id="progressNum"></div>
+												 <div  id="progressBar" class="progresstrip">
+														<div class="progress-inner"></div>
+												 </div>
+														<div id="list_container">
+															<ul id="file_csv_list" class="file_list" style="height:50px; overflow:auto; border:1px solid #ccc; padding:10px;"></ul>
+															<ul id="file_list_images_upload" class="file_list" style="height:150px; overflow:auto; border:1px solid #ccc; padding:10px;"></ul>
+														</div> <!-- end list_container -->
+												</div> <!-- end form-group -->
+												</div>
+									</form><!-- end form -->
+								</div> <!-- end padding-10 -->
+							</div> <!-- end panel body -->
+					</div>  <!-- panel default -->
+	</div> <!-- col-md-12 -->
+</section>
+
+<section class="row">
+				<div class="col-md-12">
+						<div class="panel panel-default">
+								<div class="panel-heading ">
+									<span class="widget-icon">
+										<i class="fa fa-map-marker"></i>
+									</span>
+									<h2> Procesos en espera </h2>
+								</div> <!-- end panel-heading -->
+								<div class="panel-body">
+									<div class="padding-10">
+										 <div id="processTable"></div>
+									</div>
+								</div ><!--  end panel body -->
+						</div> <!-- end panel -->
+				</div> <!-- end col-md-12 -->
+</section> <!-- end row -->
+
+<section class="row">
+				<div class="col-md-12">
+						<div class="panel panel-default">
+								<div class="panel-heading ">
+									<span class="widget-icon">
+										<i class="fa fa-map-marker"></i>
+									</span>
+									<h2> Estatus Recientes </h2>
+								</div> <!-- end panel-heading -->
+								<div class="panel-body">
+									<div class="padding-10">
+										 <div id="statusTable"></div>
+									</div>
+								</div ><!--  end panel body -->
+						</div> <!-- end panel -->
+				</div> <!-- end col-md-12 -->
+</section> <!-- end row -->
+
+<script>
+	$(window).load(function(){
+		var Status = new Core_Status({role:'<%-session.user.role %>'});
+				Status.run();
+		});
+	</script>
+

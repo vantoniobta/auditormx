@@ -1,0 +1,29 @@
+
+<div class="panel panel-default">
+    <div class="panel-body padding-101520">
+      <h3>Recuperar Contraseña</h3>
+      <hr/>
+      <% if( form ){ %>
+        
+        <% if( typeof(code) != 'undefined'  ){ %>              
+          <div class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-question-sign"></span> <%-msg %>
+          </div> <!-- end alert -->
+        <% } %>
+
+      <form method="post" role="form" action="" class="padding-10">
+         <div class="form-group">
+          <label for="password">Email de usuario:</label>
+          <input type="email" name="email" class="form-control"  required>
+        </div>                  
+        <button type="submit" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-circle-arrow-right"></i> Iniciar proceso</button>
+      </form>
+
+      <% }else{ %>                          
+          <div class="alert alert-success" role="alert">
+              <span class="glyphicon glyphicon glyphicon-ok"></span> <%-msg %>
+          </div> <!-- end alert -->       
+      <% } %>
+
+    </div>          
+</div>

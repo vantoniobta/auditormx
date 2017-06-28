@@ -1,0 +1,696 @@
+<script type="text/javascript" src="assets/js/highcharts/js/themes/skies2.js"></script>
+
+        <div class="span7 mainArea pull-left">
+
+          <div class="boxHeader">
+
+            <h3><i class="icon-dashboard"></i> &nbsp;Dashboard</h3>
+
+            <form  id="newAction" class="form-inline form-search pull-right">
+              <a href="/locations" role="button" class="btn btn-small" ><i class="icon-plus"></i> Nuevo Sitio</a>
+
+            </form>
+            <div class="fix"></div>
+          </div>
+
+
+          <div class="boxcontainer">
+
+            <div class="well">
+
+              <div class="bttn">
+                <i class="icon-globe"></i>
+                <span class="num" id="stateCount"> 2</span>
+                <p>Estados</p>
+              </div>
+
+              <div class="bttn bttn-aqua">
+                <i class="icon-map-marker"></i>
+                <span class="num" id="siteCount"> 27</span>
+                <p>Sitios</p>
+              </div>
+
+              <div class="bttn bttn-aquaLight">
+                <i class="icon-ok-sign"></i>
+                <span class="num" id="approveCount"> 3</span>
+                <p>Aprobados</p>
+              </div>
+
+              <div class="bttn bttn-aquaDark">
+                <i class="icon-warning-sign"></i>
+                <span class="num" id="warningCount"> 5</span>
+                <p>Advertencias</p>
+              </div>
+
+              <div class="bttn bttn-aquaDarker lastChild">
+                <i class="icon-remove-sign"></i>
+                <span class="num" id="errorCount"> 2</span>
+                <p>Fallas</p>
+              </div>
+
+              <div class="fix"></div>
+
+            </div>
+
+            <form class="form-horizontal">
+
+              <div class="control-group">
+                <label class="control-label">Filtrar Por: </label>
+                <div class="controls">  
+                 <select>
+                    <option>Espectaculares</option>
+                    <option>Cine</option>
+                    <option>Vayas mobiles</option>
+                  </select>
+                </div>
+              </div>
+
+            </form>
+
+            <div id="container"> </div>
+
+          <legend><h3><i class="icon-list-alt"></i> Reportes </h3></legend>
+
+
+            <form class="form-inline">
+        <select>
+          <option>Estado</option>
+          <option>Distrito Federal</option>
+          <option>Aguascalientes</option>
+          <option>Baja California</option>
+          <option>Baja California Sur</option>
+          <option>Campeche</option>
+          <option>Chiapas</option>
+          <option>Chihuahua</option>
+          <option>Coahuila</option>
+          <option>Colima</option>
+          <option>Durango</option>
+          <option>Guanajuato</option>
+          <option>Guerrero</option>
+          <option>Hidalgo</option>
+          <option>Jalisco</option>
+          <option selected>Estado de México</option>
+          <option>Michoacán</option>
+          <option>Morelos</option>
+          <option>Nayarit</option>
+          <option>Nuevo León</option>
+          <option>Oaxaca</option>
+          <option>Puebla</option>
+          <option>Querétaro</option>
+          <option>Quintana Roo</option>
+          <option>San Luis Potosí</option>
+          <option>Sinaloa</option>
+          <option>Sonora</option>
+          <option>Tabasco</option>
+          <option>Tamaulipas</option>
+          <option>Tlaxcala</option>
+          <option>Veracruz</option>
+          <option>Yucatán</option>
+          <option>Zacatecas</option>
+        </select>
+        <select>
+          <option>Municipio/Delegación</option>
+          <option selected>COYOTEPEC</option>
+        </select>
+        <a href="#reportModal" role="button" data-toggle="modal" class="btn btn-primary btn-small"><i class="icon-zoom-in"></i> Tabla Completa</a>
+
+       <br/>
+
+        <input type="radio" name="tipo-publicidad"/> Espectacular
+        <input type="radio" name="tipo-publicidad"/> Cine
+        <input type="radio" name="tipo-publicidad"/> Vayas mobiles
+
+      </form>
+
+      <table class="table table-striped table-hover table-bordered table-small">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>CLAVE</th>
+            <th>CALLE Y No.</th>
+            <th>ESTADO</th>
+            <th>CONTENIDO</th>
+            <th>EXHIBICIÓN</th>
+            <th>CANDIDATO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="#reportDetailModal" role="button" data-toggle="modal">1285-1</a></td>
+            <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+            <td>ESTADO DE MÉXICO</td>
+            <td>NO MÁS CUOTAS</td>
+            <td>01/05/2012 AL 07/05/2012</td>
+            <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>1285-2</td>
+            <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+            <td>ESTADO DE MÉXICO</td>
+            <td>NO MÁS CUOTAS</td>
+            <td>01/05/2012 AL 07/05/2012</td>
+            <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>1285-3</td>
+            <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+            <td>ESTADO DE MÉXICO</td>
+            <td>NO MÁS CUOTAS</td>
+            <td>01/05/2012 AL 07/05/2012</td>
+            <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="pagination pagination-centered">
+        <ul>
+          <li><a href="#">Prev</a></li>
+          <li class="disabled"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">Next</a></li>
+        </ul>
+      </div>
+
+
+          </div>
+
+          <div class="boxFooter"></div>
+
+        </div><!--/span-->
+
+              <div class="span4 sidebar pull-right">
+
+
+        <div class="boxcontainer" id="sidebar">
+
+           <div class="list">
+
+            <div class="boxTitle" id="placeTitle"><i class="icon-globe"></i> Ultimos Lugares</div>
+
+            <div id="placeDetail" class="hide">
+              <div class="padding">
+                  <a href="#" class="btn btn-small" id="lastSites"><i class="icon-caret-left"></i> Últimos Sitios</a>
+                
+                <a class="lightview" href="/assets/img/placeholder.jpg" id="previewLightbox" data-lightview-options="skin: 'mac'">
+                  <img src="/assets/img/placeholder.jpg" width="50%" class="preview img-polaroid" id="previewImage"/>
+                </a>
+                
+                  <p><label>Clave: </label><span id="d_code"></span></p>
+                  <p><label>Calle: </label><span id="d_street"></span></p>
+                  <p><label>Calle: </label><span id="d_neighbor"></span> </p>
+                  <p><label>Ciudad: </label><span id="d_city"></span> </p>
+                  <p><label>CP: </label><span id="d_zip"></span></p>
+                  <p><label>Estado: </label><span id="d_state"></span></p>
+                  <p><label>Precio a Pagar: </label><span id="d_price"></span></p>
+                  <h4>Medidas:</h4>
+                  <p><label>Base: </label><span id="d_base"></span></p>
+                  <p><label>Altura: </label><span id="d_height"></span></p>
+                  <p><label>Material: </label><span id="d_material"></span></p>
+                  <h4>Periodo de Exhibición</h4>
+                  <p><label>De: </label><span id="d_from"></span></p>
+                  <p><label>Al: </label><span id="d_to"></span></p>
+                  <p><label>Candidato/Campaña Beneficiaria: </label><span id="d_beneficiary"></span></p>
+                  <h4>Datos de Entrega de Lonas:</h4>
+                  <p><label>Dirección: </label><span id="eaddress"></span></p>
+                  <p><label>Teléfono: </label><span id="ephone"></span></p>
+                  <p><label>Calle y No.: </label><span id="estreet"></span></p>
+                  <p><label>Colonia: </label><span id="eneighbor"></span></p>
+                  <p><label>Delegación/Municipio: </label><span id="ecity"></span></p>
+                  <p><label>CP: </label><span id="ezip"></span></p>
+                  <p><label>Estado: </label><span id="estate"></span></p>
+
+              </div>
+            </div>
+
+             <!-- end supplier form -->           
+            
+
+            <div id="placesList">
+              
+
+              <!-- <div class="pagination pagination-right">
+                <ul>
+                  <li><a href="#">Prev</a></li>
+                  <li class="disabled"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">Next</a></li>
+                </ul>
+              </div> -->
+
+
+            </div>
+
+
+          </div>
+
+          </div>
+        </div>
+
+
+
+<script type="text/javascript">
+
+$('#siteImg-1, #siteImg-2, #siteImg-3, #siteImg-4').click(function () {
+  var selectedImg = $(this).attr('id');
+});
+
+var Location = new App_Location();
+
+Location.loadPanel();
+
+$(function () {
+    var chart;
+    $(document).ready(function() {
+      
+      // Radialize the colors
+    Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+        return {
+            radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+            stops: [
+                [0, color],
+                [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+            ]
+        };
+    });
+    
+    // Build the chart
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Estatus de los Sitios'
+            },
+            subtitle: {
+                text: 'Powered by iClic',
+                x: -20
+            },
+            tooltip: {
+              pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+              percentageDecimals: 1
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        formatter: function() {
+                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Estados',
+                data: [
+                    ['Aprobados',   50],
+                    ['Advertencias',       30],
+                    {
+                        name: 'Fallas',
+                        y: 20,
+                        sliced: true,
+                        selected: true
+                    }
+                ]
+            }]
+        });
+    });
+    
+});
+
+
+
+</script>
+
+
+
+
+    <div id="reportModal" class="modal modal-big hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Coyotepec / Estado de Mexico</h3>
+      </div>
+      <div class="modal-body">
+
+              <table class="table table-striped table-hover table-bordered table-small">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>CLAVE</th>
+                  <th>CALLE Y No.</th>
+                  <th>COLONIA</th>
+                  <th>MUNICIPIO / DELEGACIÓN</th>
+                  <th>C.P.</th>
+                  <th>ESTADO</th>
+                  <th>ENTRE CALLE 1</th>
+                  <th>ENTRE CALLE 2</th>
+                  <th>MEDIDAS</th>
+                  <th>CONTENIDO</th>
+                  <th>EXHIBICIÓN</th>
+                  <th>CANDIDATO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>1285-1</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54660</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+              <tr>
+                  <td>2</td>
+                  <td>1285-2</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54661</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>3</td>
+                  <td>1285-3</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54662</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>4</td>
+                  <td>1285-4</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54663</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>5</td>
+                  <td>1285-5</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54664</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>6</td>
+                  <td>1285-6</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54665</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+              <tr>
+                  <td>7</td>
+                  <td>1285-7</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54666</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>8</td>
+                  <td>1285-8</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54667</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>9</td>
+                  <td>1285-9</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54668</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>10</td>
+                  <td>1285-10</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54669</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>11</td>
+                  <td>1285-11</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54670</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+              <tr>
+                  <td>12</td>
+                  <td>1285-12</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54671</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>13</td>
+                  <td>1285-13</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54672</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>14</td>
+                  <td>1285-14</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54673</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>15</td>
+                  <td>1285-15</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54674</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>16</td>
+                  <td>1285-16</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54675</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+              <tr>
+                  <td>17</td>
+                  <td>1285-17</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54676</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>18</td>
+                  <td>1285-18</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54677</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>19</td>
+                  <td>1285-19</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54678</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+                <tr>
+                  <td>20</td>
+                  <td>1285-20</td>
+                  <td>AUTOPISTA MÉXICO-QUERÉTARO KM. 54</td>
+                  <td>LOS FRAILES</td>
+                  <td>COYOTEPEC</td>
+                  <td>54679</td>
+                  <td>ESTADO DE MÉXICO</td>
+                  <td>KM. 53</td>
+                  <td>KM. 55</td>
+                  <td>12.90 X 7.80</td>
+                  <td>NO MÁS CUOTAS</td>
+                  <td>01/05/2012 AL 07/05/2012</td>
+                  <td>CANDIDATO AL SENADO DEL ESTADO DE MÉXICO</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+      </div>
+      <div class="modal-footer">
+
+        <button class="btn btn-primary"><i class="icon-print"></i> Imprimir</button>
+
+      </div>
+    </div>

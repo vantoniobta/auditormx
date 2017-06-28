@@ -1,0 +1,186 @@
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+      <h1 class="page-title txt-color-blueDark"><i class="glyphicon glyphicon-th"></i> Campañas </h1>
+    </div>
+  </div>
+
+<section class="row" >          
+    <div class="col-md-12">
+        <div class="panel panel-default">
+              <div class="panel-heading ">              
+                <span class="widget-icon"> 
+                  <i class="fa fa-calendar"></i> 
+                </span>
+                <h2> Campañas </h2>     
+
+                 <a href="/campaings/view" type="button" id="btNewProvider" class="btn btn-success btn-xs pull-right cancelbutton">
+                                  <i class="glyphicon glyphicon-plus-sign"> </i>  Nuevo
+                     </a>        
+              </div>
+              <div class="panel-body">
+                <div class="padding-10">
+                  <div id="usersTable"></div>
+                </div>
+              </div>
+        </div>
+    </div> <!-- end col-md -->
+          
+    <div class="col-md-7 hide">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="widget-icon"> 
+          <i class="fa fa-calendar"></i> 
+          </span>
+          <h2> Nueva Campaña </h2>    
+        </div> <!-- panel-heading -->
+          <div class="panel-body">
+
+              <div class="padding-10">
+
+                <form class="form-vertical" action="" method="post" id="formCampaing">                
+                  
+                  <div class="form-group">
+                    <input type="hidden" id="modeForm" name="modeForm" value="add">
+                    <input type="hidden" id="campaingid" name="campaing[id]" value="0">
+                    <label class="control-label" for="name">Nombre: </label>
+                    <div class="controls">
+                      <input type="text" id="name" name="campaing[name]" class="form-control" required="true"/>
+                    </div>
+                  </div><!-- end-form-group -->
+                  
+                  <div class="form-group">
+                    <label class="control-label" for="start">Fecha de Inicio: </label>
+                    <div class="controls">                  
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input  id="start" name="campaing[start]" class="form-control" size="16" type="text" data-date-format="dd-mm-yyyy" readonly="true">
+                      </div>
+                    </div>
+                  </div><!-- end-form-group -->
+
+                  <div class="form-group">
+                    <label class="control-label" for="finish">Fecha Final: </label>
+                    <div class="controls">                  
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input  id="finish" name="campaing[finish]" class="form-control" size="16" type="text"  data-date-format="dd-mm-yyyy" readonly="true">
+                      </div>
+                    </div>
+                  </div><!-- end-form-group -->
+
+                  <div class="form-group">
+                    <div class="controls">                          
+                      <button type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-floppy-saved"> </i> Guardar</button>
+                      <button type="button" id="btDeleteCampaing" class="btn btn-danger btn-small"><i class="glyphicon glyphicon-trash"> </i>Eliminar</button>
+                      <button type="button" id="btNewCampaing" class="btn btn-success btn-small"><i class="glyphicon glyphicon-plus-sign"> </i>Nuevo</button>
+                    </div>
+                  </div> <!-- end-form-group -->
+              </form><!-- end form -->  
+            </div> <!-- padding-10 -->
+        </div> <!-- end-panel-body    -->
+      </div> <!-- end-panel panel-default -->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="widget-icon"> 
+          <i class="fa fa-map-marker"></i> 
+          </span>
+          <h2> Sitios</h2>
+
+          <ul id="mainpane-tab" class="nav nav-tabs pull-right">
+                      <li class="active"><a href="#numberform-pane" data-toggle="tab">
+                        <i class="fa fa-cloud-upload"></i>
+                        Cargar Sitios
+                      </a></li>
+                      <li><a href="#numberlist-pane" data-toggle="tab">
+                        <i class="fa fa-th-list"></i>
+                        Sitios Cargados
+                      </a></li>
+                </ul>
+
+        </div> <!-- panel-heading -->
+          <div class="panel-body">
+
+            <div class="tab-content padding-15">
+              <div class="tab-pane fade in active row no-space" id="numberform-pane">
+
+                <form class="form-vertical" action="" method="post" id="form-upload-arts">
+                  <input type="hidden" id="campaing-id-attach" name="art[campaing_id]" value="0">
+                  <div class="row ">
+                    <div class="col-md-4">
+                      <div class="form-group">  
+                        <label class="control-label" for="finish">Arte 1 </label>
+                        <div class="controls">                                
+                          <input type="text" id="art_name" name="art[name]" class="form-control" required="true"/>                       
+                        </div>
+                      </div>
+                    </div><!-- end-form-group -->
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" for="start">Inicio Arte 1: </label>
+                        <div class="controls">                  
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input  id="art_start" name="art[start]" class="form-control" size="16" type="text" data-date-format="dd-mm-yyyy" readonly="true">
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- end-form-group -->
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="control-label" for="start">Final Arte 1: </label>
+                        <div class="controls">                  
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input  id="art_finish" name="art[finish]" class="form-control" size="16" type="text" data-date-format="dd-mm-yyyy" readonly="true">
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- end-form-group -->
+                    
+                  </div><!-- end-row -->
+
+                  <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="control-label" for="start">Adjuntar Archivo de Impresión</label>
+                        <div class="controls">                  
+                          <div class="input-group">                     
+                            <input type="file" name="csv-file"z class="">
+                             <div id="progressNumber"></div>
+                              <p id="progressBar"></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- end-form-group -->
+                  </div><!-- end-row -->
+                  <div class="form-group">
+                    <div class="controls">                          
+                      <button type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-upload"> </i> Subir</button></div>
+                  </div> <!-- end-form-group -->
+              </form><!-- end form -->  
+            </div>  <!-- tab-pane -->
+            <div class="tab-pane fade row no-space" id="numberlist-pane">
+                <div id="numbersTable"></div>
+            </div>  <!-- tab-pane -->
+          </div> <!-- tab-content -->
+        </div> <!-- end-panel-body    -->
+      </div> <!-- end-panel panel-default -->
+
+
+
+    </div> <!-- end col-md -->
+
+</section>
+
+
+<script>
+  $(window).load(function(){
+    var Campaing = new Core_Campaing({role:'<%-session.user.role %>'});
+        Campaing.setDataGrid();
+
+  });
+  </script>
+

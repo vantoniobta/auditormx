@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="">
+    <title>:: iClic Auditor ::</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/assets/js/fullcalendar/fullcalendar.css" rel="stylesheet" />
+    <link href="/assets/js/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/assets/js/min/app-ck.js"></script>
+    <script type="text/javascript" src="/assets/js/highcharts/js/highcharts.js"></script>
+    <script type="text/javascript" src="/assets/js/highcharts/js/modules/exporting.js"></script>
+     <!-- <script type="text/javascript" src="assets/js/jquery.bootstrap.wizard.js"></script>  -->
+    <script src="/assets/js/fullcalendar/lib/moment.min.js"></script>
+    <script src="/assets/js/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+    <script src="/assets/js/fullcalendar/fullcalendar.min.js"></script>
+    <link href="/assets/css/lightbox.css" rel="stylesheet" />
+
+    <script src="/assets/js/numeral.js"></script>
+
+
+    <link rel="Stylesheet" type="text/css" href="/assets/css/jHtmlArea.css" />
+    <script type="text/javascript" src="/assets/js/jHtmlArea-0.8.js"></script>
+
+
+    <script src="/assets/js/jquery.sumoselect.min.js"> </script>
+    <link href="/assets/css/sumoselect.css" rel="stylesheet" />
+
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/css/flaticon.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/screen.css" rel="stylesheet">
+    <link href="/assets/css/media.css" rel="stylesheet">
+    <link href="/assets/css/print.css" rel="stylesheet">
+    <!---->
+
+    <script src="/assets/js/upload.js"></script>
+    <script src="/assets/js/autoRemove.js"></script>
+
+
+    <script type="text/javascript" src="/assets/js/datepicker/bootstrap-datepicker.js"></script>
+    <link href="/assets/js/datepicker/datepicker.css" rel="stylesheet">
+
+    <link href="/assets/js/ztable/table.css" rel="stylesheet">
+    <script src="/assets/js/ztable/table.js"></script>
+    <script src="/assets/js/lightbox.min.js"></script>
+
+    <script src="/assets/lib/Class.js"></script>
+    <script src="/assets/lib/Core.js"></script>
+    <script src="/assets/lib/Core/maps.js"></script>
+    <script src="/assets/lib/Core/provider.js"></script>
+    <script src="/assets/lib/Core/location.js"></script>
+    <script src="/assets/lib/Core/reports.js"></script>
+    <script src="/assets/lib/Core/campaings.js"></script>
+    <script src="/assets/lib/Core/users.js"></script>
+    <script src="/assets/lib/Core/mobile.js"></script>
+    <script src="/assets/lib/Core/delivery.js"></script>
+    <script src="/assets/lib/Core/status.js"></script>
+    <script src="/assets/lib/Core/mailist.js"></script>
+    <script src="/assets/lib/Core/arts.js"></script>
+    <script src="/assets/lib/Core/settings.js"></script>
+    <script src="/assets/lib/Core/audit.js"></script>
+    <script src="/assets/lib/Core/cine.js"></script>
+    <script src="/assets/lib/Core/export.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-default " id="header">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/dashboard">iClicAuditor</a>
+        </div>
+
+
+
+
+    <!--     <div id="project-context" class="">
+
+
+          <span class="label">Campañas:</span>
+          <span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Campañas Recientes: <i class="fa fa-angle-down"></i></span>
+          <ul id="recent-menu" class="dropdown-menu">           </ul>
+        </div>
+ -->
+        <div class="pull-right">
+
+                <!-- collapse menu button -->
+          <div id="hide-menu" class="btn-header pull-right">
+            <span> <a href="#" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+          </div>
+
+
+		   <div class="" style="margin-top:15px; font-size:16px;">
+            <p id="company_name"><%-session.user.company_name %> </p>
+          </div>
+
+          <div class="help-ribbon">
+           <!--  <p><a href="/help"><i class="fa fa-phone"></i> <strong>Soporte:</strong></a> 55810650 ext 107 </p> -->
+          </div>
+
+          <!-- <div id="searchMobile" class="btn-header transparent pull-right">
+            <span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+          </div> -->
+          <!-- <form action="#ajax/search.html" class="header-search pull-right" id="formDesktop">
+            <input type="text" name="param" placeholder="Find reports and more" id="search-fld">
+            <button type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+            <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+          </form> -->
+          <!-- <div id="fullscreen" class="btn-header transparent pull-right"> -->
+            <!-- <span> <a href="#"  id="launchFullScreen" onclick="launchFullscreen()" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span> -->
+          </div>
+
+        </div>
+
+      </div>
+    </nav>
+
+
+<div id="main">
+
+  <aside class="navigation">
+
+    <div class="login-info">
+      <span>
+
+        <div class="dropdown">
+          <a href="#" id="show-shortcut" data-toggle="dropdown" class="popover-trigger-element dropdown-toggle">
+          <!-- <img src="http://www.gravatar.com/avatar/<%-session.user.gravatar %>" alt="me" class="online">  -->
+            <img src="/assets/img/user7.gif" alt="me" class="online">
+            <span class="user_name">
+              <%-session.user.full_name %>
+            </span>
+            <!-- <i class="fa fa-angle-down"></i> -->
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+           <li>
+              <a href="/profile"><i class="fa fa-user"></i> Pérfil</a>
+            </li>
+            <li>
+              <a href="/settings"><i class="fa fa-cog"></i> Configuración </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/login"><i class="fa fa-power-off"></i> <%= __('Salir') %> </a>
+            </li>
+          </ul>
+        </div>
+
+
+      </span>
+    </div>
+
+    <nav class="navbar navbar-inverse " role="navigation" id="main-nav">
+            <ul class="nav" id="sidebar">
+             <%  for(x in session.nav){
+                if( x != 'settings' && session.nav[x][3]){
+                 %>
+                <li id="nav_<%- session.nav[x][4] %>">
+                  <a class="mainLink" href="<%- session.nav[x][1] %>" >
+                    <i class="<%- session.nav[x][2] %>"></i>
+                    <%- session.nav[x][0] %>
+                  </a>
+                </li>
+              <%  } }  %>
+
+            </ul>
+         </nav>
+    </aside>
+    <!-- ----------End Navigation -------- -->
+      <div id="page-content">
+        <div id="ribbon">
+          <span class="ribbon-button-alignment">
+            <span id="refresh" class="btn btn-ribbon" data-title="refresh" rel="tooltip" data-placement="bottom" >
+              <i class="fa fa-refresh"></i>
+            </span>
+          </span>
+          <ol class="breadcrumb"></ol>
+        </div>
+        <div class="container-fluid slowLoad" id="main_wrapper">
+        <%- body %>
+        </div>
+      </div>
+</div>
+
+    <script type="text/javascript">
+
+      $(document).ready(function(){
+
+
+        var path = window.location.pathname;
+        var page = path.split("/").pop();
+        $('#nav_'+page).addClass('active');
+
+        $('.fa fa-refresh').click(function(){
+            window.location.reload();
+        });
+
+
+         var str = '';
+
+        function setBreadcrumbs(){
+
+          var base_url  = window.location.origin;
+          var host      = window.location.host;
+          var parts     = window.location.pathname.split( '/' );
+          var base      = window.location.pathname;
+          var last      = base.substring(location.pathname.lastIndexOf("/") + 1);
+          var total     = parts.length-2;
+
+          var path  = '';
+          var url   = '';
+          for (var i = 0; i < (parts.length-1); i++) {
+              var name = parts[i] == '' ? 'Home' : parts[i];
+              var url  = base.substring(0,base.indexOf("/"+parts[i])+parts[i].length + 1);
+              var url  = url == '/dashboard' ? '/dashboard' : url;
+              var url  = i == total ? url+'/'+last : url;
+              path+="<li><a HREF=\""+url+"\">"+name+"</a></li> ";
+          }
+          $('.breadcrumb').html(path);
+        }
+
+        setBreadcrumbs();
+
+      });
+
+    $('#launchFullScreen').click(function(){
+
+        var el = document.documentElement
+            , rfs = // for newer Webkit and Firefox
+                   el.requestFullScreen
+                || el.webkitRequestFullScreen
+                || el.mozRequestFullScreen
+                || el.msRequestFullScreen
+        ;
+        if(typeof rfs!="undefined" && rfs){
+          rfs.call(el);
+        } else if(typeof window.ActiveXObject!="undefined"){
+          // for Internet Explorer
+          var wscript = new ActiveXObject("WScript.Shell");
+          if (wscript!=null) {
+             wscript.SendKeys("{F11}");
+          }
+        }
+
+    });
+
+    </script>
+
+    <script type="text/javascript">
+      // var __lc = {};
+      // __lc.license = 4934411;
+
+      // (function() {
+      //   var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+      //   lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+      // })();
+    </script>
+
+  </body>
+</html>

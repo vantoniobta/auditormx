@@ -1,0 +1,42 @@
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+      <h1 class="page-title txt-color-blueDark"><i class="glyphicon glyphicon-th-list"></i> Proveedores </h1>
+    </div>
+  </div>
+
+<section class="row" >          
+
+          <div class="col-md-12">
+
+            <div class="panel panel-default">
+                  <div class="panel-heading ">              
+                    <span class="widget-icon"> 
+                      <i class="fa fa-calendar"></i> 
+                    </span>
+                    <h2> Proveedores </h2>      
+
+                     <a class="btn btn-success btn-xs pull-right cancelbutton" href="/providers/view" type="button" id="btNewProvider">
+                        <i class="glyphicon glyphicon-plus-sign"> </i>  Nuevo
+                     </a>          
+                  </div>
+                  <div class="panel-body">
+                    <div class="padding-10">
+                      <div id="providersTable"></div>
+                    </div>
+                  </div>
+              </div>             
+            </div>          
+          </div>
+     </section>
+
+     
+
+<script>
+  $(window).load(function(){
+    var Provider = new Core_Provider({role:'<%-session.user.role %>'});
+        Provider.setDataGrid();
+  });
+
+
+  </script>
+

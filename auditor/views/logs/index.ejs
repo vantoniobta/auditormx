@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+    <h1 class="page-title txt-color-blueDark"><i class="glyphicon glyphicon-filter"></i> Logs </h1>
+  </div>
+</div>
+
+  
+<section class="row" >    
+  <div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading ">              
+          <span class="widget-icon"> 
+            <i class="fa fa-calendar"></i> 
+          </span>
+          <h2> Logs </h2> 
+        </div> <!-- end panel heading -->
+          <div class="panel-body ">
+            <div class="padding-10">
+              <div id="logsTable"></div>
+            </div>
+        </div> <!-- end panel-body -->        
+    </div><!--  end panel -->      
+  </div> <!-- end col-md-12 -->
+</section>
+
+<script type="text/javascript">
+
+      window.statusTable = $('#logsTable').Table({         
+             id : 'lasts',
+             width : '100%',             
+             source:'/logs/table',
+             rows:10,            
+             searcher:true,
+             sortable:true,             
+             primary:'_id',
+             headers : [ 
+                    {db:'id',name:'Código',classname:'left',width:'15%'},
+                    {db:'user_name',name:'Usuario',classname:'left',width:'15%'},                    
+                    {db:'createdAt',name:'Fecha',classname:'left',width:'10%',valueFunction:function(i,o){  
+                        var months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+                        var  tdate = new Date(o.createdAt);
+                        var  date = tdate.getDate()+'-'+ months[tdate.getMonth()]+'-'+tdate.getFullYear() +' '+ tdate.getHours()+':'+tdate.getMinutes();                                                   
+                        return date;
+                    }},                    
+                    {db:'message',name:'Mensaje',classname:'left',width:'15%'}
+                 ],
+            onCompleteRequest : function(){  
+                $('.status_tooltip').tooltip();
+            }
+        });
+
+
+</script>

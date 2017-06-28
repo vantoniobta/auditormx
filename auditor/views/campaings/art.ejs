@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+    <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Versiones </h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-7" class='versions_content'> 
+    <div class="controls">                   
+      <div class="input-group">   
+
+        <form class="" method="post" id="type_form" action="/campaings/art/<%- id %>">
+          <select id="type" name="type">
+            <option value=""> Todos </option>
+            <% for ( j in versions) { 
+                if ( versions[j].type == type){ %>
+                  <option value="<%- versions[j].type %>" selected="selected" > Espectaculares </option>
+            <%  } else if( versions[j].type != null){ %>
+                  <option value="<%- versions[j].type %>" > Espectaculares </option>
+            <%  } %>
+            <% } %>
+          </select>
+        </form>
+
+      </div> 
+    </div> 
+  </div> 
+</div>        
+
+<br>   
+<br>   
+
+<section class="row" >          
+    <div class="col-md-12" class='versions_content'>
+
+      <% for (i in versions) { %>
+      <div class="panel panel-default" > 
+        <div class="panel-heading"> 
+          <span class="widget-icon"> <i class="fa fa-calendar"></i> </span> 
+          <h4> <%= versions[i].dimensions %> [<%= versions[i].quantity %>] </h4> 
+        </div> 
+
+        <div id="<%= versions[i].label %>" class="version"></div>
+
+        <div class="row text-right" style="margin-left:20px"> 
+          <form class="upload-version-form" enctype="multipart/form-data" method="post" id="<%= versions[i].label%>_form">
+            <div class="col-md-3"> 
+              <div class="form-group"> 
+                <!--label class="control-label" for="start">Adjuntar Archivo de Impresión</label--> 
+                <div class="controls">                   
+                  <div class="input-group">   
+                    <input type="hidden" name="campaing-art" id="campaing-art" value="<%- id %>">
+                    <input type="hidden" name="dimensions" id="dimensions" value="<%-versions[i].dimensions %>">
+                    <input type="file" name="<%= versions[i].label %>_image" id="<%= versions[i].label %>_image" > 
+                    <div id="progressNumber"></div> 
+                    <p id="progressBar"></p> 
+                  </div> 
+                </div> 
+              </div> 
+            </div> 
+
+            <div class="col-md-3"> 
+              <div class="form-group" style="margin-top:-10px;"> 
+                <div class="controls">                           
+                  <button type="submit" class="btn btn-success btn-small">
+                    <i class="glyphicon glyphicon-floppy-saved"> </i> 
+                    Guardar
+                  </button> 
+                </div> 
+              </div>  
+            </div>
+
+          </form>
+        </div> 
+
+      </div> 
+      <% } %>
+       
+    </div>
+</section>
+
+<script>
+  $(window).load(function(){
+    var art = new Core_Art({role:'<%-session.user.role %>'});
+    art.run(<%- id.split('-')[1] %>);
+
+    
+
+  });
+  </script>

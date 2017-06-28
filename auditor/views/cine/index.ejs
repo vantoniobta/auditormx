@@ -1,0 +1,75 @@
+
+<div class="row">
+	<div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+		<h1 class="page-title txt-color-blueDark"><i class="fa fa-video-camera"></i> Cine </h1>
+	</div>
+	<div class="col-xs-12 col-sm-5 col-md-5 col-lg-8"> </div>
+</div>
+
+<section class="row ">
+	<div class="col-md-4 hide">
+
+		<%- partial ('add-form.ejs') %>
+		<br>
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" src="http://player.vimeo.com/video/105960556" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%"></iframe>
+		</div>
+
+	</div> <!-- end col-md-4 -->
+
+	<div class="col-md-4">
+
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" src="http://player.vimeo.com/video/105960556" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%"></iframe>
+		</div>
+		<br>
+		<div class="embed-responsive embed-responsive-16by9">
+			<iframe class="embed-responsive-item" src="http://player.vimeo.com/video/109049633" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen width="100%"></iframe>
+		</div>
+		<br>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="padding-10">
+					<h2 style="font-weight:500;">SALAS CONTRATADAS</h2>
+					<hr>
+					<p">Cinemex: <span style="font-weight:600;">2,363</span></p>
+					<p">Cinepolis: <span style="font-weight:600;">2,874</span></p>
+					<br>
+					<h2 style="font-weight:500;">SPOTS CONTRATADOS</h2>
+					<hr>
+					<p">Cinemex: <span style="font-weight:600;">0</span></p>
+					<p">Cinepolis: <span style="font-weight:600;">14,360</span></p>
+					<br>
+					<br>
+				</div>
+			</div>
+		</div>
+
+	</div> <!-- end col-md-4 -->
+
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading ">
+				<span class="widget-icon">
+					<i class="fa fa-video-camera"></i>
+				</span>
+				<h2>Complejos</h2>
+			</div>
+			<div class="panel-body">
+				<div class="padding-10">
+					<div id="locationTable"></div>
+				</div>
+			</div>
+		</div> <!-- end panel -->
+	</div> <!-- end col-md-8 -->
+
+</section>
+
+
+<script>
+
+
+var Cines = new Core_Cine({role:'<%-session.user.role %>'});
+Cines.index();
+
+ </script>

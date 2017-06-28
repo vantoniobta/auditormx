@@ -1,0 +1,163 @@
+
+ <div class="row">
+          <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+            <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-map-marker"></i> Publicidad Móvil </h1>
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8"> </div>
+        </div>
+
+<section class="row">
+		<div class="col-md-4">
+
+			<div id="filters" class="panel panel-default">
+              <div class="panel-heading ">              
+                <span class="widget-icon"> 
+                  <i class="fa fa-calendar"></i> 
+                </span>
+                <h2> Filtros </h2>           
+              </div>
+              <div class="panel-body">
+                
+                <div class="padding-10">                   
+					<form class="form-vertical" action="" method="post" id="">                                      
+
+	                  <div class="form-group  hide">
+	                   	<select id="campaing" class="form-control">
+						  	       <option>Por Campaña</option>
+                       <option value="1">Por Campaña</option>
+						</select>
+	                  </div>
+	                   <div class="form-group">
+                      <label> Por Proveedores </label>
+	                   	<select id="provider" class="form-control">
+					  		     <option value="*">Todos</option>                
+						</select>
+	                  </div>
+	                  <div class="form-group">
+                      <label> Por Estados </label>
+  	                    <select id="state" class="form-control">
+          							 <option value="*">Todos</option>                      
+  						          </select>
+	                  </div>
+
+                    <div class="form-group">
+                        <label> Por Estatus </label>
+                        <select id="active" name="active" class="form-control">
+                         <option value="*">Todos</option>
+                         <option value="1">Disponibles</option>                      
+                         <option value="0">No disponibles</option>                      
+                        </select>
+                    </div>
+		            </form>	<!-- end form -->		
+                </div>
+              </div> 
+            </div> <!-- end panel -->      
+
+            <div id="upload-location-container" class="panel panel-default">
+              <div class="panel-heading ">              
+                <span class="widget-icon"> 
+                  <i class="fa fa-calendar"></i> 
+                </span>
+                <h2> Cargar Publicidad Móvil </h2>           
+              </div>
+              <div class="panel-body">
+                <div class="padding-10">
+                  <form class="form-vertical" action="" method="post" enctype="multipart/form-data" id="form-upload">             
+						          <div class="form-group">
+		                   <input type="file" id="csvfile" name="csvfile" class="" accept="text/csv">
+		                   <div id="progressNum"></div>      
+                         <div  id="progressBar" class="progresstrip">
+                            <div class="progress-inner"></div>
+                         </div>    
+
+		                  </div>
+  		                <div class="form-group">
+  		                   <button type="submit" class="btn btn-success btn-block"><i class="glyphicon glyphicon-upload"> </i> Subir</button>
+  		                </div>
+	            	  </form>
+                </div>
+              </div>  
+            </div> <!-- end panel -->            
+		  
+          <div id="lists-container" class="panel panel-default">
+              <div class="panel-heading ">              
+                <span class="widget-icon"> 
+                  <i class="fa fa-calendar"></i> 
+                </span>
+                <h2> Listas </h2> 
+              </div>
+              <div class="panel-body">
+                <div class="padding-10">
+                    
+                    <form class="form-vertical" action="" method="post" id="">   
+                      <div class="form-group">
+                        <!-- <label> </label> -->
+                        <select id="list" name="list" class="form-control">
+                         <option value="0">Selecciona una lista </option>                                      
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <button class="btn btn-success btn-sm"><i class="glyphicon glyphicon-eye-open"> </i> Ver Lista </button>
+                        <button id='down-csv' class="btn btn-success btn-sm"><i class="glyphicon glyphicon-download"> </i> Descargar CSV </button>
+                        
+                      </div>
+
+                    </form>
+
+                </div>
+              </div>  
+            </div> <!-- end panel -->    
+
+    </div> <!-- end col-md-4 -->
+
+		<div class="col-md-8">										
+			<div class="panel panel-default">
+              <div class="panel-heading ">              
+                <span class="widget-icon"> 
+                  <i class="fa fa-calendar"></i> 
+                </span>
+                <h2> Publicidad Móvil </h2>           
+              </div>
+              <div class="panel-body">
+                <div class="padding-10">
+                  <div id="locationTable"></div>                 
+                </div>
+              </div> 
+
+              <div id="lists-container-footer" class="panel-footer"> 
+                
+                  <button id="addlist"class="btn btn-success btn-sm"> <i class="glyphicon glyphicon-circle-arrow-up"> </i>  Agregar a Lista</button>
+                  <button id="newlist" class="btn btn-primary btn-sm"> <i class="glyphicon glyphicon-plus-sign"> </i> Crear lista nueva </button>
+                  
+                  <div class="process_loader pull-right"></div>
+
+                  <div class="row" id="create-list-container">                
+                    <div class="col-md-9">
+                       <div class="input-group" >                      
+                          <input type="text" class="form-control" name="listname" id="listname" placeholder="Agregar nombre de la lista">
+                          <span class="input-group-addon input-group-addon-auditor"> 
+                            <button id="btn-save-list" class="btn btn-default btn-xs"> <i class="glyphicon glyphicon-plus-sign"> </i> Guardar </button>
+                            <button id="btn-cancel-createlist" class="btn btn-danger btn-xs"> <i class="glyphicon glyphicon-remove-sign"> </i> Cancelar </button>
+                          </span>
+                        </div><!-- /input-group -->
+                    </div> <!-- col-md-9 -->
+                    <div class="col-md-3" id="list-loader-container">
+                        <div class="process_loader"></div>
+                    </div><!-- col-md-3-->
+                </div>  <!-- row -->
+              </div> <!-- panel-footer -->
+            </div> <!-- end panel -->      	
+		</div> <!-- end col-md-8 -->
+</section>
+
+
+<script>
+  $(window).load(function(){
+    var CMobile = new Core_Mobile({role:'<%-session.user.role %>'});
+        CMobile.index();
+        CMobile.setDataTable();
+        CMobile.createCSV();
+        CMobile.setUploadForm();
+  });
+  </script>

@@ -1,0 +1,28 @@
+ 
+ 
+<div class="row panel-login-container" >
+    <div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+    <div class="card panel-login">
+      <div class="card-block">      
+        <form action="/login" method="post">       
+            <h2 class="title"><span >Recuperar  </span>  Acceso</h2>
+            <div class="form-group">
+             <label class="separate">Email:</label>
+                <input type="text" name="user_code" class="span10 form-control"/>
+                <div class="msg_input"></div>
+              <span  class="help-block">Favor de ingresar el email que usas para iniciar sesión.</span>
+            </div>
+            
+             <div class="form-group">                               
+                <button class="btn btn-secondary btn-lg btn-block" >Iniciar proceso</button>                                
+            </div>          
+          <div class="form-group">
+            <br/>
+              <a href="/login/activate" class="lostpassword button_green"><span class="glyphicon glyphicon-chevron-right"></span> Activar cuenta! </a>
+              <a href="/login/" class="pull-right"><span class="glyphicon glyphicon-lock"></span> Iniciar Sesión! </a>      
+          </div>                  
+        </form> <!-- end form -->
+      </div> <!-- end panel-body -->
+    </div> <!-- end panel -->
+  </div> <!-- end col  -->
+ </div> <!-- end row -->

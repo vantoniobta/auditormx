@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+      <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Iclic Auditor</title>
+
+
+    <!-- Fonts  -->
+    <link href='/cdn/fonts.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/cdn/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/cdn/font-awesome-4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/selectize/dist/css/selectize.legacy.css">
+    <link rel="stylesheet" href="/lib/selectize/dist/css/selectize.bootstrap3.css">
+
+    <script src="/cdn/jquery.min.js"></script>
+    <script src="/cdn/jquery.easing.min.js"></script>
+    <script src="/cdn/tether.min.js"></script>
+    <script src="/cdn/bootstrap.min.js"></script>
+    <script src="/lib/bootbox.min.js"></script>
+    <script src="/lib/selectize/dist/js/standalone/selectize.min.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBYv97mZTTw1LokIg3P2YvcXS_SvhiZN0&signed_in=true"
+        async defer></script>
+
+
+    <!-- Main Style Theme -->
+    <link type="text/css" rel="stylesheet" href="/css/styles.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/css/login.css"  media="screen,projection"/>
+
+  </head>
+  <body>
+
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse nav-schoolar ">
+  <div class="container">
+  <a class="navbar-brand" href="#">Iclic  <cite>Auditor</cite></a>
+    <ul class="nav navbar-nav pull-xs-left">
+
+      <li class="nav-item " id="nav_login">
+        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item" id="nav_login_activate">
+          <a class="nav-link" href="/login/activate">Activar Cuenta</a>
+      </li>
+      <li class="nav-item" id="nav_help">
+          <a class="nav-link" href="/help"><i class="fa fa-comment"></i> Help </a>
+      </li>
+       <li class="nav-item" id="nav_signup">
+        <a class="nav-link" href="/signup">Registro  </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+    <div class="container boxheight">
+        <%- body %>
+    </div>
+
+  </body>
+  <script type="text/javascript">
+  $(function() {
+
+  // Handler for .ready() called.
+  var path = window.location.pathname;
+  var controller =  path.split("/").length === 3 ? path.split("/")[1] : path.split("/").pop();
+  var action     = path.split("/").length === 3 ? '_'+path.split("/").pop() : '';
+
+  $('#nav_'+controller+action).addClass('active');
+});
+
+  </script>
+</html>

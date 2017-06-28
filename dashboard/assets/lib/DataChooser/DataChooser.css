@@ -1,0 +1,136 @@
+.zdatachooser .search-container {
+    margin-bottom: 10px;
+    padding-bottom: 15px
+}
+
+.zdatachooser .search-container .form-control {
+    font-size: 12px
+}
+
+.zdatachooser .hide {
+    display: none
+}
+
+.zdatachooser .zrow {
+    border: 1px solid #ccc;   
+    padding: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 400;
+    background-color:#fff;
+    margin-bottom: 5px;
+}
+
+.zdatachooser .zrow:hover {
+    background-color: rgba(52, 152, 219, 0.1)
+}
+
+.zdatachooser .zrow:active {
+    background-color: rgba(52, 152, 219, 0.1)
+}
+
+.zdatachooser .zrow:last-child {
+    border-bottom: 1px solid #ccc
+}
+
+.zdatachooser .active {
+    color: #fff;
+    background-color: #2980b9
+}
+
+.zdatachooser .active:hover {
+    background-color: #2980b9
+}
+
+.zdatachooser .showmore {
+    background-color: #2980b9
+}
+
+.zdatachooser .loadmore {
+    margin: 10px 0px;
+    color: #fff;
+    border: 0;
+    background-color: #2980b9
+}
+
+.zdatachooser .loadmore:hover {
+    background-color: #2980b9
+}
+
+.zdatachooser .loadmore:active {
+    background-color: rgba(0, 0, 0, 0.2)
+}
+
+.csspinner {
+    position: relative;
+    width: 20px
+}
+
+.csspinner:before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #999999;
+    opacity: 0.6
+}
+
+.csspinner:after {
+    z-index: 2;
+    content: "";
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    -webkit-transition: all .75s ease 0s;
+    transition: all .75s ease 0s;
+    border-radius: 100%;
+    border-top: 4px solid #555555;
+    -webkit-animation: standard .75s infinite linear;
+    animation: standard .75s infinite linear;
+    -webkit-transform-origin: center;
+    -ms-transform-origin: center;
+    transform-origin: center
+}
+
+.csspinner.no-overlay:before {
+    content: none;
+    display: none
+}
+
+@-webkit-keyframes standard {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes standard {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.csspinner.traditional:after {
+    border-right: 4px solid #777777;
+    border-top: 4px solid #777777;
+    border-left: 4px solid #999999;
+    border-bottom: 4px solid #bbbbbb
+}
+
+
+/*# sourceMappingURL=DataChooser.css.map */

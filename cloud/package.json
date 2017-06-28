@@ -1,0 +1,37 @@
+{
+  "name": "services",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha tests/index.js "
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "formidable": "^1.0.17",
+    "fs-extra": "^0.30.0",
+    "imagemagick": "^0.1.3",
+    "imagemagick-native": "^1.9.2",
+    "jade": "~1.11.0",
+    "mime": "^1.3.4",
+    "morgan": "~1.6.1",
+    "multer": "^1.1.0",
+    "mv": "^2.1.1",
+    "node-twitter-api": "~1.7.0",
+    "os-tmpdir": "^1.0.1",
+    "qr-image": "latest",
+    "quickthumb": "0.0.12",
+    "rand-token": "^0.2.1",
+    "sanitizer": "^0.1.3",
+    "serve-favicon": "~2.3.0",
+    "should": "^9.0.0",
+    "supertest": "^1.2.0",
+    "tape": "^4.5.1",
+    "tenant": "git+https://github.com/ferso/tenant.git",
+    "underscore": "^1.8.3",
+    "util": "^0.10.3"
+  }
+}

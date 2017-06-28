@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Your Website</title>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+<body>	
+	<form id="formtest" method="post" action="http://localhost:8890" name="submit" enctype="multipart/form-data" >
+	<input type="text" name="width" id="width">
+	<input type="text" name="height" id="height">
+	 <label>Upload File</label>
+	  <input type="file" name="fileField" id="fileField" multiple><br /><br />
+	  <input type="submit" name="submit" value="Submit">
+	</form>
+</body>
+
+
+
+<script type="text/javascript">
+	
+	$('#formtest').submit(function(){
+
+	    var formData = new FormData($(this)[0]);
+	    $.ajax({
+	        url: 'http://localhost:8890',
+	        type: 'POST',
+	        data: formData,
+	        async: false,
+	        success: function (data) {
+	            alert(data)
+	        },
+	        cache: false,
+	        contentType: false,
+	        processData: false
+	    });	
+	    
+		return false;
+	})
+
+</script>
+</html>
+	

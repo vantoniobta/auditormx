@@ -1,0 +1,86 @@
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-globe"></i> Mapas </h1>
+      </div>
+     </div>
+
+     <div class="row">
+         <div class="col-md-4">       
+            <select id="state" name="state" required="required" class="form-control">
+              <option value="0">Todos los Estados</option>
+              <option value="1" >Distrito Federal</option>
+              <option value="2">Aguascalientes</option>
+              <option value="3">Baja California</option>
+              <option value="4">Baja California Sur</option>
+              <option value="5">Campeche</option>
+              <option value="6">Chiapas</option>
+              <option value="7">Chihuahua</option>
+              <option value="8">Coahuila</option>
+              <option value="9">Colima</option>
+              <option value="10">Durango</option>
+              <option value="11">Guanajuato</option>
+              <option value="12">Guerrero</option>
+              <option value="13">Hidalgo</option>
+              <option value="14">Jalisco</option>
+              <option value="15">Estado de México</option>
+              <option value="16">Michoacán</option>
+              <option value="17">Morelos</option>
+              <option value="18">Nayarit</option>
+              <option value="19">Nuevo León</option>
+              <option value="20">Oaxaca</option>
+              <option value="21">Puebla</option>
+              <option value="22">Querétaro</option>
+              <option value="23">Quintana Roo</option>
+              <option value="24">San Luis Potosí</option>
+              <option value="25">Sinaloa</option>
+              <option value="26">Sonora</option>
+              <option value="27">Tabasco</option>
+              <option value="28">Tamaulipas</option>
+              <option value="29">Tlaxcala</option>
+              <option value="30">Veracruz</option>
+              <option value="31">Yucatán</option>
+              <option value="32">Zacatecas</option>
+            </select>       
+        </div>
+        <div class="col-md-4">       
+          <select name="type" class="form-control">
+            <option value="1" selected>Espectaculares</option>
+            <option value="2">Vial</option>
+            <option value="3">Cine</option>
+            <option value="0">Todos</option>
+          </select>           
+        </div>
+
+        <div class="col-md-4">       
+          <select name="campaing" class="form-control">
+            <option value="-1">Selecciona una Campaña</option>
+            <option value="1">Verde</option>
+            <option value="2">No Violencia</option>
+            <option value="3">Cadena Perpetua</option>
+          </select>           
+        </div>
+
+  </div>
+  <div class="padding-10"></div>
+  <div class="row">
+       <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+       <div class="col-md-12">        
+             <div id="map_canvas" style="width:100%; height:100%"></div>       
+        </div>
+  </div>  
+
+ 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="/assets/js/markerclusterer.min.js"></script>;      
+    
+
+  <script>
+  $(window).load(function(){
+    var Map = new Core_Map();
+        Map.run();
+
+   
+  });
+  </script>

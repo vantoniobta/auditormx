@@ -1,0 +1,36 @@
+
+/* .Login
+------------------------------------------------ */
+.panel-login-container{
+
+  padding-top:50px;
+
+  .title{
+
+  	color:#e45719;
+  	span{
+  		color:#e45719;
+	  	font-weight:500; 
+	  	letter-spacing:-1px
+	  }
+  }
+
+}
+
+.panel-login {    
+    color: #1a1a1a;
+    padding: 20px;
+    margin-top: 50px;
+    label{
+	  font-weight: 300;
+	}
+}
+
+.help-block{
+  font-size: 11px;
+  padding: 0;
+}
+
+.bootstrap-select.btn-group, .bootstrap-select.btn-group[class*="span"] {
+  margin-bottom: 0 !important;
+}

@@ -1,0 +1,108 @@
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+      <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-home"></i> Direcciones de Entrega </h1>
+    </div>
+  </div>
+
+<section class="row" >    
+
+
+    <div class="col-md-4">
+
+      <div id="filters" class="panel panel-default">
+          <div class="panel-heading ">              
+            <span class="widget-icon"> 
+              <i class="fa fa-calendar"></i> 
+            </span>
+            <h2> Agregar Dirección de Entrega </h2>           
+          </div>
+          <div class="panel-body">
+            <form class="form-vertical " action="" method="post" id="delivery-create">
+              <div class='form-group'>
+
+                <div class='controls col-md-12'  style='margin-top:15px'>
+                  <label class='control-label' for='name'> Dirección de entrega </label>
+                  <textarea type='text' class='form-control' id='address' name='address' style='margin-bottom:15px' required></textarea>
+                </div>
+
+                <br>
+
+                <div class='controls col-md-6'>
+                  <label class='control-label' for='name'> Estado </label>
+                  <select class='form-control' id='state' name='state' required>
+                  </select>
+                </div>
+
+                <div class='controls col-md-6'>
+                  <label class='control-label' for='name'> Tipo de Publicidad </label>
+                  <select class='form-control' id='type' name='type' required>
+                    <option value="Espectaculares"> Espectaculares </option>
+                    <option value="Autobuses"> Autobuses </option>
+                    <option value="Parabuses"> Parabuses </option>
+                    <option value="Cine"> Cine </option>
+                    <option value="Kioscos"> Kioscos</option>
+                  </select>
+                </div>
+
+                <div class="controls" >                          
+                  <button type="submit" style='margin:15px 0px 0px 15px' class="btn btn-default btn-small">
+                    <i class="glyphicon glyphicon-floppy-saved"> </i> Guardar
+                  </button>                        
+                </div>
+
+              </div> 
+
+            </form>  
+          </div> 
+      </div> <!-- end panel -->      
+        
+
+    </div> <!-- end col-md-4 -->
+
+
+
+    <div class="col-md-8">                    
+      <div class="panel panel-default">
+              <div class="panel-heading ">              
+                <span class="widget-icon"> 
+                  <i class="fa fa-calendar"></i> 
+                </span>
+                <h2> Direccones de Entrega </h2>           
+              </div>
+              
+              <div class="panel-body">
+                <div class="padding-10">
+                  <div id="deliveryTable"></div>                 
+                </div>
+              </div> 
+
+              <div id="lists-container-footer" class="panel-footer"> 
+
+                <div class="row" id="create-list-container">                
+                   
+                </div>  <!-- row -->
+              </div> <!-- panel-footer -->
+
+            </div> <!-- end panel -->       
+    </div> <!-- end col-md-8 -->
+
+
+
+
+</section>
+                 
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  })
+
+</script>
+
+<script>
+  $(window).load(function(){
+    var Delivery = new Core_Delivery({role:'<%-session.user.role %>'});
+        Delivery.run();
+        Delivery.setDataTable();
+  });
+  </script>

@@ -1,0 +1,98 @@
+	<div id="filters" class="panel panel-default">
+		<div class="panel-heading ">
+			<span class="widget-icon">
+			<i class="fa fa-calendar"></i>
+			</span>
+			<h2> Filtros </h2>
+		</div>
+		<div class="panel-body">
+
+		    <div class="padding-10">
+
+		        <form class="form-vertical" action="" method="post" id="formCine">
+
+					<input type="hidden" id="modeForm" name="modeForm" value="add">
+					<input type="hidden" id="cineid" name="cine[id]" value="0">
+
+					<div class="form-group">
+						<label class="control-label" for="cine[supplier_id]"> Franquicia: </label>
+						<div class="controls">
+							<select id="supplier_id" name="cine[supplier_id]" required="true" class="form-control" >
+								<option value="82">Cinepolis</option>
+								<option value="81">Cinemex</option>
+							</select>
+						</div>
+					</div><!-- end-form-group -->
+
+					<div class="form-group">
+						<label class="control-label" for="cine[name]">Nombre de complejo: </label>
+						<div class="controls">
+							<input type="text" id="name" name="cine[name]" class="form-control" required="true"/>
+						</div>
+					</div><!-- end-form-group -->
+
+					<div class="form-group">
+						<label class="control-label" for="cine[city]">Ciudad: </label>
+						<div class="controls">
+							<input type="text" id="name" name="cine[city]" class="form-control" required="true"/>
+						</div>
+					</div><!-- end-form-group -->
+
+					<div class="form-group">
+						<label class="control-label" for="cine[state]">Estado: </label>
+						<div class="controls">
+							    <select id="state" name="cine[state]" required="true" class="form-control" >
+								    <option value="Aguascalientes">Aguascalientes</option>
+								    <option value="Baja California">Baja California</option>
+								    <option value="Baja California Sur">Baja California Sur</option>
+								    <option value="Campeche">Campeche</option>
+								    <option value="Chiapas">Chiapas</option>
+								    <option value="Chihuahua">Chihuahua</option>
+								    <option value="Coahuila">Coahuila</option>
+								    <option value="Colima">Colima</option>
+								    <option value="Distrito Federal">Distrito Federal</option>
+								    <option value="Durango">Durango</option>
+								    <option value="Estado de México">Estado de México</option>
+								    <option value="Guanajuato">Guanajuato</option>
+								    <option value="Guerrero">Guerrero</option>
+								    <option value="Hidalgo">Hidalgo</option>
+								    <option value="Jalisco">Jalisco</option>
+								    <option value="Michoacán">Michoacán</option>
+								    <option value="Morelos">Morelos</option>
+								    <option value="Nayarit">Nayarit</option>
+								    <option value="Nuevo León">Nuevo León</option>
+								    <option value="Oaxaca">Oaxaca</option>
+								    <option value="Puebla">Puebla</option>
+								    <option value="Querétaro">Querétaro</option>
+								    <option value="Quintana Roo">Quintana Roo</option>
+								    <option value="San Luis Potosí">San Luis Potosí</option>
+								    <option value="Sinaloa">Sinaloa</option>
+								    <option value="Sonora">Sonora</option>
+								    <option value="Tabasco">Tabasco</option>
+								    <option value="Tamaulipas">Tamaulipas</option>
+								    <option value="Tlaxcala">Tlaxcala</option>
+								    <option value="Veracruz">Veracruz</option>
+								    <option value="Yucatán">Yucatán</option>
+								    <option value="Zacatecas">Zacatecas</option>
+								</select>
+						</div>
+					</div><!-- end-form-group -->
+
+					<div class="form-group">
+						<label class="control-label" for="cine[room_count]">No. de salas: </label>
+						<div class="controls">
+							<input type="number" id="name" name="cine[room_count]" class="form-control" required="true"/>
+						</div>
+					</div><!-- end-form-group -->
+
+
+		        	<div class="form-group">
+		        		<div class="controls">
+		        		 	<button type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-floppy-saved"> </i> Guardar</button>
+		        		</div>
+		        	</div> <!-- end-form-group -->
+
+		        </form><!-- end form -->
+		    </div> <!-- padding-10 -->
+		</div> <!-- end-panel-body    -->
+	</div> <!-- end panel -->

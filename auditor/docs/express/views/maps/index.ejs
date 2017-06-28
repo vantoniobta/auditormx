@@ -1,0 +1,52 @@
+
+<div class="span11">
+    <div class="boxcontainer">
+      <div class="boxHeader">
+        <div class="inner">
+          <h3><i class="icon-globe"></i> Mapa</h3>
+           <% include search_form.ejs %>
+          <div class="fix"></div>              
+
+        </div>
+      </div>
+      <div class="inner innercontent" >
+        <div id="map_canvas">  </div>
+      </div>
+  </div>
+  <div class="boxFooter"></div>
+ </div><!--/span-->
+
+ <div class="span4 hide">
+     <div class="boxcontainer">
+        <div class="boxHeader large" id="sidebar">
+          <div class="inner">
+            <h3 class="full"> Agregar a sitios activos</h3>             
+          </div>
+        </div>
+        
+        <div class="inner innercontent" id="infoContent">
+          <div class="formBox" id="sideCont">
+            <%- include form.ejs %>
+          </div>
+        </div>
+      </div>
+      <div class="boxFooter"></div>
+ </div>
+
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+ <script type="text/javascript" src="/assets/js/markerclusterer.min.js"></script>
+ <script type="text/javascript" src="/assets/js/markermanager.min.js"></script>
+
+
+  <script>
+  $(window).load(function(){
+    var Map = new App_Map();
+       var role = '<%-role %>';
+        if(role != 'supplier'){
+                Map.runAdmin();
+        }else{ 
+          var id= "<%-id%>";
+            Map.runSupplier(id);
+        }
+  });
+  </script>

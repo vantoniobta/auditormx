@@ -1,0 +1,37 @@
+<div class="row panels">
+	<div class="col-md-3  sidepanel">
+		<div class="panel-body"></div>
+	</div>
+	<div class="col-md-9  workspace">
+			<div class="panel-body " id="workspace">
+				<div id="mytable"></div>
+			</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+//update logs valentin
+var headers = {
+  'action'       :{name:'Action',width:'50px',type:'text', align:'left',label:'primary'},
+  'users'        :{name:'Name',width:'30px',type:'text', value:function(i,o){
+    return o.users.name;
+     }},
+  'createdAt'    :{name:'Fecha-Hora',width:'30px',type:'text', align:'center' }
+  };
+//#theTable es el id del div element en el html
+$('#mytable').Table({
+  source   :'/logs/table',/// la ruta de donde tomará los datos
+  method   :'GET',
+  type     :'table',
+  tooltips :true,
+  rows     :10,
+  sortable :false,
+  checkbox :false,
+  headers  :headers,
+  onCompleteRequest:function(){
+
+  }
+
+});
+
+</script>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>::: iClic Auditor :::</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+
+    </style>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/css/font-awesome-ie7.css" rel="stylesheet">
+
+     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.file-input.js"></script>
+
+    <script src="assets/js/highcharts/js/highcharts.js"></script>
+    <script src="assets/js/highcharts/js/modules/exporting.js"></script>
+
+      <script src="assets/js/yagami/yagami.js"></script>
+      <link href="assets/js/yagami/yagami.css" rel="stylesheet">
+
+     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,500,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+
+</head>
+<body onLoad="initializeMaps()">
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <img src="assets/img/iclic-1.png" width="85" class="mainLogo">
+          <a class="brand" href="/">  iClic Auditor </a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+
+              <li class="divider-vertical"></li>
+              <li class="dropdown">
+
+                <div class="btn-group">
+                  <a class="btn btn-primary btn-small" href="#"><i class="icon-user icon-white"></i>
+                    DIFUSION PANORAMICA S.A. DE C.V.</a>
+                  <a class="btn btn-primary btn-small dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                          <li><a href="/settings">Actualizar Perfil</a></li>
+                          <li><a href="/admin">Administrar</a></li>
+                          <li class="divider"></li>
+                          <li><a href="/login">Salir</a></li>
+                        </ul>
+                </div>
+
+              </li>
+            </ul>
+
+            <ul class="nav pull-left links">
+
+                <li class="">
+                <a href="/dashboard2"> Dashboard</a>
+              </li>
+
+           <!--  <li class="">
+              <a href="/suppliers"> Proveedores </a>
+            </li> -->
+
+            <li class="">
+              <a href="/tickets"> Tickets </a>
+            </li>
+            <li class="">
+              <a href="/reports2"> Reportes</a>
+            </li>
+
+          </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" id="content">
+
+
+
+            <%-body %>
+
+
+  <!-- <hr class="dark"> -->
+
+  <br/>
+
+      <footer>
+        <p>&copy; iClic 2012</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+  </body>
+</html>
+
+
+<script type="text/javascript">
+
+
+   sidebarSize();
+
+  $(window).resize(sidebarSize);
+
+  function sidebarSize(){
+    // console.log('hola');
+    var x = $('.mainArea').height();
+    var y = $('.mainArea').children('.boxFooter').height();
+    var z = $('.sidebar').height();
+    console.log('1:' +z + ' 2:' + x );
+
+    if ((x+y) > z){
+
+      $('#sideCont').height(x -23).css('z-index','-900');
+      $('.pagerC').height(x - 23).css('z-index','-900');
+      $('.sidebar').children('.boxcontainer').height(x - 40).css('z-index','100');
+      $('#correctHeight').height(x + 53).css('z-index','-900');
+      $('.mainArea').css('z-index','900');
+
+    }else{
+      $('.mainArea').children('.boxcontainer').height(z - 192);
+
+    }
+  };
+
+
+
+
+
+</script>

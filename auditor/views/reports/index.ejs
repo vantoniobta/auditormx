@@ -1,0 +1,126 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+    <h1 class="page-title txt-color-blueDark"><i class="fa fa-fw fa-list-alt"></i> Reportes </h1>
+  </div>
+</div>
+
+
+<section class="row" >
+	<div class=" col-xs-12">
+
+	<div class="panel panel-default">
+		<div class="padding-10">
+	        <div class="panel-body " id="recount">
+
+					<ul class="row" >
+
+					</ul>
+					<div class="fix"></div>
+
+	        </div>
+        </div>
+    </div>
+    </div>
+
+</section>
+
+
+<section class="row hide">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                  <span class="widget-icon">
+                    <i class="fa fa-map-marker"></i>
+                  </span>
+                  <h2> Reporte de Sitios </h2>
+                  <div class="pull-right" style="margin:8px 15px 0 0;">
+                  	<a class="fa fa-arrow-circle-o-down label-tooltip" href="#" style="font-size:18px !important;" data-toggle="tooltip" data-placement="top" title="Descargar Reporte"></a>
+                  </div>
+                </div> <!-- end panel-heading -->
+                <div class="panel-body">
+                  <div class="padding-10" >
+                     <div id="statusLocationsTable" ></div>
+                  </div>
+                </div ><!--  end panel body -->
+            </div> <!-- end panel -->
+        </div> <!-- end col-md-12 -->
+</section> <!-- end row -->
+
+<section class="row hide">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                  <span class="widget-icon">
+                    <i class="fa fa-truck"></i>
+                  </span>
+                  <h2> Reporte Móvil</h2>
+                  <div class="pull-right" style="margin:8px 15px 0 0;">
+                  	<a class="fa fa-arrow-circle-o-down label-tooltip" href="#" style="font-size:18px !important;" data-toggle="tooltip" data-placement="top" title="Descargar Reporte"></a>
+                  </div>
+                </div> <!-- end panel-heading -->
+                <div class="panel-body">
+                  <div class="padding-10" >
+                     <div id="statusMobileTable" ></div>
+                  </div>
+                </div ><!--  end panel body -->
+            </div> <!-- end panel -->
+        </div> <!-- end col-md-12 -->
+</section> <!-- end row -->
+
+
+<script>
+
+	var Reports = new Core_Report();
+		Reports.run();
+
+		$.get('/reports/counter',function(resp){
+
+			// var icon ={
+			// 	AUTOBUSES:['flaticon-delivery23'],
+			// 	CAMIONES:['flaticon-delivery18'],
+			// 	CARTELERAS:['flaticon-concert'],
+			// 	CASETAS:['flaticon-home150'],
+			// 	DOVELAS:['flaticon-highway1'],
+			// 	ECOBOTES:['flaticon-sea8'],
+			// 	ESPECTACULARES:['flaticon-event'],
+			// 	KIOSKOS:['flaticon-market2'],
+			// 	METRO:['flaticon-train20'],
+			// 	MUROS:['flaticon-tagging'],
+			// 	MURO:['flaticon-tagging'],
+			// 	PARABUSES:['flaticon-frontal19'],
+			// 	PUENTES:['flaticon-vincent1'],
+			// 	RELOJES:['flaticon-circular116'],
+			// 	SUBURBANO:['flaticon-print43'],
+			// 	TAXIS:['flaticon-taxi13']
+			// };
+			count = 0;
+
+			for(o in resp.data){
+				row = '';
+				if ( o % 3 == 2) {
+					row = '<div class="fix"></div>';
+				}
+
+				if( resp.data[o].media != 'AUTOBUSES'){
+
+					var count = resp.data[o].count;
+					if( resp.data[o].media == 'CAMIONES'){
+						var count = 1207; 
+					}
+					
+					str = '<li class="col-sm-4"> <div class="reports-data"><strong>'+resp.data[o].media +' <span>'+count+'</span></strong>  <div class="fix"></div></div></li>'+row;
+					$('#recount ul').append(str);		
+
+				}		
+
+
+
+			}
+
+			$('#recount ul').append('<li class="col-sm-4"><div class="reports-data"><strong>SALAS DE CINE<span>5,237</span></strong><div class="fix"></div></div></li> <li class="col-sm-4"><div class="reports-data"><strong>SPOTS DE CINE<span>14,370</span></strong><div class="fix"></div></div></li>');
+
+
+		});
+
+
+</script>

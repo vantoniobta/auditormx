@@ -1,0 +1,179 @@
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5">
+      <h1 class="page-title txt-color-blueDark"><i class="glyphicon glyphicon-th"></i> Campañas </h1>
+    </div>
+  </div>
+
+<section class="row" >          
+    <div class="col-md-12 hide">
+        <div class="panel panel-default">
+              <div class="panel-heading ">              
+                <span class="widget-icon"> 
+                  <i class="fa fa-calendar"></i> 
+                </span>
+                <h2> Campañas </h2>           
+              </div>
+              <div class="panel-body">
+                <div class="padding-10">
+                  <div id="usersTable"></div>
+                </div>
+              </div>
+        </div>
+    </div> <!-- end col-md -->
+          
+    <div class="col-md-12 ">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="widget-icon"> 
+          <i class="fa fa-calendar"></i> 
+          </span>
+          <h2> 
+            <% if(id > 0 ){ %> 
+              Editar Campaña
+            <% }else{ %> 
+              Nueva Campaña 
+            <% } %> 
+          </h2>    
+        </div> <!-- panel-heading -->
+        <div class="panel-body">
+
+            <div class="padding-10">
+
+                <form class="form-vertical" action="" method="post" id="formCampaing">   
+
+                  <div class="row">
+                    <div class="col-md-6">   
+
+                      <div class="form-group">
+                        <input type="hidden" id="modeForm" name="modeForm" value="add">
+                        <input type="hidden" id="campaingid" name="campaing[id]" value="0">
+                        <label class="control-label" for="name">Nombre: </label>
+                        <div class="controls">
+                          <input type="text" id="name" name="campaing[name]" class="form-control" required="true"/>
+                        </div>
+                      </div><!-- end-form-group -->
+
+                    </div>
+
+                    <div class="col-md-3">  
+                  
+                      <div class="form-group">
+                        <label class="control-label" for="start">Fecha de Inicio: </label>
+                        <div class="controls">                  
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input  id="start" name="campaing[start]" class="form-control" size="16" type="text" data-date-format="dd-mm-yyyy" readonly="true">
+                          </div>
+                        </div>
+                      </div><!-- end-form-group -->
+
+                    </div>
+
+                    <div class="col-md-3">  
+
+                      <div class="form-group">
+                        <label class="control-label" for="finish">Fecha Final: </label>
+                        <div class="controls">                  
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input  id="finish" name="campaing[finish]" class="form-control" size="16" type="text"  data-date-format="dd-mm-yyyy" readonly="true">
+                          </div>
+                        </div>
+                      </div><!-- end-form-group -->
+
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="controls">                          
+                      <button type="submit" class="btn btn-success btn-sm"><i class="glyphicon glyphicon-floppy-saved"> </i> Guardar</button>
+                      <% if (id) { %> 
+                        <button type="button" id="btDeleteCampaing" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"> </i>Eliminar</button>
+                        <button type="button" id="btNewCampaing" class="btn btn-default btn-sm"><i class="glyphicon glyphicon-plus-sign"> </i>Nuevo</button>
+                      <% } %>
+                    </div>
+                  </div> <!-- end-form-group -->
+                </form><!-- end form -->  
+            </div> <!-- padding-10 -->
+        </div> <!-- end-panel-body    -->
+      </div> <!-- end-panel panel-default -->
+
+      <% if(id > 0 ){ %>
+        <div class="panel panel-default">
+
+          <div class="panel-heading">
+            <span class="widget-icon"> 
+            <i class="fa fa-map-marker"></i> 
+            </span>
+            <h2> Agregar Artes  </h2>
+          </div> <!-- panel-heading -->
+
+          <div class="panel-body">
+            <div class="tab-content padding-15">
+              <div class="tab-pane fade in active row no-space" id="numberform-pane">
+                <form class="form-vertical" action="" method="get" id="form-save-art">
+                  <input type="hidden" id="campaing-id-attach" name="art[campaing_id]" value="0">
+                  
+                  <div class="row ">
+                    <div class="col-md-12">
+                      <div class="form-group">  
+                        <label class="control-label" for="finish">Arte </label>
+                        <div class="controls">                                
+                          <input type="text" id="art_name" name="art[name]" class="form-control" required="true"/>                       
+                        </div>
+                      </div><!-- end-form-group -->                                
+                    </div> <!-- end col-md-4 -->
+
+                    <div class="col-md-6" id="adjuntar" >
+                        <button id="send-btn" type="submit" class="btn btn-success btn-small"><i class="glyphicon glyphicon-upload"> </i> Agregar </button> </div>
+                        <img id="loading" src="/assets/img/loading.gif" style="visibility: hidden;">
+                    </div>             
+                </form><!-- end form -->  
+              </div>
+            </div>  <!-- tab-pane -->
+          </div>
+
+        </div>
+
+        <div class="panel panel-default" id='art-table-content'>
+
+          <div class="panel-heading">
+            <span class="widget-icon"> 
+            <i class="fa fa-map-marker"></i> 
+            </span>
+            <h2> Artes </h2>
+          </div> <!-- panel-heading -->
+
+          <div class="panel-body">
+            <div class="tab-content padding-15">
+                <div id="art-table"></div> 
+            </div>  <!-- tab-pane -->
+          </div>
+
+        </div>
+      <% } %>
+
+
+    </div> <!-- end col-md -->
+
+</section>
+
+
+<script>
+  $(window).load(function(){
+    
+    var Campaing = new Core_Campaing({role:'<%-session.user.role %>'});
+        Campaing.run(<%- id %>);
+
+    //Send Notifications by Art
+    //Campaing.sendNotifications();
+
+    //var Location = new Core_Location({role:'<%-session.user.role %>'});
+    //Location.loadLists();
+    ///providers/get_by_role
+
+    
+  });
+  </script>
+

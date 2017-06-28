@@ -1,0 +1,33 @@
+html
+  head   
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")
+    meta(name="description",content="")
+    meta(name="author",content="")
+     
+    link(rel='stylesheet', href='/assets/css/bootstrap.css')
+    link(rel='stylesheet', href='/assets/css/bootstrap-responsive.css')
+    link(rel='stylesheet', href='/assets/css/docs.css')
+    link(rel='stylesheet', href='/assets/js/google-code-prettify/prettify.css')
+    link(rel='shortcut', href='/assets/ico/favicon.ico')
+    link(rel='apple-touch-icon-precomposed', size="144x144", href='/assets/ico/apple-touch-icon-144-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', size="144x144", href='/assets/ico/apple-touch-icon-114-precomposed.png')
+    link(rel='apple-touch-icon-precomposed', size="72x72",   href='/assets/ico/apple-touch-icon-72-precomposed.png')
+    link(rel='apple-touch-icon-precomposed',  href='/assets/ico/apple-touch-icon-57-precomposed.png')
+
+  body(data-spy="scroll", data-target=".bs-docs-sidebar")    
+    div(class="navbar navbar-inverse navbar-fixed-top")
+        div(class="navbar-inner")
+            div(class="container")
+                a( class="btn btn-navbar", data-toggle="collapse", data-target=".nav-collapse");
+                    span(class="icon-bar")
+                    span(class="icon-bar")
+                    span(class="icon-bar")
+                a(class="brand",href="/") Bootstrap
+                div(class="nav-collapse collapse")
+                    ul(class="nav")
+                        li(class="active")
+                            a(href="/") Home
+                        li(class="")
+                            a(href="/login") Get Started
+    block content
+    script(src='/assets/js/jquery.js')

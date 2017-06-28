@@ -1,0 +1,62 @@
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>  
+  <div class="span7 ">
+
+          <div class="boxcontainer">
+                <div class="boxHeader">
+                    <div class="inner">
+                      <h3 ><i class="icon-group"></i> Proveedores</h3>
+                      <form action="" id="formSearchSupplier" class="form-inline">
+                        <input type="text" class="span4 search-query" placeholder="Buscar Proveedores" autocomplete="off" id="findSuppliers">
+                        <select name="" id="search" class="span2">
+                          <option value="name">Nombre</option>
+                          <option value="rfc">R.F.C</option>
+                        </select>
+                        <a href="javascript:;" role="button" class="btn btn-small pull-right" id="addNew"><i class="icon-plus"></i> Nuevo Proveedor</a>
+                      </form>
+                      <div class="fix"></div>
+                      
+                    </div>
+                </div>  
+
+              <div class="inner innercontent">
+                
+                <div id="supplierListContainer">
+
+                </div>
+             
+             </div>
+
+             
+          </div>
+          <div class="boxFooter" >
+              <div id="mainFooter"> </div>
+          </div>
+    </div><!--/span-->
+
+   <div class="span4">    
+      <div class="boxcontainer " > 
+        <div class="boxHeader">
+          <div class="inner " >
+            <h3 class="full" id="theTitle"> Nuevo Proveedor </h3>             
+          </div>
+        </div>
+        <div class="inner innercontent">
+          <div class="formBox" id="sideCont">         
+
+            <div class="btn-group hide" id="supplierActions">              
+                <a href="#supplierform" class="btn btn-small"  id="showSupplier"><i class="icon-pencil"></i> Actualizar Datos</a>
+                 <a href="#placesList" class="btn btn-small"  id="showSites"><i class="icon-search"></i> Ver Sitios</a> 
+            </div>     
+            <div id="supplierform" class="hide"></div>            
+            <div id="placesList" class="hide"></div>
+
+          </div> <!-- formbox -->
+        </div>
+      </div>
+      <div class="boxFooter"><div class="hide" id="mainFooterAdmin"></div></div>    
+    </div> <!-- span4 -->
+
+<script>
+  Suppliers = new App_Supplier();
+  Suppliers.run();
+</script>

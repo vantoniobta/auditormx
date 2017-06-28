@@ -1,0 +1,58 @@
+
+<div class="panel panel-default">
+    <div class="panel-body padding-101520">
+      <h3> Nuevo Password </h3>
+      <hr/>
+    
+      <div id="alertcontainer">
+       <% if( code == 100  ){ %>              
+          <div class="alert alert-danger" role="alert">
+              <span class="glyphicon glyphicon-question-sign"></span> <%-msg %>
+          </div> <!-- end alert -->
+        <% }else{ %>
+
+          <div class="alert alert-success" role="alert">
+              <span class="glyphicon glyphicon-info-sign"></span> <%-msg %>
+          </div> <!-- end alert -->
+
+        <% } %>
+      
+      </div>
+
+      <% if( form ){ %>
+        
+       <form method="post" role="form" action="" id="formnewpass" class="padding-10">
+                <input type="hidden" value="<%-key %>" name="key">
+                 <div class="form-group">
+                  <label for="password">Nuevo Password:</label>
+                  <input type="password" name="rpassword" id="rpassword" class="form-control"  required>
+                </div>      
+                <div class="form-group">
+                  <label for="password">Confirmar Password:</label>
+                  <input type="password" name="rrpassword" id="rrpassword" class="form-control"  required>
+                </div>                  
+                <button type="submit" class="btn btn-success btn-lg"><i class="glyphicon glyphicon-circle-arrow-right"></i> Finalizar proceso</button>
+              </form>
+
+     <% } %>
+
+    </div>          
+</div>
+
+<script type="text/javascript">
+      
+    $('#formnewpass').submit(function(){
+      if( $('#rpassword').val() == $('#rrpassword').val() ){
+
+
+          return true;
+      }else{
+        $('.alert').html('<span class="glyphicon glyphicon-question-sign"></span> La contraseña no concuerda con la válidación, favor de intentar de nuevo!').removeClass('alert-success').addClass('alert-danger');
+      }
+
+      return false;
+    })
+      
+
+
+</script>

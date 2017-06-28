@@ -1,0 +1,207 @@
+ 
+ <div class="row segments">  
+      
+  <div class="card card-form students-card-form">
+      <div class="card-block">
+          <h2><i class="fa fa-user-plus"></i> Alta <span>de Alumno</span></h2>
+          <hr />             
+             <form id="addStudentForm" action="" method="post">       
+              <section>
+                <div class="col-sm-12">
+                  <h3>Datos Generales del Alumno </h3>                
+                </div>
+                <div class="form-group ">
+                  <div class="col-sm-12">
+                    <label for="inputName">Nombre (s)</label>
+                    <input type="text" class="form-control form-control-danger" id="name" name="name" placeholder=""  tabindex="1" autofocus required>
+                    <small class="text-muted">Ingresar nombre del estudiante</small>
+                  </div>                
+                   <div class="clearfix"></div>
+                </div>
+
+                 <div class="form-group ">
+                  <div class="form-group "> 
+                    <div class="col-sm-6">
+                      <label for="inputFirstLastname">Apellido Paterno</label>
+                      <input type="text" class="form-control" id="first_lastname"  name="first_lastname" placeholder=""  required>
+                      <small class="text-muted">Ingresar el apellido paterno del estudiante</small>
+                    </div>
+                  </div>
+
+                    <div class="form-group "> 
+                     <div class="col-sm-6">
+                      <label for="inputSecondLastname">Apellido Materno</label>
+                      <input type="text" class="form-control" id="second_lastname"  name="second_lastname" placeholder=""  required>
+                      <small class="text-muted">Ingresar el apellido materno del estudiante</small>
+                    </div>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+
+                  <div class="form-group ">
+                    <div class="col-sm-12">
+                      <label for="inputFirstLastname">Fecha de Nacimiento</label>                    
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group "> 
+                         <select class="form-control" id="birth_day" name="birth_day" placeholder="Dia" required>                        
+                          <option value="">Dia</option>                       
+                        </select>
+                         <small class="text-muted">Selecciona el dia</small>
+                      </div>                     
+                    </div>
+
+                     <div class="col-sm-5">        
+                      <div class="form-group ">              
+                        <select class="form-control" id="birth_month" name="birth_month" placeholder="Mes"  required>
+                          <option value="">Mes</option>
+                          <option value="1">Enero</option>
+                          <option value="2">Febrero</option>
+                          <option value="3">Marzo</option>
+                          <option value="4">Abril</option>
+                          <option value="5">Mayo</option>
+                          <option value="6">Junio</option>
+                          <option value="7">Julio</option>
+                          <option value="8">Agosto</option>
+                          <option value="9">Septiembre</option>
+                          <option value="10">Ocutbre</option>
+                          <option value="11">Noviembre</option>
+                          <option value="12">Diciembre</option>
+                        </select>
+                        <small class="text-muted">Selecciona el mes</small>
+                      </div>
+                      
+                    </div>
+
+                     <div class="col-sm-4">         
+                      <div class="form-group ">              
+                        <select class="form-control" id="birth_year" name="birth_year" placeholder="Año" required>                        
+                          <option value="">Año</option>                       
+                        </select>
+                        <small class="text-muted">Selecciona el año</small>
+                      </div>                      
+                    </div>
+                  <div class="clearfix"></div>
+                </div>
+
+              </section>
+              <!-- end section 1 -->
+              <section>
+                <div class="col-sm-12">
+                  <h3>Datos del Padre/Tutor </h3>
+                </div>
+
+                 <div class="form-group ">                                                         
+                     <div class="col-sm-12">
+                       <label for="inputContactName">Nombre(s)</label>
+                      <input type="text" class="form-control" id="contact_fullname" name="contact_fullname" placeholder="" required>
+                    </div>                  
+                     <div class="clearfix"></div>
+                </div>
+
+                  <div class="form-group ">                                                         
+                   
+                    <div class="col-sm-6">
+                       <label for="inputContactLastnameFather">Apellido paterno</label>
+                      <input type="text" class="form-control" id="contact_lastname_father" name="contact_lastname_father" placeholder="" required>
+                    </div>
+                    <div class="col-sm-6">
+                       <label for="inputContactLastnameMother">Apellido materno</label>
+                      <input type="text" class="form-control" id="contact_lastname_mother" name="contact_lastname_mother" placeholder="" required>
+                    </div>                    
+                     <div class="clearfix"></div>
+                </div>
+
+                    <div class="form-group ">    
+
+                    <div class="col-sm-2">
+                      <label for="inputCP">Código Postal</label>
+                      <input type="text" class="form-control zip-search" id="contact_zip" name="contact_zip" placeholder="" required>
+                      <!-- <small class="text-muted">Ingresar Código Postal</small> -->
+                    </div>    
+                    <div class="col-sm-6">
+                      <label for="inputStreet">Calle</label>
+                      <input type="text" class="form-control" id="contact_address" name="contact_address" placeholder="" required>
+                      <small class="text-muted"></small>
+                    </div>   
+                    
+                     <div class="col-sm-2">
+                      <label for="inputStreet">No. Ext</label>
+                      <input type="text" class="form-control zip-search" id="contact_ext_number" name="contact_ext_number" placeholder="" required>
+                      <small class="text-muted"></small>
+                    </div>  
+
+                      <div class="col-sm-2">
+                      <label for="inputStreet">No. Int.</label>
+                      <input type="text" class="form-control" id="contact_int_number" name="contact_int_number" placeholder="" required>
+                      <small class="text-muted"></small>
+                    </div>                     
+                     <div class="clearfix"></div>
+                </div>
+                <div class="form-group ">    
+                    <div class="col-sm-4">
+
+                      <input type="hidden" name="contact_location" id="contact_location">
+                      <label for="inputNeighbor">Colonia</label>
+                      <input type="text" class="form-control" id="contact_neighbor" name="contact_neighbor" placeholder="" readonly="true" required>
+                      <!-- <small class="text-muted">Ingresar Código Postal</small> -->
+                    </div>    
+                    <div class="col-sm-4">
+                      <label for="inputCity">Munincipio</label>
+                      <input type="text" class="form-control" id="contact_city" name="contact_city" placeholder="" readonly="true" required>
+                      <small class="text-muted"></small>
+                    </div>   
+
+                     <div class="col-sm-4">
+                      <label for="inputContactEstate">Estado</label>
+                      <input type="text" class="form-control" id="contact_state" name="contact_state" placeholder="" readonly="true" required>
+                      <small class="text-muted"></small>
+                    </div>   
+                                      
+                     <div class="clearfix"></div>
+                </div>
+
+                  <div class="form-group ">     
+                    
+                    <div class="form-group "> 
+                      <div class="col-sm-6">
+                        <label for="inputPhone">Telefóno</label>
+                        <input type="text" class="form-control" id="contact_phone" name="contact_phone" placeholder="" required>
+                        <!-- <small class="text-muted">Ingresar número telefónico de la madre</small> -->
+                      </div>
+                    </div>
+
+                    <div class="form-group "> 
+                       <div class="col-sm-6">
+                        <label for="inputContactEmail">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="contact_email" name="contact_email"  placeholder="" required>
+                        <!-- <small class="text-muted">Ingresar correo electrónico de la madre</small> -->
+                      </div>
+                    </div>
+                      <div class="clearfix"></div>
+                </div>
+
+              </section>
+
+                <div class="form-group ">                                                         
+                   <div class="col-sm-4">
+                     <button type="button" class="btn btn-default btn-lg btn-block btn-cancel">Cancelar</button>
+                    </div>  
+                    <div class="col-sm-8">
+                     <button class="btn btn-primary btn-lg btn-block btn-save">Guardar</button>
+                    </div>                                    
+                     <div class="clearfix"></div>        
+                </div>
+                
+            </form>
+
+      </div>
+
+  </div> <!-- end card -->
+
+</div>
+
+<script type="text/javascript">
+      var Student = new Core_Student();
+          Student.add();
+</script>

@@ -1,0 +1,50 @@
+  <div class="span7 ">
+
+          <div class="boxcontainer">
+                <div class="boxHeader">
+                    <div class="inner">
+                      <h3 ><i class="icon-picture"></i> Artes</h3>                                       
+                      <!--<input type="text" class="span4 search-query" placeholder="Buscar arte" autocomplete="off" id="findSuppliers">-->
+                      <a href="javascript:;" role="button" class="btn btn-small pull-right" id="addNew"><i class="icon-plus"></i> Nuevo Arte</a>                  
+                      <div class="fix"></div>
+                    </div>
+                </div>  
+
+              <div class="inner innercontent">
+                
+                <div id="artsListContainer">
+                        
+                </div>
+             
+             </div>
+
+             
+          </div>
+          <div class="boxFooter" >
+              <div id="mainFooter"> </div>
+          </div>
+    </div><!--/span-->
+
+   <div class="span4">    
+        <div class="boxcontainer " > 
+                <div class="boxHeader">
+                        <div class="inner " >
+                                <h3 class="full" id="theTitle"> Nuevo arte</h3>             
+                        </div>
+                </div>
+                <div class="inner innercontent">
+                        <div class="formBox" id="sideCont">         
+                                <div id='artForm'>
+                                        
+                                </div>
+
+                        </div> <!-- formbox -->
+                </div>
+      </div>
+      <div class="boxFooter"><div class="hide" id="mainFooter"></div></div>    
+    </div> <!-- span4 -->
+
+<script>
+  Art = new App_Art();
+  Art.run();
+</script>

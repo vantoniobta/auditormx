@@ -1,0 +1,232 @@
+
+<div id="container-page">
+
+ <div class="row top-info">
+ 	<!-- <div class="col-md-9 col-sm-12"> -->
+ 		<!-- <div class="row top-info"> -->
+          <div class="col-xs-4 ">
+            <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-map-marker"></i> Sitios </h1>
+          </div>
+          <div class="col-xs-8">
+          	<h2 id="code" class="title"></h2>
+			<div id="ubication" class="ubication"></div>
+
+
+			<script>
+			function printPage() {
+			    window.print();
+			}
+			</script>
+          </div>
+        <!-- </div> -->
+   <!-- </div> -->
+</div>
+
+<section class="row" >
+
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading ">
+        <ul id="mainpane-tab" class="nav nav-tabs pull-right">
+          <li class="active"><a href="#images-pane" data-toggle="tab"><i class="fa fa-list"></i> Imágenes de Estatus </a></li>
+          <li><a href="#map-pane" data-toggle="tab"><i class="fa fa-user"></i> Ubicación </a></li>
+        </ul>
+      </div> <!-- end panel heading -->
+
+			<div class="panel-body">
+				<div class="tab-content padding-10">
+
+					<div class="tab-pane fade in active row no-space" id="images-pane">
+						<div class="col-md-12">
+							<div class="row site-images">
+								<div class="col-md-4">
+									<a href="/assets/img/site-placeholder.gif" data-lightbox="siteImages" data-title="1" id="lastimage_link_0">
+										<img src="/assets/img/site-placeholder.gif" alt="1" class="img-thumbnail" id="lastimage_0" >
+									</a>
+								</div>
+								<div class="col-md-4">
+									<a href="/assets/img/site-placeholder.gif" data-lightbox="siteImages" data-title="2" id="lastimage_link_1">
+										<img src="/assets/img/site-placeholder.gif" alt="2" class="img-thumbnail" id="lastimage_1" >
+									</a>
+								</div>
+								<div class="col-md-4">
+									<a href="/assets/img/site-placeholder.gif" data-lightbox="siteImages" data-title="3" id="lastimage_link_2">
+										<img src="/assets/img/site-placeholder.gif" alt="3" class="img-thumbnail" id="lastimage_2" >
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-pane fade row no-space" id="map-pane">
+				      <div id="map_canvas" style="width:100%; height:100%"></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="row map-data">
+	<!-- <div class="col-md-9 "> -->
+		<!-- <div class="row"> -->
+			<div class="col-md-6">
+
+				<div class="panel panel-default">
+					  <div class="panel-heading ">
+					    <span class="widget-icon">
+					      <i class="fa fa-file-text"></i>
+					    </span>
+					    <h2> Crear Estatus </h2>
+					  </div>
+					  <div class="panel-body">
+					    <div class="padding-10">
+					       	<form class="form-vertical" action="" method="get" id="form-upload-report" enctype="multipart/form-data">
+					          <input type="hidden" name="report[id]" id="locationid" value="<%-uuid %>">
+					          <div class="row">
+					          	<div class="col-md-12">
+					              <div class="form-group">
+					              	<label> Selecciona un tipo de estatus </label>
+					                  <select type="text" id="report_type" name="report[type]" class="form-control" required="true"/>
+					                  	<option value="11" > Testigo de Versión</option>
+					                  	<option value="12" > Reparación </option>
+					                  	<option value="14" > Testigo Mensual </option>
+					                  	<!-- <option value="Anomaly"> Anomalia </option> -->
+					                  </select>
+					              </div> <!-- end-form-group -->
+					            </div> <!-- end col-md-4 -->
+
+					            <div class="col-md-2 hide">
+					            	<label>Condiciones:</label>
+					            	<div class="form-group">
+					            		<label>
+					            			Correcto
+					              			<input type="radio" value="" name="report[status]" checked>
+					              		</label>
+					              		<label>
+					              			Con Problemas
+					              			<input type="radio" value="" name="report[status]">
+					              		</label>
+									</div>
+					            </div> <!-- end col-md-2 -->
+					          </div>
+
+					          <div class="row">
+					          	<div class="col-md-12">
+					            	<div class="form-group">
+					              		<label class="control-label inline" > Adjuntar Imagenes </label>
+						            	<input id="images_upload" type="file" name="images_upload" multiple="multiple" class="inline" accept="image/*">
+						            	<ul id="file_list_images_upload" class="file_list"></ul>
+									</div>
+					            </div>
+					          </div>
+					          <div class="row">
+					            <div class="col-md-12">
+					            	<label>Comentarios:</label>
+					             	<textarea id="report_message" name="report[message]" class="form-control" rows="5"></textarea>
+					            </div>
+					          </div> <!-- end row -->
+
+					          <hr/>
+					          <div class="row">
+						         	 <div class="col-md-12">
+						         			 <button id="sensord-btn" type="submit" class="btn btn-success btn-small">
+						         			 	<i class="glyphicon glyphicon-upload"> </i> Subir
+						         			 </button >
+
+								             <!--  <div id="progressNum"></div>
+							                  <p id="progressBar" class="progressbar"></p> -->
+
+											 <div id="progressNum"></div>
+					                         <div  id="progressBar" class="progresstrip">
+					                            <div class="progress-inner"></div>
+					                         </div>
+
+						            </div>
+					        	</div> <!-- end row -->
+					        </form><!-- end form -->
+						 		</div> <!-- end padding-10 -->
+						 	</div> <!-- end panel body -->
+					</div>  <!-- panel default -->
+
+
+			</div> <!-- col-md-6 end -->
+
+			<div class="col-md-6">
+				<div class="panel panel-default">
+			      <div class="panel-heading ">
+			        <span class="widget-icon">
+			          <i class="fa fa-list-alt"></i>
+			        </span>
+			        <h2> Datos generales </h2>
+			      </div>
+			      <div class="panel-body location-data">
+			        <div class="padding-10">
+
+			          		<p><strong>Dirección :</strong> <span id="street" ></span></p>
+
+			          		<p><strong> Colonia:</strong> <span id="neighbor"></span></p>
+
+			          		<p><strong> Calle 1:</strong> <span id="ref_street_1"></span></p>
+			          		<p><strong> Calle 2:</strong> <span id="ref_street_2"></span></p>
+			          		<p><strong> CP:</strong> <span id="zip"></span> <strong> &nbsp;Ciudad:</strong> <span id="city"></span> <strong> &nbsp;Estado:</strong> <span id="state"></span></p>
+
+			          		<p><strong> Tipo de Vista:</strong> <span id="view_type"  ></span></p>
+
+			          		<p><strong> Medidas:</strong> <span id="base"></span> x <span id="height"></span></p>
+
+			          		<p><strong> Iluminación:</strong> <span id="light"></span></p>
+
+			          		<p><strong> Material:</strong> <span id="material"></span></p>
+
+			          		<!-- <p><strong> Precio Original:</strong> <span id="price"></span></p> -->
+			          		<p class="text-danger"><strong> Precio Final:</strong> <span id="price_last" ></span></p>
+			        </div>
+			      </div>
+				</div>
+
+			</div> <!-- col-md-4 end -->
+		<!-- </div> -->
+	<!-- </div>  -->
+</div> <!-- col-md-9 end -->
+
+<div class="row report-data">
+
+
+		<div class="col-md-12">
+
+
+		<div class="panel panel-default">
+			      <div class="panel-heading ">
+			        <span class="widget-icon">
+			          <i class="fa fa-map-marker"></i>
+			        </span>
+			        <h2> Últimos Estatus </h2>
+			      </div>
+			      <div class="panel-body">
+			        <div class="padding-10">
+			           <div id="statusTable"></div>
+			        </div>
+			      </div>
+				</div>
+
+</div> <!-- end col-md-12 -->
+
+<a href=""></a>
+</div>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+  $(window).load(function(){
+    var Locations = new Core_Location({role:'<%-session.user.role %>',id:'<%-id %>',uuid:'<%-uuid %>'});
+        Locations.run();
+
+
+  });
+
+
+
+  </script>

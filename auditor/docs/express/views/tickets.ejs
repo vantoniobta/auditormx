@@ -1,0 +1,124 @@
+ <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+  var markers = [
+    ['Mexico DF', 19.362976, -99.107666],
+    ['Tlalpan', 19.176301, -99.195557],
+    ['Cuernavaca', 18.895893, -99.206543],
+    ['Villahermosa, Tab', 17.947381, -92.878418]
+  ];
+  
+  function initializeMaps() {
+    var myOptions = {
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+    var infowindow = new google.maps.InfoWindow(); 
+    var marker, i;
+    var bounds = new google.maps.LatLngBounds();
+  
+    for (i = 0; i < markers.length; i++) { 
+      var pos = new google.maps.LatLng(markers[i][1], markers[i][2]);
+      bounds.extend(pos);
+      marker = new google.maps.Marker({
+        position: pos,
+        map: map
+      });
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(markers[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    map.fitBounds(bounds);
+  }
+  </script>
+
+      <div class="row-fluid">
+
+
+      <div class="span4 sidebar pull-right">
+
+
+          
+        <div class="boxcontainer" id="sidebar">
+
+           <div class="formBox" id="sideCont">
+          <form class="form-horizontal">
+            <!-- <legend> DIFUSION PANORAMICA S.A. DE C.V.</legend> -->
+            <div class="formTitle"><i class="icon-globe"></i> Algo algo algo</div>
+
+                <div class="control-group">
+                  <label class="control-label" for="inputName">Estado: </label>
+                  <div class="controls">
+                    <select>
+                      <option>Distrito Federal</option>
+                      <option>Aguascalientes</option>
+                      <option>Baja California</option>
+                      <option>Baja California Sur</option>
+                      <option>Campeche</option>
+                      <option>Chiapas</option>
+                      <option>Chihuahua</option>
+                      <option>Coahuila</option>
+                      <option>Colima</option>
+                      <option>Durango</option>
+                      <option>Guanajuato</option>
+                      <option>Guerrero</option>
+                      <option>Hidalgo</option>
+                      <option>Jalisco</option>
+                      <option>Estado de México</option>
+                      <option>Michoacán</option>
+                      <option>Morelos</option>
+                      <option>Nayarit</option>
+                      <option>Nuevo León</option>
+                      <option>Oaxaca</option>
+                      <option>Puebla</option>
+                      <option>Querétaro</option>
+                      <option>Quintana Roo</option>
+                      <option>San Luis Potosí</option>
+                      <option>Sinaloa</option>
+                      <option>Sonora</option>
+                      <option>Tabasco</option>
+                      <option>Tamaulipas</option>
+                      <option>Tlaxcala</option>
+                      <option>Veracruz</option>
+                      <option>Yucatán</option>
+                      <option>Zacatecas</option>
+                    </select>
+                  </div>
+                </div>
+
+              </for>
+
+            </div>
+
+          </div>
+        </div><!--/span-->
+
+        <div class="span7 mainArea pull-left">
+
+          <div class="boxHeader">
+
+            <h3><i class="icon-globe"></i> Mapa</h3>
+
+            <div class="fix"></div>
+
+          </div>
+
+
+          <div class="boxcontainer">
+
+
+
+            <div id="map_canvas"></div>
+
+        </div><!--/span-->
+
+        <div class="boxFooter">
+
+        </div>
+
+      </div><!--/row-->
+
+    <div class="fix"></div>

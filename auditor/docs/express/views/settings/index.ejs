@@ -1,0 +1,346 @@
+  <div class="span7">
+        
+          <div class="boxcontainer">
+              <div class="boxHeader">
+                  <div class="inner">
+                    <h3 class="large"><i class="icon-group"></i> Actualizar Datos   </h3>
+                    <div class="fix"></div>
+                  </div>
+              </div>
+
+            <div class="inner innercontent">
+            <div class="bttn bttn-aqua bttn-large">
+                  <i class="icon-key"></i>
+                  <span class="num">Key de activación: </span>
+                  <p id="key">Estados</p>
+                </div>
+
+            <input type="hidden" id="theId" name="theId" value="<%- userID %>"/>
+
+               <form class="form-horizontal" action="" method="post" id="newUser">
+
+                <div class="control-group">
+                  <label class="control-label" for="name">Nombre: </label>
+                  <div class="controls">
+                    <input type="text" id="name" name="user[name]" required="true"/>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="email">Email: </label>
+                  <div class="controls">
+                    <input type="email" id="email" name="user[email]" required="true" autocomplete="off" disabled="disabled"/>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="pass">Password: </label>
+                  <div class="controls">
+                    <input type="password" id="pass" name="user[password]"  autocomplete="off"><br>
+                    <input type="checkbox" id='updatePass' name="user[updatePass]" value='1'> Cambiar password
+                  </div>
+                </div>
+
+                <!-- <div class="control-group">
+                  <label class="control-label" for="phone">Teléfono: </label>
+                  <div class="controls">
+                      <input type="text" id="phone" name="user[phone]"/>
+                  </div>
+                </div> -->
+                <div class="control-group <%= input %>">
+                 <label for='role' class="control-label">Tipo de usuario: </label>
+                 <div class="controls">  
+                  <select name="user[role]" id='role'>
+                     <option value='admin'>Administrador</option>
+                     <option value='' >Capturista</option>
+                     <option value='auditor'>Auditor</option>
+                     <option value='supplier'>Proveedor</option>
+                   </select>
+                 </div>
+               </div>
+
+               <div class="control-group <%= input %>">
+                 <label class="control-label">Estatus: </label>                    
+                 <div class="controls">  
+                  <select name="user[status]" id='status'>
+                     <option value='1'>Activo</option>
+                     <option value='0'>Inactivo</option>
+                   </select>
+                 </div>
+               </div>  
+
+              
+                <div class="control-group">
+                  <div class="controls">
+                    <!-- <button type="button" id="deleteUser" class="btn btn-danger btn-small">Eliminar Usuario</button> -->
+                    <button type="submit" class="btn btn-primary btn-small">Guardar</button>
+                  </div>
+                </div>
+              </form><!-- end suppliers form -->
+
+                
+              <div class="fix"></div>
+          </div>
+
+          </div>
+          <div class="boxFooter">
+
+          </div>
+    </div><!--/span-->
+
+    <div class="span4 ">
+        
+        <div class="boxcontainer large" id="sidebar">
+           <div class="boxHeader">
+                  <div class="inner">
+                    <h3 class="large"><i class="icon-group"></i> Datos alternativos   </h3>
+                    <div class="fix"></div>
+                  </div>
+              </div>
+
+          <div class="inner innercontent">
+          <div class="formBox" id="sideCont">
+            <!-- <div id="formTitle">Nuevo Usuario</div> -->
+            <br>
+            <br>
+            
+            <div class="span7">
+                  <ul class="thumbnails">
+                    <li class="span7">
+                      <div class="thumbnail" id='logo'>
+                        <img alt="360x270" data-src="holder.js/360x270" src="assets/img/placeholder.png" alt="" title='cambiar'>                       
+                      </div>
+                      <a href="#" class="logo-business">cambiar</a>
+                      <h3>Logotipo de la empresa</h3>
+                    </li>
+                  </ul>
+            </div>               
+
+          </div>
+
+          </div>
+
+        </div>
+          <!-- sidebar -->
+
+
+    </div>
+
+
+<iframe name="serviceUploadFile" class="hide"></iframe>
+  
+        <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Subir logo</h3>
+          </div>
+          <div class="modal-body">
+            <form name="uploadLogo" id="uploadLogo" method="post"  enctype="multipart/form-data" action="/upload/logo" target="serviceUploadFile">
+                Buscar archivo: 
+                <input type="file" multiple="false"  name="file" id="file" require="true" accept="image/png" title="..." required="required"><br><br>
+                <span class="text-info">Recuerda que debe ser una imagen en formato PNG o JPG, y con medidas de 200 x 200, pues este se usará en el reporte</span><br>
+                <input type='reset' name='cancel' id='cancel' value="Cancelar" class="btn" data-dismiss="modal" aria-hidden="true">
+                <input type='submit' name='send' id='send' value="Subir archivo" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+
+
+<script>
+ User = new function(){
+    var userId = $('#theId').val();
+
+    this.formName    = '#newUser';
+    this.formLogo = '#uploadLogo';
+    this.divLogo  = '#logo';
+    this.init    = function(){
+
+      var that = this;
+
+      this.loadObject(userId);
+
+      this.reset();
+
+      $(this.formName).submit(function(){        
+        
+        that.insertData();
+      
+        $.ajax({
+          type: "POST",
+          url: "/v1/users/save",
+          data: $(that.formName).serialize(),
+          }).done(function( response ) {
+              console.log(response.code);
+          if( response.code == '0' ){
+            that.loadObject(userId);            
+            $.Zebra_Dialog('Sus Datos Han Sido Actualizados', {
+              'type':     'confirmation'
+            });
+          }
+        
+          if( response.code == 50 ){
+            $.Zebra_Dialog(response.msg, {
+              'type':     'confirmation'
+            });
+            that.loadPanel();
+          }
+        
+          if( response.code == 100 ){
+            // console.error(response.msg);
+            $.Zebra_Dialog(response.msg, {
+              'type':     'error'
+            });
+          }
+        
+        });
+        return false;
+      });
+
+      $('.logo-business').click(function(){
+         $('#myModal').modal('toggle');
+         $(that.formLogo).submit(function(){
+            //document.getElementById('uploadFile').reset();
+            $('#myModal').modal('hide');
+         });
+         
+         $('#myModal').on('hidden', function(){
+            document.getElementById('uploadLogo').reset();
+            $('#myModal span').remove();
+         });
+         
+         window.finishform = function(str){
+            if(str.code === 0){
+            that.loadLogo();        
+               bootbox.alert("<div class='alert alert-success'>"+str.msg+"</div>", function(){
+                
+               });
+            }
+            else{
+              bootbox.alert("<div class='alert alert-error'>"+str.msg+"</div>");
+            }
+         } 
+      });
+
+
+      $('#deleteUser').click(function(){
+         that.delete(); 
+      });
+      
+      $('#updatePass').click(function(){
+          if($(this).is(':checked')) {  
+             $('#pass').removeAttr('disabled');  
+          } else {  
+             $('#pass').attr('disabled','disabled');  
+          }  
+          
+      });
+      
+      // this.loadPanel();
+    }
+
+    this.loadObject = function(id){
+
+      var that = this;
+      that.loadLogo();
+      $.ajax({
+        type: "POST",
+        url: "/v1/user/load",
+        data:{_id:id},
+        }).done(function( response ) {
+          window.theForm._id = id;
+          window.theForm.status = 'update';
+          for( x in response.data ){
+            if(x == 'contacts'){
+              var contacts = response.data[x];
+              $('#contacts-container').html('');
+              for( i in contacts ){
+                that.createContacts(i,contacts);
+              }
+            }else{
+              $('#'+x ).val( response.data[x]);
+              // $('#formTitle').html( '<h3>'+response.data.name+'</h3>');
+              $.uniform.update();
+            }
+          }
+          if(response.data.supplier){
+            //console.log(response.data.supplier);
+            var supplier = document.createElement('input');
+            supplier.name = 'user[supplier]';
+            supplier.id = 'supplier';
+            supplier.value = response.data.supplier;
+            supplier.type = 'hidden';
+            $('#newUser').prepend(supplier);
+          }
+          $('#key').html(response.data.key);
+          //$("#role option[value="+response.data.role+"]").attr("selected",true);
+         // console.log(response.data.role);
+      });
+
+    }
+
+    this.loadLogo = function(){
+      var that = this;
+      jQuery.ajax({
+        url: '/v1/supplier/load/logo',
+        type: 'POST',
+        dataType: 'json',
+        success: function(data) {
+          //called when successful
+          //console.log(data);
+          if(data.code == 0){
+            $(that.divLogo).children('img').remove()
+            //that.divLogo.attr('src','assets/img/placeholder.png');
+            var img = document.createElement('img');
+            img.src = '/uploads/logos/'+data.name;
+            $(that.divLogo).html("<img src='"+data.url[0]+"'/>");
+            //that.divLogo.attr('src','/uploads/logos/'+data.name);
+          }
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          //called when there is an error
+        }
+      });
+
+    }
+
+    this.reset = function(){
+      $('#newPlace').hide();
+      // $('#formTitle').html( 'Nuevo Usuario' );
+      window.theForm = {
+        status: 'create',
+        _id:null
+      }
+      //var  lform = document.getElementById('locationForm').reset();
+      var  form = document.getElementById( $(this.formName).attr('id') ).reset();
+      //$('#status').attr('disabled','disabled');
+      $('#pass').attr('disabled','disabled'); 
+      $.uniform.update();
+      // $('#contacts-container').html('');
+      // this.createContacts(0);
+    }
+
+
+    this.insertData = function(){
+      $('input[name="_id"]').remove();
+      var id = document.createElement('input');
+        id.name  = '_id';
+        id.type  = 'hidden';
+        id.value = window.theForm._id
+        $(this.formName).append(id);
+        $('input[name="status"]').remove();
+        var status   = document.createElement('input');
+        status.name  = 'status';
+        status.type  = 'hidden';
+        status.value = window.theForm.status
+        $(this.formName).append(status);
+        // $('#formTitle').html( response.data.name );
+    }
+
+  }
+
+  User.init();
+
+</script>
+
+
+
+

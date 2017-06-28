@@ -1,0 +1,79 @@
+      <style>
+      body{
+        background:url(../assets/img/whitey.png) repeat ;
+      }
+      h2.form-signin-heading{
+        font-size: 45px;
+        border-color: rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus{
+        border-color: #ccc;
+        outline: 0;
+        outline: thin dotted \9;
+        /* IE6-9 */
+
+        -webkit-box-shadow: rgba(0, 0, 0, 0.2) -1px 0px 2px inset;
+           -moz-box-shadow: rgba(0, 0, 0, 0.2) -1px 0px 2px inset;
+                box-shadow: rgba(0, 0, 0, 0.2) -1px 0px 2px inset;
+      }
+      .form-signin input.first{
+        background:rgba(0, 0, 0, 0.04);
+        box-shadow:rgba(0, 0, 0, 0.2) 0 1px 2px inset, rgba(255, 255, 255, 0.4) 0 1px 0;
+        margin: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+      }
+      .form-signin input.second{
+        background:rgba(0, 0, 0, 0.04);
+        margin-top: -1px;
+        box-shadow:rgba(0, 0, 0, 0.2) -1px 0px 2px inset;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+
+      }
+            .boxText{
+        /*border:1px solid purple;*/
+        width: 50%;
+        margin: 10% auto !important;
+      }
+
+      p{
+        color: #666;
+      }
+      </style>
+
+      <div class="row-fluid">
+        <div class="loginBox">
+           <%-typeof(error) != 'undefined' ? error : ''  %>
+            <form class="form-signin" action="" method="post">
+              <h2 class="form-signin-heading text-transparent">Iniciar Sesión:</h2>
+              <div id="chrome-frame" style="position: relative;z-index:1"></div>
+                <input type="text" class="input-block-level first" placeholder="Email address" name="user_email"/>
+              <input type="password" class="input-block-level second" placeholder="Password" name="user_password"/>
+              <label class="checkbox">
+              <input type="checkbox" value="remember-me"/>
+              Remember me
+              </label>
+              <!-- <a class="btn btn-block btn-large" href="/dashboard">Sign in</a> -->
+              <button type="submit" class="btn btn-block btn-large" >Sign In</button>
+            </form>
+
+            <a href="/login/recovery" >Olvide mi password</a>
+        </div>
+      </div>
+      <!--   <div class="boxText">
+              <h2 class="form-signin-heading text-transparent">Demo No Disponible</h2>
+           
+            <p>Favor de conctactar a <a href="http://iclic.mx">Iclic.mx</a> al 555810650
+            
+      </div> -->
+
+
+      

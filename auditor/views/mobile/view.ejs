@@ -1,0 +1,227 @@
+
+<div id="container-page">
+
+ <div class="row top-info">
+ 	<!-- <div class="col-md-9 col-sm-12"> -->
+ 		<!-- <div class="row top-info"> -->
+          <div class="col-xs-4 ">
+            <h1 class="page-title txt-color-blueDark"><i class="fa-fw fa fa-truck"></i> Publicidad Móvil </h1>
+          </div>
+          <div class="col-xs-8"> 
+          	<h2 id="license_plate" class="title"></h2>
+			<div id="ubication" class="ubication"></div>
+
+			
+			<script>
+			function printPage() {
+			    window.print();
+			}
+			</script>
+          </div>
+        <!-- </div> -->
+   <!-- </div> -->
+</div>
+
+<div class="row">		
+	<div class="col-md-12">			
+		<span class="label label-primary" id="data_type"></span>
+	</div>
+</div>
+
+<section class="row" >    
+
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading ">              
+        <ul id="mainpane-tab" class="nav nav-tabs pull-right">
+          <li class="active"><a href="#images-pane" data-toggle="tab"><i class="fa fa-list"></i> Imágenes de Estatus </a></li>          
+        </ul>
+      </div> <!-- end panel heading -->
+              
+			<div class="panel-body">
+				<div class="tab-content padding-10">
+
+					<div class="tab-pane fade in active row no-space" id="images-pane">
+						<div class="col-md-12"> 
+							<div class="row site-images">
+								<div class="col-md-4">
+									<a href="/assets/img/site-placeholder.gif" data-lightbox="siteImages" data-title="1" id="lastimage_link_0">
+										<img src="/assets/img/site-placeholder.gif" alt="1" class="img-thumbnail" id="lastimage_0" >
+									</a>
+								</div>
+								<div class="col-md-4">
+									<a href="/assets/img/site-placeholder.gif" data-lightbox="siteImages" data-title="2" id="lastimage_link_1">
+										<img src="/assets/img/site-placeholder.gif" alt="2" class="img-thumbnail" id="lastimage_1" >
+									</a>
+								</div>
+								<div class="col-md-4">
+									<a href="/assets/img/site-placeholder.gif" data-lightbox="siteImages" data-title="3" id="lastimage_link_2">
+										<img src="/assets/img/site-placeholder.gif" alt="3" class="img-thumbnail" id="lastimage_2" >
+									</a>
+								</div>
+							</div> 
+						</div>
+					</div>
+
+					
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<div class="row map-data">
+
+			<div class="col-md-6">		
+			
+				<div class="panel panel-default">
+					  <div class="panel-heading ">              
+					    <span class="widget-icon"> 
+					      <i class="fa fa-file-text"></i> 
+					    </span>
+					    <h2> Crear Estatus </h2>           
+					  </div>
+					  <div class="panel-body"> 
+					    <div class="padding-10">		      		    		
+					       	<form class="form-vertical" action="" method="get" id="form-upload-report" enctype="multipart/form-data">
+					          <input type="hidden" name="report[id]" id="locationid" value="<%-uuid %>">
+					          <div class="row">
+					          	<div class="col-md-12">
+					              <div class="form-group">  					                                      
+					              	<label> Selecciona un tipo de estatus </label>	
+					                  <select type="text" id="report_type" name="report[type]" class="form-control" required="true"/>
+					                  	<option value="11" > Testigo de Versión</option>
+					                  	<option value="12" > Reparación </option>
+					                  	<option value="14" > Testigo Mensual </option>
+					                  	<!-- <option value="Anomaly"> Anomalia </option> -->
+					                  </select>                   					                
+					              </div> <!-- end-form-group -->
+					            </div> <!-- end col-md-4 -->
+
+					            <div class="col-md-2 hide">
+					            	<label>Condiciones:</label>
+					            	<div class="form-group">	
+					            		<label>
+					            			Correcto
+					              			<input type="radio" value="" name="report[status]" checked>
+					              		</label>	             
+					              		<label>
+					              			Con Problemas
+					              			<input type="radio" value="" name="report[status]">
+					              		</label>	             
+									</div>
+					            </div> <!-- end col-md-2 -->		            		            
+					          </div> 
+
+					          <div class="row">
+					          	<div class="col-md-12">
+					            	<div class="form-group">		             
+					              		<label class="control-label inline" > Adjuntar Imagenes </label>
+						            	<input id="images_upload" type="file" name="images_upload" multiple="multiple" class="inline" accept="image/*">
+						            	<ul id="file_list_images_upload" class="file_list"></ul>
+									</div>
+					            </div>	
+					          </div>
+					          <div class="row">
+					            <div class="col-md-12">
+					            	<label>Comentarios:</label>
+					             	<textarea id="report_message" name="report[message]" class="form-control" rows="5"></textarea>
+					            </div>
+					          </div> <!-- end row -->
+
+					          <hr/>
+					          <div class="row"> 		          	
+						         	 <div class="col-md-12">
+						         			 <button id="sensord-btn" type="submit" class="btn btn-success btn-small">
+						         			 	<i class="glyphicon glyphicon-upload"> </i> Subir
+						         			 </button >			              
+						              <div id="progressNum"></div>                       
+					                  <p id="progressBar" class="progressbar"></p>
+						              <!-- <img id='loading' src="/assets/img/loading.gif" style="visibility: hidden;"> -->
+						            </div>
+					        	</div> <!-- end row -->
+					        </form><!-- end form --> 
+						 		</div> <!-- end padding-10 -->
+						 	</div> <!-- end panel body -->	      
+					</div>  <!-- panel default -->							
+				
+
+			</div> <!-- col-md-6 end -->
+	
+
+
+			<div class="col-md-6">		
+				<div class="panel panel-default">
+			      <div class="panel-heading ">              
+			        <span class="widget-icon"> 
+			          <i class="fa fa-list-alt"></i> 
+			        </span>
+			        <h2> Datos generales </h2>           
+			      </div>
+			      <div class="panel-body location-data"> 
+			        <div>   <p><strong>  Placas:</strong> <span id="data_license_plate" ></span></p>				        		
+			          		<p><strong>  Código:</strong> <span id="data_code" ></span></p>
+			          		<p><strong>  Ruta:</strong> <span id="data_route" ></span></p>
+			          		<p><strong>  Tren:</strong> <span id="data_tren" ></span></p>
+			          		<p><strong>  Vagon:</strong> <span id="data_vagon" ></span></p>
+			          		<p><strong>  Tipo:</strong> <span id="data_type" ></span></p>		
+			          		<p><strong>  Sector:</strong> <span id="data_sector" ></span></p>	          	
+			          		<p><strong>  Estación:</strong> <span id="data_station" ></span></p>	          			       		          		
+			          		<p><strong>  Dimensiones:</strong> <span id="data_dimensions" ></span></p>
+			          		<p><strong>  Formato:</strong> <span id="data_format" ></span></p>
+			          		<p><strong>  Linea:</strong> <span id="data_line" ></span></p>
+			          		<p><strong>  Sitio:</strong> <span id="data_place" ></span></p>
+			          		<p><strong>  Estado:</strong> <span id="data_state" ></span></p>	
+			          		<!-- <p><strong>  Precio:</strong> <span id="data_price" ></span></p>			          		 -->
+			          		<p><strong>  Fecha de Actualización:</strong> <span id="updatedAt" ></span></p>					          		
+			        </div>
+
+			      </div>
+				</div>
+
+			</div> <!-- col-md-6 end -->
+
+			
+</div> <!-- col-md-9 end -->
+
+
+
+<div class="row report-data">
+
+	<div class="col-md-12">		
+			
+		<div class="panel panel-default">
+	      <div class="panel-heading ">              
+	        <span class="widget-icon"> 
+	          <i class="fa fa-file-text"></i> 
+	        </span>
+	        <h2> Reportes </h2>           
+	      </div>
+	      <div class="panel-body"> 
+	        <div class="padding-10">			          	
+	          	<div id="statusTable"></div>
+	        </div>
+	      </div>
+		</div>
+
+	</div> 
+</div>
+
+
+</div>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+  $(window).load(function(){
+    var Mobile = new Core_Mobile({role:'<%-session.user.role %>',id:'<%-id %>',uuid:'<%-uuid %>'});
+        Mobile.run();
+         console.log('importando load') 
+  });
+
+ 
+
+  
+  </script>

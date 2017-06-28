@@ -1,0 +1,45 @@
+Sessions
+
+<div id="container">
+
+  <form id="formsession" method="POST" action="/login/initsession">
+
+  </form>
+
+</div>
+
+<script type="text/javascript">
+var tenants = <%- JSON.stringify(tenants) %>;
+
+
+  var container = document.getElementById('formsession');
+  var select = document.createElement('select');
+      select.id   = 'account';
+      select.name = 'account';
+      container.appendChild(select);
+
+    for( x in tenants){
+      var option = document.createElement('option');
+          option.innerHTML = tenants[x].tenant.account_name;
+          option.value     = JSON.stringify(tenants[x]);
+          select.appendChild(option);
+    }
+
+
+      var button = document.createElement('button');
+          button.innerHTML = 'Seleccionar cuenta';
+          button.className = 'btn btn-primary';
+          container.appendChild(button);
+
+          // $(button).click(function(){
+
+          //     $.post('/login/initsession',{account:$('#account').val()},function(r){
+
+          //         console.log(r);
+          //     });
+
+          // });
+
+
+
+</script>

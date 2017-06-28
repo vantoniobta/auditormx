@@ -1,0 +1,683 @@
+      <div class="row-fluid">
+
+
+      <div class="span4 sidebar pull-right">
+
+
+          <div class="boxcontainer" id="sidebar">
+
+        <!--   <legend id="controlButtons"><button class="btn" type="button"><i class="icon-plus"></i> New Supplier</button>
+
+            <button class="btn" type="button"><i class="icon-plus"></i> New Place</button>
+          </legend> -->
+
+          <div class="formBox" id="sideCont">
+          <form class="form-horizontal" action="" method="post" id="newSupplier">
+            <!-- <legend> DIFUSION PANORAMICA S.A. DE C.V.</legend> -->
+            <div id="formTitle">Nuevo Proveedor</div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Nombre: </label>
+                <div class="controls">
+                  <input type="text" id="name" name="supplier[name]" />
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputAddress">Dirección: </label>
+                <div class="controls">
+                  <input type="text" id="address" placeholder="Campo" name="supplier[address]">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputTel">Telefono: </label>
+                <div class="controls">
+                  <input type="text" id="phone" placeholder="Telefono Local" name="supplier[phone]" >
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputEmail">Email: </label>
+                <div class="controls">
+                  <input type="text" id="email" placeholder="Email" name="supplier[email]">
+                </div>
+              </div>
+             
+              <div class="control-group">
+                <div class="controls">
+                  <a href="javascript:;" role="button" class="btn btn-small" id="deletePlace"><i class="icon-minus"></i> Borrar Lugar</a>
+                  <a href="javascript:;" role="button" class="btn btn-small" id="newPlace"><i class="icon-plus"></i> Nuevo Lugar</a>
+                  <button type="submit" class="btn btn-primary btn-small">Guardar</button>
+                </div>
+              </div>
+            </form>
+
+            <legend><i class="icon-globe"></i> Ultimos Lugares</legend>
+
+            <div id="placesList">
+                <ul>
+                <li>
+                  <span class="leftDesc">
+                    <img src="assets/img/location.png" width="100" class="img-polaroid"/>
+                    <span class="label label-success">activo</span>
+                  </span>
+                  <span class="desc">
+                    <h6><a href="#">Carr. Ixtapa-Zihuatanejo Mz.16, Lt.8  El Huajal  Zihuatanejo  40880  Guerrero</a></h6 >
+                    <span class="size"><b>Medidas:</b> 12.90x7.20</span>
+                    <span class="shown"><b>Fecha de mostrado:</b> 28/05/2012 al 31/05/2012</span>
+                    <span class="detail"><b>Detalle:</b> VOTA-CADENA PERPETUA</span>
+                  </span>
+
+                  <span class="status">
+                    <p>Status</p>
+                    <span class="badge badge-success">-</span>
+                    <span class="badge">-</span>
+                  </span>
+                   <div class="fix"></div>
+                </li>
+                 <li>
+
+                  <span class="leftDesc">
+                    <img src="assets/img/location.png" width="100" class="img-polaroid"/>
+                    <span class="label">inactivo</span>
+                  </span>
+                  <span class="desc">
+                    <h6><a href="#">Carr. Ixtapa-Zihuatanejo Mz.16, Lt.8  El Huajal  Zihuatanejo  40880  Guerrero</a></h6 >
+                    <span class="size"><b>Medidas:</b> 12.90x7.20</span>
+                    <span class="shown"><b>Fecha de mostrado:</b> 28/05/2012 al 31/05/2012</span>
+                    <span class="detail"><b>Detalle:</b> VOTA-CADENA PERPETUA</span>
+                  </span>
+                  <span class="status">
+                    <p>Status</p>
+                    <span class="badge">-</span>
+                    <span class="badge badge-important">-</span>
+                  </span>
+                   <div class="fix"></div>
+                </li>
+
+                <li>
+
+                  <span class="leftDesc">
+                    <img src="assets/img/location.png" width="100" class="img-polaroid"/>
+                    <span class="label label-important">terminado</span>
+                  </span>
+                  <span class="desc">
+                    <h6><a href="#">Carr. Ixtapa-Zihuatanejo Mz.16, Lt.8  El Huajal  Zihuatanejo  40880  Guerrero</a></h6 >
+                    <span class="size"><b>Medidas:</b> 12.90x7.20</span>
+                    <span class="shown"><b>Fecha de mostrado:</b> 28/05/2012 al 31/05/2012</span>
+                    <span class="detail"><b>Detalle:</b> VOTA-CADENA PERPETUA</span>
+                  </span>
+                  <span class="status">
+                    <p>Status</p>
+                    <span class="badge badge-success">-</span>
+                    <span class="badge">-</span>
+                  </span>
+                   <div class="fix"></div>
+                </li>
+
+              </ul>
+
+              <!-- <a href="lugares.html" id="moreLoc">...more</a> -->
+
+              <div class="pagination pagination-right">
+                <ul>
+                  <li><a href="#">Prev</a></li>
+                  <li class="disabled"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">Next</a></li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+
+          </div>
+        </div><!--/span-->
+
+        <div class="span7 mainArea pull-left">
+
+          <div class="boxHeader">
+
+            <h3><i class="icon-group"></i> Proveedores</h3>
+
+            <form  id="supplierForm" class="form-inline form-search pull-right">
+
+                <input type="text" class="span5 search-query" placeholder="Buscar Proveedores">
+
+              <!-- <a href="#newSupplierModal" role="button" class="btn btn-small" data-toggle="modal"><i class="icon-plus"></i> Nuevo Proveedor</a> -->
+
+              <a href="javascript:;" role="button" class="btn btn-small" id="addNew"><i class="icon-plus"></i> Nuevo Proveedor</a>
+
+              <a href="#newPlaceModal2" role="button" class="btn btn-small" data-toggle="modal"><i class="icon-plus"></i> Nuevo Lugar</a>
+            </form>
+            <div class="fix"></div>
+
+          </div>
+
+
+          <div class="boxcontainer">
+
+            <ul id="suppliersList">
+              <!-- <li class="active">
+                <span class="pic">
+                  <img src="assets/img/glyphicons_067_cleaning.png" width="50" />
+                </span>
+
+                <div class="desc">
+                  <h4><a id="suppInfo-1">DIFUSION PANORAMICA S.A. DE C.V.</a></h4>
+
+                  <small>
+                    100 lugares
+
+                    <span class="date">7 hours ago</span>
+                    <span class="labels">
+                    <span class="label label-success">activo</span>
+                    </span>
+                  </small>
+                </div>
+              </li>
+
+              <li>
+                <span class="pic">
+                  <img src="assets/img/whitey.png" width="50" />
+                </span>
+
+                <div class="desc">
+                  <h4><a href="#">Proveedor #2 / <span>Madeline D Thomas</span></a></h4>
+
+                  <small>
+                    100 lugares
+
+                    <span class="date">7 hours ago</span>
+                    <span class="labels">
+                    <span class="label label-important">cancelado</span>
+                    </span>
+                  </small>
+                </div>
+              </li>
+
+              <li>
+                <span class="pic">
+                  <img src="assets/img/whitey.png" width="50" />
+                </span>
+
+                <div class="desc">
+                  <h4><a href="#">Proveedor #3 / <span>Madeline D Thomas</span></a></h4>
+
+                  <small>
+                    100 lugares
+
+                    <span class="date">7 hours ago</span>
+                    <span class="labels">
+                    <span class="label">inactivo</span>
+                    </span>
+                  </small>
+                </div>
+              </li> -->
+
+
+
+            </ul>
+
+            <div class="pagination pagination-centered">
+              <ul>
+                <li><a href="#">Prev</a></li>
+                <li class="disabled"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">Next</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="boxFooter">
+
+          </div>
+        </div><!--/span-->
+
+
+
+
+      </div><!--/row-->
+
+      <div class="fix"></div>
+
+
+
+<div id="newPlaceModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <form class="form-horizontal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Nuevo Lugar</h3>
+      </div>
+      <div class="modal-body">
+
+               <div class="control-group">
+                <label class="control-label" for="inputName">Proveedor: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="Proveedor" value="DIFUSION PANORAMICA S.A. DE C.V.">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Ubicación: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="Ubicación del Lugar">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Entre Calle 1: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="(Entre que calles, etc.)">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Entre Calle 2: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="(Entre que calles, etc.)">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputAddress">Medidas: </label>
+                <div class="controls">
+                  <input type="text" id="inputAddress" placeholder="Medidas de la Ubicación">
+                </div>
+              </div>
+
+              <h4> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fecha de Muestra</h4>
+              <div class="control-group">
+                <label class="control-label" for="inputTel">De: </label>
+                <div class="controls">
+                  <input type="date" id="inputFrom"  >
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputTel">al: </label>
+                <div class="controls">
+                  <input type="date" id="inputTo"  >
+                </div>
+              </div>
+
+
+              <div class="control-group">
+                <label class="control-label" for="inputNoSites">Detalle: </label>
+                <div class="controls">
+                  <input type="text" id="inputNoSites" placeholder="Detalle/Texto"  >
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="controls">
+                  <div id="placeImg"></div>
+                  <button class="btn btn-info"><i class="icon-camera"></i> Subir Imagen</button>
+                </div>
+              </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+      </div>
+      </form>
+    </div>
+
+        <!--- ////////////// -->
+
+     <div id="newPlaceModal2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <form class="form-horizontal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Nuevo Lugar</h3>
+      </div>
+      <div class="modal-body">
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Proveedor: </label>
+                <div class="controls">
+                  <select>
+                    <option>DIFUSION PANORAMICA S.A. DE C.V.</option>
+                    <option>Otro Proveedor</option>
+                    <option>Otro Proveedor</option>
+                    <option>Otro Proveedor</option>
+                    <option>Otro Proveedor</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Ubicación: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="Ubicación del Lugar">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Entre Calle 1: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="(Entre que calles, etc.)">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Entre Calle 2: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="(Entre que calles, etc.)">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputAddress">Medidas: </label>
+                <div class="controls">
+                  <input type="text" id="inputAddress" placeholder="Medidas de la Ubicación">
+                </div>
+              </div>
+              <h4> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fecha de Muestra</h4>
+              <div class="control-group">
+                <label class="control-label" for="inputTel">De: </label>
+                <div class="controls">
+                  <input type="date" id="inputFrom"  >
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputTel">al: </label>
+                <div class="controls">
+                  <input type="date" id="inputTo"  >
+                </div>
+              </div>
+
+
+              <div class="control-group">
+                <label class="control-label" for="inputNoSites">Detalle: </label>
+                <div class="controls">
+                  <input type="text" id="inputNoSites" placeholder="Detalle/Texto"  >
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="controls">
+                  <div id="placeImg"></div>
+                  <button class="btn btn-info"><i class="icon-camera"></i> Subir Imagen</button>
+                </div>
+              </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+      </div>
+      </form>
+    </div>
+
+
+     <!--- ////////////// -->
+
+
+
+
+
+     <div id="newSupplierModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Nuevo Proveedor</h3>
+      </div>
+      <form class="form-horizontal">
+      <div class="modal-body">
+
+              <div class="control-group">
+                <label class="control-label" for="inputName">Nombre: </label>
+                <div class="controls">
+                  <input type="text" id="inputName" name="input_supplier" placeholder="Nombre de la Empresa">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="inputAddress">Dirección: </label>
+                <div class="controls">
+                  <input type="text" id="inputAddress" placeholder="Ubicación de la Empresa">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputAddress">Telefono: </label>
+                <div class="controls">
+                  <input type="text" id="inputAddress" placeholder="Telefono Local">
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="inputNoSites">Email: </label>
+                <div class="controls">
+                  <input type="email" id="inputEmail" placeholder="Ej. email@email.com"  >
+                </div>
+              </div>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+<script>
+
+  Supplier = new function(){
+
+    this.formName    = '#newSupplier';
+    this.init    = function(){
+
+      $('#newPlace, #deletePlace').hide();
+      this.loadPanel();
+      var that = this;
+      this.reset();
+      $(this.formName).submit(function(){
+        that.insertData();
+        $.ajax({
+          type: "POST",
+          url: "/suppliers/save",
+          data: $(that.formName).serialize(),
+          }).done(function( response ) {
+          if( response.code === 0 ){
+            window.theForm._id    = response.data._id;
+            $('#formTitle').html( response.data.name );
+            $('#newPlace, #deletePlace').show();
+            window.theForm.status = 'update';
+            that.loadPanel();
+            console.log(response.data);
+            // bootbox.alert('Proveedor guardado, con el password provisional: '+ response.password);
+            $.Zebra_Dialog('Proveedor guardado, con el password provisional: '+ response.password, {
+                'type':     'confirmation'
+            });
+          }
+          if( response.code === 50 ){
+            console.log(response.msg);
+            that.loadPanel();
+          }
+          if( response.code === 100 ){
+            console.error(response.msg);
+            // bootbox.alert(response.msg);
+            $.Zebra_Dialog(response.msg, {
+                'type':     'error'
+            });
+          }
+        });
+        return false;
+      });
+      $('#addNew').click(function(){
+        that.reset();
+        $('#newPlace, #deletePlace').hide();
+        $('#suppliersList li.active').removeClass('active');
+      });
+
+      $('#deletePlace').click(function(response){
+        var email = $('#email').val();
+        that.delete(window.theForm._id, email);
+        if( response.code === 0 ){
+          $('#newPlace, #deletePlace').hide();   
+        }else if( response.code === 100 ){
+          console.error(response.msg);
+          // bootbox.alert(response.msg);
+            $.Zebra_Dialog(response.msg, {
+                'type':     'error'
+            });
+        }
+        
+      });
+
+      $(this.formName+ ' input ').blur(function(){
+        if(window.theForm.status == 'update')
+        $(that.formName).submit();
+      });
+      this.loadPanel();
+    }
+
+
+    this.loadPanel = function(){
+      var that = this;
+      $.ajax({
+        type: "GET",
+        url: "/suppliers/all",
+        }).done(function( response ) {
+         $('#suppliersList').html('');
+         $(response.data).each(function(i,e){
+            var li = document.createElement('li');
+              li.id = 'itemPanel_'+e._id;
+            $('#suppliersList').append(li);
+            var span = document.createElement('span');
+              span.className = 'pic';
+              $(li).append(span);
+            var img = document.createElement('img');
+              $(img).attr('width','50').attr('src','assets/img/glyphicons_067_cleaning.png');
+              $(span).append(img);
+            var div = document.createElement('div');
+              div.className = 'desc';
+              $(li).append(div);
+            var h4 = document.createElement('h4');
+              $(div).append(h4);
+            var title = document.createElement('a');
+              title.id = 'suppInfo-' + e._id;
+              title.innerHTML = e.name;
+              $(h4).append(title);
+            var small = document.createElement('small');
+              small.innerHTML = '100 lugares';
+              $(div).append(small);
+            var spanDate = document.createElement('span');
+              spanDate.className = 'date';
+              spanDate.innerHTML = '7 hours ago';
+              $(small).append(spanDate);
+            var spanLabels = document.createElement('span');
+              spanLabels.className = 'labels';
+              $(small).append(spanLabels);
+            var status = document.createElement('span');
+              status.className = 'label label-success';
+              status.innerHTML = 'activo';
+              $(spanLabels).append(status);
+              li.onclick = function(){
+                var id = this.id.split('_')[1];
+                $('#suppliersList li.active').removeClass('active');
+                $(this).addClass('active');
+                $('#newPlace, #deletePlace').show();
+                that.loadObject(id);
+              }
+         })
+      });
+
+    }
+
+    this.loadObject = function(id){
+
+      var that = this;
+      $.ajax({
+        type: "POST",
+        url: "/supplier/load",
+        data:{_id:id},
+        }).done(function( response ) {
+          window.theForm._id = id;
+          window.theForm.status = 'update';
+          for( x in response.data ){
+            if(x == 'contacts'){
+              var contacts = response.data[x];
+              $('#contacts-container').html('');
+              for( i in contacts ){
+                that.createContacts(i,contacts);
+              }
+            }else{
+              $('#'+x ).val( response.data[x]);
+              $('#formTitle').html( response.data.name );
+            }
+          }
+      });
+
+    }
+
+    this.reset = function(){
+      $('#newPlace').hide();
+      $('#formTitle').html( 'Nuevo Proveedor' );
+      window.theForm = {
+        status: 'create',
+        _id:null
+      }
+      var  form = document.getElementById( $(this.formName).attr('id') ).reset();
+      // $('#contacts-container').html('');
+      // this.createContacts(0);
+    }
+
+    this.delete  = function(id, email){
+      console.log(id + ' ' + email);
+      var that = this;
+
+      $.Zebra_Dialog('¿Estas seguro de eliminar este proveedor?', {
+        'type':     'question',
+        'buttons':  ['Si', 'No'],
+        'onClose':  function(caption) {
+          if( caption == 'Si' ){
+            $.ajax({
+              type: "POST",
+              url: "/suppliers/delete",
+              data:{_id:id+'-'+email},
+            }).done(function( response ) {
+              that.loadPanel();
+              that.reset();
+              $('#newPlace, #deletePlace').hide();
+            });
+          }
+        }
+      });
+    }
+
+    this.insertData = function(){
+      $('input[name="_id"]').remove();
+      var id = document.createElement('input');
+        id.name  = '_id';
+        id.type  = 'hidden';
+        id.value = window.theForm._id
+        $(this.formName).append(id);
+        $('input[name="status"]').remove();
+        var status   = document.createElement('input');
+        status.name  = 'status';
+        status.type  = 'hidden';
+        status.value = window.theForm.status
+        $(this.formName).append(status);
+        // $('#formTitle').html( response.data.name );
+    }
+
+  }
+
+  Supplier.init();
+
+</script>
+
+
+
+
+
+
+
